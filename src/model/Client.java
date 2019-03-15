@@ -1,51 +1,54 @@
-public class Clientes{
+package model;
+
+public class Client{
 
 //Atributos
-private String nombre;
-private String direccion;
-private int telefono;
-	
-//Relaciones 
-private Mascota masc1;
-	
-	public CLientes(String nombre, String direccion , int telefono, Mascota masc1){
-	
-	this.nombre = nombre;
-	this.direccion = direccion;
-	this.telefono = telefono;
+private String namePet;
+private String address;
+private int cellPhone;
+
+//Relaciones
+private Pet masc1;
+
+	public Client(String namePet, String address , int cellPhone, Pet masc1){
+
+	this.namePet = namePet;
+	this.address= address;
+	this.cellPhone = cellPhone;
 	this.masc1 = masc1;
 		}
-	
-	public String getNombre(){
-		
-		return nombre;
+
+	public String getNamePet(){
+
+		return namePet;
 	}
-	
-	public void setNombre(){
-		
-		this.nombre = nombre;
+
+	public void setNamePet(String namePet){
+
+		this.namePet = namePet;
 	}
-	
-	public String getDireccion(){
-		
-		return direccion
-			
+
+	public String getAddress(){
+
+		return address;
+
 	}
-	
-	public void setDireccion(String direccion){
-		
-		this.direccion = direccion;
-		
+
+	public void setAddress(String address){
+
+		this.address = address;
+
 	}
-	
-	public int getTelefono(){
-		
-		return telefono;
+
+	public int getCellPhone(){
+
+		return cellPhone;
 	}
-	
-	public void setTelefono(int telefono){
-		
-		this.telefono = telefono;
-		
+
+	public void setCellPhone(int cellPhone){
+
+		this.cellPhone = cellPhone;
+
 	}
-	
+
+}

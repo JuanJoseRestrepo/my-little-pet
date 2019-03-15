@@ -1,29 +1,43 @@
-public class Veterinaria{
+
+package model;
+
+import java.util.ArrayList;
+
+public class Veterinary{
+
+//COnstantes
+
+public static final int NUMBEROFROOM = 8 ;
+
 //Atributos
-	
-private String nombre;
-	
+
+private String name;
+
 //Relaciones
+private Room [] miniRoom;
+private ArrayList<Client> clients;
+private ArrayList<HistorialDated> histo;
 
-private Cliente clientecl;
-	
-private hospitalizacion hospit1;
-
-public Veterinaria(String nombre, hospitalizacion hospit1){
-
+public Veterinary(String name){
 this.name = name;
-
+miniRoom = new Room[NUMBEROFROOM];
+clients = new ArrayList<Client>();
+histo = new ArrayList<HistorialDated>();
 }
-
-public String getNombre(){
-
-return nombre;
-
+public String getName(){
+return name;
 }
-
-public void setNOmbre(String nombre){
-
+public void setName(String name){
 this.name = name;
-
 }
 
+
+
+
+
+
+
+
+
+
+}
