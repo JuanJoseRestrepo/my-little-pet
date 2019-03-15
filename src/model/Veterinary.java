@@ -31,6 +31,19 @@ public void setName(String name){
 this.name = name;
 }
 
+public int dispobinilityRoom(){
+  int dispo = 0;
+
+  for(int i= 0; i < miniRoom.lenght ; i++){
+    if(dispo != null){
+      if(dispo == null){
+        dispo += miniRoom[i];
+      }
+    }
+  }
+
+  return dispo;
+}
 
 
 

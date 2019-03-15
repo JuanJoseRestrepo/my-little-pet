@@ -5,8 +5,8 @@ public class ClinicalHistory{
 
 //Constantes
 
-private final static String STATE_OPEN = "abierto";
-private final static String STATE_CLOSE = "cerrado";
+private final static char STATE_OPEN = "O";
+private final static char STATE_CLOSE = "C";
 
 //Atributos
 
@@ -18,6 +18,7 @@ private boolean state;
 
 private HistorialDated date1;
 private HistorialDated date2;
+
 
 //Constructores
 
@@ -31,16 +32,52 @@ this.date2 = date2;
 
 }
 
+public String getSymptom(){
+  return symptom;
+}
 
+public void setSymptom(String symptom){
+  this.symptom = symptom;
+}
+public String getDiagnostic(){
+  return diagnostic;
+}
+public void setDiagnostic(){
+  this.diagnostic = diagnostic;
+}
 
+public String fecha1(){
+String msj = "";
 
+msj += date1.getDay() +"/" + date1.getMonth() +"/"+ date1.getYear();
 
+return msj;
+}
 
+public String fecha2(){
+  String msj = "";
 
+  msj += date2.getDay() + "/" + date2.getMonth() + "/" + date2.getYear();
 
+  return msj;
+}
 
+public String sintomasDelAnimal(){
+ String msj = "";
 
+  msj += "El sintomas es:" + symptom;
+  msj += "El diagnostico es:" + diagnostic;
+  msj += "La fecha inicial es:" + fecha1();
+  msj += "La fecha de Salida es:"  + fecha2();
 
+  return msj;
 
+}
+
+public String estadodDelAnimal(){
+String msj = "";
+
+return msj;
+}
 
 }
