@@ -16,13 +16,13 @@ private String name;
 //Relaciones
 private Room [] miniRoom;
 private ArrayList<Client> clients;
-private ArrayList<HistorialDated> histo;
+private ArrayList<ClinicalHistory> historyClinicals;
 
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
 clients = new ArrayList<Client>();
-histo = new ArrayList<HistorialDated>();
+histo = new ArrayList<HistorialHistory>();
 }
 public String getName(){
 return name;
@@ -31,18 +31,28 @@ public void setName(String name){
 this.name = name;
 }
 
-public int dispobinilityRoom(){
-  int dispo = 0;
+public Room dispobinilityRoom(){
+  Room dispo = null;
 
-  for(int i= 0; i < miniRoom.lenght ; i++){
+  for(int i= 0; i < miniRoom.length ; i++){
+      Room disp1 = miniRoom[i].RoomState();
     if(dispo != null){
       if(dispo == null){
-        dispo += miniRoom[i];
+        dispo = disp1;
       }
     }
   }
 
   return dispo;
+}
+
+public String infoPet1(){
+String msj = "";
+
+  msj += clients.idClient();
+  msj += clients.infoPet();
+
+return msj;
 }
 
 

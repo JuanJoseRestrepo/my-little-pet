@@ -52,11 +52,11 @@ public void setPetRoom(Pet petRoom){
 }
 
 
-public boolean RoomState(){
-  boolean reedRum = false;
+public Room RoomState(){
+  Room reedRum = null;
 
 
-
+ return reedRum;
 }
 
 

@@ -7,10 +7,10 @@ public class Medicament{
 private String nameOfMedicament;
 private double dose;
 private double totalDose;
-private char frecuency;
+private int frecuency;
 
 //Constructores
-public Medicament(String nameOfMedicament, double dose, double totalDose, char frecuency){
+public Medicament(String nameOfMedicament, double dose, double totalDose, int frecuency){
 
 this.nameOfMedicament = nameOfMedicament;
 this.dose = dose;
@@ -36,11 +36,20 @@ public double getTotalDose(){
 public void setTotalDose(double totalDose){
   this.totalDose = totalDose;
 }
-public char getFrecuency(){
+public int getFrecuency(){
   return frecuency;
 }
-public void setFrecuency(char frecuency){
+public void setFrecuency(int frecuency){
   this.frecuency = frecuency;
+}
+public String showInfoMedica(){
+String msj = "";
+
+msj +=
+
+
+
+
 }
 
 }

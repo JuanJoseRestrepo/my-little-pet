@@ -4,34 +4,32 @@ import java.util.ArrayList;
 public class Client{
 
 //Atributos
-private String namePet;
+private String nameClient;
 private String identify;
 private String address;
 private int cellPhone;
 
 //Relaciones
-private Pet masc1;
 private ArrayList<Pet> pet2;
 
-	public Client(String namePet,String identify, String address , int cellPhone, Pet masc1){
+	public Client(String nameClient,String identify, String address , int cellPhone){
 
-	this.namePet = namePet;
+	this.nameClient = nameClient;
 	this.identify = identify;
 	this.address= address;
 	this.cellPhone = cellPhone;
-	this.masc1 = masc1;
-  pet2 = new ArrayList<pet2>();
+  pet2 = new ArrayList<Pet>();
 
 	}
 
-	public String getNamePet(){
+	public String getNameClient(){
 
-		return namePet;
+		return nameClient;
 	}
 
-	public void setNamePet(String namePet){
+	public void setNameClient(String nameClient){
 
-		this.namePet = namePet;
+		this.nameClient = nameClient;
 	}
 
 	public String getIdentify(){
@@ -66,5 +64,38 @@ private ArrayList<Pet> pet2;
 		this.cellPhone = cellPhone;
 
 	}
+	public boolean idClient(String id){
+		boolean msj = true;
+
+  if(id == identify){
+		msj = true;
+	} else {
+		msj = false;
+	}
+
+	return msj;
+	}
+
+
+
+public String infoPet(){
+String msj = "";
+
+
+msj += "Mi nombre es:" + nameClient;
+msj += "Mi identificacion es:" + identify;
+msj += "Mi direccion es:" + address;
+msj += "Mi numero es:" + cellPhone;
+msj += pet2.showInfoSymptom();
+
+
+return msj;
+
+
+}
+
+
+
+
 
 }
