@@ -45,10 +45,12 @@ public void setFrecuency(int frecuency){
 public String showInfoMedica(){
 String msj = "";
 
-msj +=
+msj += "El medicamento es:" + nameOfMedicament;
+msj += "La dosis es:" + dose;
+msj += "Total de dosis" + totalDose;
+msj += "Su frecuencia es:" + frecuency;
 
-
-
+return msj;
 
 }
 

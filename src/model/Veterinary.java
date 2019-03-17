@@ -46,10 +46,8 @@ public Room dispobinilityRoom(){
         dispo = miniRoom[i];
       }
     }
+      return dispo;
   }
-
-  return dispo;
-}
 
 public String infoPet1(){
 String msj = "";

@@ -78,7 +78,7 @@ private ArrayList<Pet> pet2;
 
 	public void addPet(ArrayList<Pet> pet3){
 
-		Pet Carlos = new Pet(pet3)
+		Pet Carlos = new Pet(pet3);
 
 	}
 

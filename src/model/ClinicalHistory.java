@@ -1,5 +1,5 @@
 package model;
-
+import java.util.ArrayList;
 
 public class ClinicalHistory{
 
@@ -15,7 +15,6 @@ private String diagnostic;
 private boolean state;
 
 //Relaciones
-private ArrayList<Client> clientWithHisto;
 private ArrayList<Medicament> medicaments;
 private HistorialDated date1;
 private HistorialDated date2;
@@ -65,14 +64,14 @@ public String finalDate2(){
 
 public String infoAnimalHistory(){
  String msj = "";
-
+  for(int i = 0; i< medicaments.size(); i++){
   msj += "El sintomas es:" + symptom;
   msj += "El diagnostico es:" + diagnostic;
-  msj += "La fecha inicial es:" + fecha1();
-  msj += "La fecha de Salida es:"  + fecha2();
-
+  msj += "La fecha inicial es:" + inicialDate1();
+  msj += "La fecha de Salida es:"  + finalDate2();
+  msj += medicaments.get(i).showInfoMedica();
   return msj;
-
+}
 }
 
 public String estadodDelAnimal(){
