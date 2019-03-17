@@ -77,14 +77,10 @@ for(int i = 0; i <clientWithHisto.size(); i++){
  }else if(typeOfPet.equals(Pet.OTHER)){
 	  msj +="Mi tipo es" + typeOfPet;
  }
-
  msj += "Mi peso es:" + weightPet;
-
- msj += pet1.stateOfAnimal();
+ msj += clientWithHisto.get(i).stateOfAnimal();
 }
  return msj;
-
-
  }
 
 

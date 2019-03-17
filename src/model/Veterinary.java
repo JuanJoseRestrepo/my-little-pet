@@ -32,7 +32,7 @@ this.name = name;
 public void addClient(Client client,ArrayList<Pet> pet3){
 
 clients.add(client);
-pet2.add(pet3);
+clients.add(pet3);
 
 }
 
@@ -49,11 +49,11 @@ public Room dispobinilityRoom(){
       return dispo;
   }
 
-public String infoPet1(){
+public String infoPet1(String id){
 String msj = "";
  for(int i = 0 ; i<clients.size(); i++){
-  msj += clients.idClient();
-  msj += clients.infoPet();
+  msj += clients.get(i).idClient(id);
+  msj += clients.get(i).infoPet();
 }
 return msj;
 }

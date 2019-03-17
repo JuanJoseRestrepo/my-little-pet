@@ -7,12 +7,12 @@ public class Client{
 private String nameClient;
 private String identify;
 private String address;
-private int cellPhone;
+private String cellPhone;
 
 //Relaciones
 private ArrayList<Pet> pet2;
 
-	public Client(String nameClient,String identify, String address , int cellPhone){
+	public Client(String nameClient,String identify, String address , String cellPhone){
 
 	this.nameClient = nameClient;
 	this.identify = identify;
@@ -54,12 +54,12 @@ private ArrayList<Pet> pet2;
 
 		}
 
-		public int getCellPhone(){
+		public String getCellPhone(){
 
 			return cellPhone;
 		}
 
-	public void setCellPhone(int cellPhone){
+	public void setCellPhone(String cellPhone){
 
 		this.cellPhone = cellPhone;
 
@@ -92,7 +92,7 @@ msj += "Mi nombre es:" + nameClient;
 msj += "Mi identificacion es:" + identify;
 msj += "Mi direccion es:" + address;
 msj += "Mi numero es:" + cellPhone;
-msj += pet2.showInfoSymptom();
+msj += pet2.get(i).showInfoSymptom();
 }
 
 return msj;

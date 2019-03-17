@@ -54,17 +54,18 @@ public void showMenu(){
    System.out.println("Digite el nombre de su mascota ");
    String nameP = reader.nextLine();
 
+   System.out.println("Digite la edad de su mascota ");
+   int ageOfM = reader.nextInt();
+   reader.nextLine();
    System.out.println("Digite el tipo de su mascota ");
    String typeOfM = reader.nextLine();
 
-   System.out.println("Digite la edad de su mascota ");
-   String ageOfM = reader.nextLine();
-
    System.out.println("Digite el peso de su mascota ");
-   String weightOfM = reader.nextLine();
+    double weightOfM = reader.nextDouble();
+     reader.nextLine();
 
-   pet3.add(new Pet(nameP, typeOfM, ageOfM, weightOfM));
-   
+   pet3.add(new Pet(nameP, ageOfM, typeOfM, weightOfM));
+
    System.out.println(principal.addClient(client,pet3));
 
  } else {
