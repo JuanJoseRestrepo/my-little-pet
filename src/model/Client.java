@@ -50,14 +50,14 @@ private ArrayList<Pet> pet2;
 
 	public void setAddress(String address){
 
-		this.address = address;
+			this.address = address;
 
-	}
+		}
 
-	public int getCellPhone(){
+		public int getCellPhone(){
 
-		return cellPhone;
-	}
+			return cellPhone;
+		}
 
 	public void setCellPhone(int cellPhone){
 
@@ -76,18 +76,24 @@ private ArrayList<Pet> pet2;
 	return msj;
 	}
 
+	public void addPet(ArrayList<Pet> pet3){
+
+		Pet Carlos = new Pet(pet3)
+
+	}
+
 
 
 public String infoPet(){
 String msj = "";
 
-
+for(int i = 0; i<pet2.size(); i++){
 msj += "Mi nombre es:" + nameClient;
 msj += "Mi identificacion es:" + identify;
 msj += "Mi direccion es:" + address;
 msj += "Mi numero es:" + cellPhone;
 msj += pet2.showInfoSymptom();
-
+}
 
 return msj;
 
