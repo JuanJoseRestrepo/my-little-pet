@@ -45,6 +45,18 @@ public String getDiagnostic(){
 public void setDiagnostic(){
   this.diagnostic = diagnostic;
 }
+public HistorialDated getDate1(){
+  return date1;
+}
+public void setDate1(HistorialDated date1){
+  this.date1 = date1;
+}
+public HistorialDated getDate2(){
+  return date2;
+}
+public void setDate2(HistorialDated date2){
+  this.date2 = date2;
+}
 
 public String inicialDate1(){
 String msj = "";
@@ -70,8 +82,9 @@ public String infoAnimalHistory(){
   msj += "La fecha inicial es:" + inicialDate1();
   msj += "La fecha de Salida es:"  + finalDate2();
   msj += medicaments.get(i).showInfoMedica();
-  return msj;
 }
+  return msj;
+
 }
 
 public String estadodDelAnimal(){

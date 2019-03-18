@@ -64,27 +64,41 @@ private ArrayList<Pet> pet2;
 		this.cellPhone = cellPhone;
 
 	}
-	public boolean idClient(String id){
-		boolean msj = true;
+ public ArrayList<Pet> getPet2(){
+	 return pet2;
+ }
+ public void setPet2(ArrayList<Pet> pet2){
+	 this.pet2 = pet2;
+ }
 
-  if(id == identify){
-		msj = true;
-	} else {
-		msj = false;
+
+	public void addPet(){
+
+		Pet Carlos = new Pet("Carlos", 12,"Perro", 12.3);
+		Pet Spunky = new Pet("Spunky", 8,"Gato", 23.1);
+		Pet Bella = new Pet("Bella", 2,"Pajaro", 10.0);
+		Pet Lupe = new Pet("Lupe", 1,"Otro", 9.5);
+		Pet Oddie = new Pet("Oddie", 17,"Perro", 12.9);
+		Pet Lennon = new Pet("Lennon", 4,"Perro", 31.0);
+		Pet Steve = new Pet("Steve del Maincraft", 7,"Otro", 50.0);
+		Pet Eunice = new Pet("Eunice", 14,"Otro", 25.0);
+
+
+    pet2.add(Carlos);
+		pet2.add(Spunky);
+		pet2.add(Bella);
+		pet2.add(Lupe);
+		pet2.add(Oddie);
+		pet2.add(Lennon);
+		pet2.add(Steve);
+		pet2.add(Eunice);
+
+
 	}
 
-	return msj;
-	}
-
-	public void addPet(ArrayList<Pet> pet3){
-
-		Pet Carlos = new Pet(pet3);
-
-	}
 
 
-
-public String infoPet(){
+public String infoClient(){
 String msj = "";
 
 for(int i = 0; i<pet2.size(); i++){
@@ -92,14 +106,20 @@ msj += "Mi nombre es:" + nameClient;
 msj += "Mi identificacion es:" + identify;
 msj += "Mi direccion es:" + address;
 msj += "Mi numero es:" + cellPhone;
-msj += pet2.get(i).showInfoSymptom();
 }
-
 return msj;
-
-
 }
 
+public String infoPet(){
+String msj = "";
+
+for( int i = 0; i <pet2.size(); i++){
+
+msj += msj += pet2.get(i).showInfoSymptom();
+
+}
+return msj;
+}
 
 
 

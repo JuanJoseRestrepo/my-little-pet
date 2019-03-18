@@ -20,6 +20,7 @@ public class Pet{
 	private ArrayList<ClinicalHistory> clientWithHisto;
 
 
+
 	//Constructores
 	public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet){
 		this.namePet = namePet;
@@ -78,7 +79,7 @@ for(int i = 0; i <clientWithHisto.size(); i++){
 	  msj +="Mi tipo es" + typeOfPet;
  }
  msj += "Mi peso es:" + weightPet;
- msj += clientWithHisto.get(i).stateOfAnimal();
+ msj += clientWithHisto.get(i).infoAnimalHistory();
 }
  return msj;
  }

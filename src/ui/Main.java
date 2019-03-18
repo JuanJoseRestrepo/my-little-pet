@@ -12,6 +12,7 @@ public class Main{
 private Veterinary principal;
 private Scanner reader;
 
+
 public Main(){
   init();
   reader = new Scanner(System.in);
@@ -36,7 +37,6 @@ public void showMenu(){
      System.out.println(principal.infoPet1(id));
 
    }else if(userImput == 2){
-    ArrayList <Pet> pet3 = new ArrayList<Pet>();
    System.out.println("Digite el nombre del usuario");
    String name = reader.nextLine();
 
@@ -64,11 +64,14 @@ public void showMenu(){
     double weightOfM = reader.nextDouble();
      reader.nextLine();
 
-   pet3.add(new Pet(nameP, ageOfM, typeOfM, weightOfM));
+   Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM);
 
-   System.out.println(principal.addClient(client,pet3));
+   Client.getClients().add(pet3);
+   Pet.getPet2().add(client);
 
- } else {
+   System.out.println(principal.addClient(client));
+
+ } else if(userImput == 2) {
    System.out.println("Adios");
  }
 
@@ -77,7 +80,7 @@ public void showMenu(){
 
 public void init(){
 
-
+principal = new Veterinary("Mi pequenhaa mascota");
 
 
 }
