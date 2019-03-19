@@ -5,14 +5,15 @@ public class ClinicalHistory{
 
 //Constantes
 
-private final static char STATE_OPEN = 'O';
-private final static char STATE_CLOSE = 'C';
+private final static boolean STATE_OPEN = true;
+private final static boolean STATE_CLOSE = false;
 
 //Atributos
 
 private String symptom;
 private String diagnostic;
 private boolean state;
+
 
 //Relaciones
 private ArrayList<Medicament> medicaments;
@@ -61,7 +62,7 @@ public void setDate2(HistorialDated date2){
 public String inicialDate1(){
 String msj = "";
 
-msj += date1.getDay() +"/" + date1.getMonth() +"/"+ date1.getYear();
+msj += date1.getDay() +"\n" + date1.getMonth() +"\n"+ date1.getYear();
 
 return msj;
 }
@@ -87,11 +88,26 @@ public String infoAnimalHistory(){
 
 }
 
-public String estadodDelAnimal(){
+public double calculateDoseOfAnimal1(){
+  double dosee = 0.0;
+for(int i = 0; i < medicaments.size() ; i++){
+
+  dosee += medicaments.get(i).getDose();
+
+
+}
+return dosee;
+}
+
+public String showDate(int actualDay , int actualMonth){
 String msj = "";
-boolean state1 = false;
+
+msj+= date1.getFrecuencyOfTheMedicament()
 
 return msj;
+
+
 }
+
 
 }

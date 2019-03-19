@@ -5,20 +5,15 @@ public class Room{
 //Atributos
 
 private boolean avaible;
-private int day;
-private double price;
-private double totalPrice;
+private int numbOfRoom;
 
 //Relaciones
 
 private Pet petRoom;
 
-public Room(boolean avaible, int day, double price, double totalPrice, Pet petRoom){
+public Room(boolean avaible, int numbOfRoom){
   this.avaible = avaible;
-  this.day = day;
-  this.price = price;
-  this.totalPrice = totalPrice;
-  this.petRoom = petRoom;
+  this.numbOfRoom = numbOfRoom;
 }
 public boolean getAvaible(){
   return avaible;
@@ -26,30 +21,13 @@ public boolean getAvaible(){
 public void setAvaible(boolean avaible){
   this.avaible = avaible;
 }
-public int getDay(){
-  return day;
+public int getnumbOFRoom(){
+  return numb;
 }
-public void setDay(int day){
-  this.day = day;
+public void seNumbOfRoom(int numbOfRoom){
+  this.numbOfRoom = numbOfRoom;
 }
-public double getPrice(){
-  return price;
-}
-public void setPrice(double price){
-  this.price = price;
-}
-public double getTotalPrice(){
-  return totalPrice;
-}
-public void setTotalPrice(double totalPrice){
-  this.totalPrice = totalPrice;
-}
-public Pet getPetRoom(){
-  return petRoom;
-}
-public void setPetRoom(Pet petRoom){
-  this.petRoom = petRoom;
-}
+
 public double priceOfHospital(){
 double total = 0.0;
 

@@ -71,7 +71,10 @@ private ArrayList<Pet> pet2;
 	 this.pet2 = pet2;
  }
 
+ public void addPet1(Pet pet3){
+ pet2.add(pet3);
 
+ }
 	public void addPet(){
 
 		Pet Carlos = new Pet("Carlos", 12,"Perro", 12.3);

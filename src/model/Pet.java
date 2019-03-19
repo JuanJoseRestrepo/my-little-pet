@@ -84,6 +84,19 @@ for(int i = 0; i <clientWithHisto.size(); i++){
  return msj;
  }
 
+public String stateOfClinicalHistory(){
+	String msj = "";
 
+for(int i = 0; i < clientWithHisto.size() ; i++){
+}
+}
+
+public double calculateDoseOfAnimal(){
+double dose1 = 0.0;
+for(int i = 0; i< clientWithHisto.size(); i++){
+ dose1 += (clientWithHisto.get(i).calculateDoseOfAnimal1())/weightPet;
+}
+return dose1;
+}
 
 }

@@ -20,6 +20,14 @@ private ArrayList<Client> clients;
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
+miniRoom[0] = new Room(true, 1);
+miniRoom[1] = new Room(false, 2);
+miniRoom[2] = new Room(true, 3);
+miniRoom[3] = new Room(true, 4);
+miniRoom[4] = new Room(false, 5);
+miniRoom[5] = new Room(true, 6);
+miniRoom[6] = new Room(false, 7);
+miniRoom[7] = new Room(true, 8);
 clients = new ArrayList<Client>();
 }
 public String getName(){
@@ -43,7 +51,7 @@ public void setClients( ArrayList<Client> clients){
 
 
 public String addClient(Client client){
- String msj = "Se guardp exitosamente el cliente";
+ String msj = "Se guardo exitosamente el cliente";
  boolean decide = true;
  int acum = 0;
 for(int c = 0; c< clients.size() && decide == true; c++){
@@ -60,7 +68,11 @@ if(acum == clients.size()){
 
 return msj;
 }
+public void addClient(Client client){
 
+  clients.add(client);
+
+}
 public void addClient1(){
 
 Client Ayuwoki = new Client("Ayuwoki","1234","Cra 29a #10b-118", "310456097");
@@ -83,7 +95,6 @@ clients.add(Melissa);
 
 
 }
-
 public Room dispobinilityRoom(){
   Room dispo = null;
 
@@ -99,15 +110,18 @@ public Room dispobinilityRoom(){
 
 public String infoPet1(String id){
 String msj = "";
- for(int i = 0 ; i<clients.size(); i++){
+boolean f = false;
 
+ for(int i = 0 ; i<clients.size() && !f; i++){
   if(id.equals(clients.get(i).getIdentify())){
 
   msj += clients.get(i).infoClient() + "\n";
   msj += clients.get(i).infoPet();
+  f = true;
 
 } else{
   msj = "No existe el cliente";
+  f = false;
 }
 }
 return msj;
