@@ -88,26 +88,26 @@ public String infoAnimalHistory(){
 
 }
 
-public double calculateDoseOfAnimal1(){
-  double dosee = 0.0;
-for(int i = 0; i < medicaments.size() ; i++){
+public void addMedicaments(){
 
-  dosee += medicaments.get(i).getDose();
+Medicament H = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament I = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament W = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament O = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament R = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament L = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament D = new Medicament("Dolex", 13.0 ,300.0, 3);
+Medicament S = new Medicament("Dolex", 13.0 ,300.0, 3);
 
+medicaments.add(H);
+medicaments.add(I);
+medicaments.add(W);
+medicaments.add(O);
+medicaments.add(R);
+medicaments.add(L);
+medicaments.add(D);
+medicaments.add(S);
 
 }
-return dosee;
-}
-
-public String showDate(int actualDay , int actualMonth){
-String msj = "";
-
-msj+= date1.getFrecuencyOfTheMedicament()
-
-return msj;
-
-
-}
-
 
 }

@@ -20,7 +20,7 @@ private ArrayList<Client> clients;
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
-miniRoom[0] = new Room(true, 1);
+miniRoom[0] = new Room(true, 1, clients.get(i).addPet());
 miniRoom[1] = new Room(false, 2);
 miniRoom[2] = new Room(true, 3);
 miniRoom[3] = new Room(true, 4);
@@ -50,7 +50,7 @@ public void setClients( ArrayList<Client> clients){
 }
 
 
-public String addClient(Client client){
+public String addClient2(Client client){
  String msj = "Se guardo exitosamente el cliente";
  boolean decide = true;
  int acum = 0;
@@ -68,6 +68,7 @@ if(acum == clients.size()){
 
 return msj;
 }
+
 public void addClient(Client client){
 
   clients.add(client);
@@ -95,18 +96,49 @@ clients.add(Melissa);
 
 
 }
-public Room dispobinilityRoom(){
-  Room dispo = null;
+  public String addPetToAvailableRoom (Pet current){
 
-  for(int i= 0; i < miniRoom.length ; i++){
-    if(miniRoom[i] != null){
-        dispo = null;
-      } else{
-        dispo = miniRoom[i];
+    String msg = "";
+    boolean found = false;
+
+    for(int i =0; i<miniRoom.length && !found; i++){
+
+      if(miniRoom[i].getAvaible()){
+        found = true;
+        miniRoom[i].setPetRoom(current);
+        miniRoom[i].setAvaible(false);
+
+        msg = "Se agrego exitosamente a "+current.getNamePet()+" en el cuarto " + (i+1);
       }
     }
-      return dispo;
+    if(!found){
+      msg = "No se pudo hospitalizar porque no se encontro un cuarto vacio.";
+    }
+
+    return msg;
   }
+
+
+
+public String hospitalize(String clientId, String petName){
+
+  String msg = "";
+  Pet p = null;
+  for(int i =0; i<clients.size() && p==null; i++){
+    if(clients.get(i).getIdentify().equals(clientId)){
+        p = clients.get(i).findPet(petName);
+        if(p==null){
+          msg = "El cliente no tiene una mascota con ese nombre";
+        }
+    }
+  }
+ if(p!=null){
+  msg = addPetToAvailableRoom(p);
+ }
+
+
+  return msg;
+}
 
 public String infoPet1(String id){
 String msj = "";
@@ -116,18 +148,35 @@ boolean f = false;
   if(id.equals(clients.get(i).getIdentify())){
 
   msj += clients.get(i).infoClient() + "\n";
-  msj += clients.get(i).infoPet();
   f = true;
 
 } else{
   msj = "No existe el cliente";
   f = false;
 }
-}
+
 return msj;
 }
 
+}
 
+public String showRoom(){
+String msj = "";
+
+for(int i = 0 ; i < miniRoom.lenght; i++){
+ if(miniRoom[i] != null){
+ msj += miniRoom[i].showRoomInfo();
+
+} else {
+  msj += "No existe el cuarto";
+}
+  return msj;
+}
+
+
+
+
+}
 
 
 

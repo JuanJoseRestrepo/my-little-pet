@@ -63,12 +63,12 @@ public class Pet{
 		this.weightPet = weightPet;
 	}
 
- public String showInfoSymptom(){
+ public String showInfoPet(){
  String msj = "";
 
-for(int i = 0; i <clientWithHisto.size(); i++){
  msj += "El name es:" + namePet;
  msj += "Su edad es:" + ageOfPet;
+ msj += "Mi peso es:" + weightPet;
  if(typeOfPet.equals(Pet.DOG)){
 	  msj +="Mi tipo es" + typeOfPet;
  }else if(typeOfPet.equals(Pet.CAT)) {
@@ -77,26 +77,30 @@ for(int i = 0; i <clientWithHisto.size(); i++){
 	  msj += "Mi tipo es" + typeOfPet;
  }else if(typeOfPet.equals(Pet.OTHER)){
 	  msj +="Mi tipo es" + typeOfPet;
- }
+	}
+	return msj;
+
+}
+
+public String HospitalizatedAnimal(){
+ String msj = "";
+ for(int i = 0; i < clientWithHisto.size() ; i++){
+ msj += "El name es:" + namePet;
+ msj += "Su edad es:" + ageOfPet;
  msj += "Mi peso es:" + weightPet;
- msj += clientWithHisto.get(i).infoAnimalHistory();
+ if(typeOfPet.equals(Pet.DOG)){
+ 	 msj +="Mi tipo es" + typeOfPet;
+ }else if(typeOfPet.equals(Pet.CAT)) {
+ 	msj +="Mi tipo es" + typeOfPet;
+ }else if(typeOfPet.equals(Pet.BIRD)){
+ 	 msj += "Mi tipo es" + typeOfPet;
+ }else if(typeOfPet.equals(Pet.OTHER)){
+ 	 msj +="Mi tipo es" + typeOfPet;
+  }
+	msj+= clientWithHisto.get(i).infoAnimalHistory();
 }
- return msj;
- }
 
-public String stateOfClinicalHistory(){
-	String msj = "";
-
-for(int i = 0; i < clientWithHisto.size() ; i++){
-}
-}
-
-public double calculateDoseOfAnimal(){
-double dose1 = 0.0;
-for(int i = 0; i< clientWithHisto.size(); i++){
- dose1 += (clientWithHisto.get(i).calculateDoseOfAnimal1())/weightPet;
-}
-return dose1;
+return msj;
 }
 
 }

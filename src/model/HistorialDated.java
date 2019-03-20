@@ -34,22 +34,5 @@ public int getYear(){
 public void setYear(int year){
   this.year = year;
 }
-public int getFrecuencyOfTheMedicament(int actualDay , int actualMonth){
-
-int dia = 0;
-int diasCorridos = 0;
-int diasPreciso = 0;
-
-dia += (month -1)* 30 + day;
-diaActual += (actualMonth -1)* 30 + actualDay;
-
-diasCorridos += 360-(dia + diaActual);
-
-diasPreciso += (360 - diasCorridos)/7;
-
-return diasPreciso;
-
-
-}
 
 }

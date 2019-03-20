@@ -109,19 +109,26 @@ msj += "Mi nombre es:" + nameClient;
 msj += "Mi identificacion es:" + identify;
 msj += "Mi direccion es:" + address;
 msj += "Mi numero es:" + cellPhone;
+msj += pet2.get(i).showInfoPet();
 }
 return msj;
 }
 
-public String infoPet(){
-String msj = "";
+public Pet findPet(String petName){
 
-for( int i = 0; i <pet2.size(); i++){
+	Pet restrepo = null;
+	boolean found = false;
 
-msj += msj += pet2.get(i).showInfoSymptom();
+	for(int i = 0; i<pet2.size() && !found; i++){
 
-}
-return msj;
+		if(pet2.get(i).getNamePet().equals(petName)){
+			restrepo = pet2.get(i);
+			found = true;
+		}
+
+	}
+
+	return restrepo;
 }
 
 

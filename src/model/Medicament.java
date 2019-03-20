@@ -9,6 +9,9 @@ private double dose;
 private double totalDose;
 private int frecuency;
 
+//Relaciones
+private HistorialDated  med1;
+
 //Constructores
 public Medicament(String nameOfMedicament, double dose, double totalDose, int frecuency){
 
@@ -48,10 +51,11 @@ String msj = "";
 msj += "El medicamento es:" + nameOfMedicament;
 msj += "La dosis es:" + dose;
 msj += "Total de dosis" + totalDose;
-msj += "Su frecuencia es:" + frecuency;
+msj += "La frecuencia es" + frecuency;
 
 return msj;
 
 }
+
 
 }

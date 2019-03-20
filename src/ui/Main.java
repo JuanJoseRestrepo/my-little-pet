@@ -27,15 +27,15 @@ public void showMenu(){
   int userImput =0;
   System.out.println("Bienvenido a mi pequeña mascota");
 
-  while(userImput != 2){
+  while(userImput != 8){
     userImput =reader.nextInt();
     reader.nextLine();
 
    if(userImput == 1){
-     System.out.println("Digite su id");
+     System.out.println("A continuacion digite su identificacion  ");
+     System.out.println("ID");
      String id = reader.nextLine();
 
-     if(principal.infoPet())
      System.out.println(principal.infoPet1(id));
 
    }else if(userImput == 2){
@@ -68,21 +68,12 @@ public void showMenu(){
 
    Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM);
 
-   System.out.println(client.addPet1(pet3));
-   System.out.println(principal.addClient(client));
+  client.addPet1(pet3);
+  principal.addClient(client);
 
  } else if(userImput == 2) {
    System.out.println("Adios");
  } else if( userImput ==3){
-   System.out.println("Digite el dia actual ");
-   int actualDay = reader.nextLine();
-   reader.nextLine();
-
-   System.out.println("Digite el mes actual");
-   int actualMonth = reader.nextInt();
-   reader.nextLine();
-
-   System.out.println(principal.)
 
  }
 
@@ -92,7 +83,9 @@ public void showMenu(){
 public void init(){
 
 principal = new Veterinary("Mi pequenhaa mascota");
+client.addPet();
 principal.addClient1();
+
 
 
 }
