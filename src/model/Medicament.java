@@ -45,6 +45,8 @@ public int getFrecuency(){
 public void setFrecuency(int frecuency){
   this.frecuency = frecuency;
 }
+
+//MOSTRAR LA INFORMACION MEDICA
 public String showInfoMedica(){
 String msj = "";
 

@@ -30,7 +30,7 @@ this.diagnostic = diagnostic;
 this.state = state;
 this.date1 = date1;
 this.date2 = date2;
-
+medicaments = new ArrayList<Medicament>();
 }
 
 public String getSymptom(){
@@ -58,7 +58,14 @@ public HistorialDated getDate2(){
 public void setDate2(HistorialDated date2){
   this.date2 = date2;
 }
+public ArrayList<Medicament> getMedicaments(){
+ return medicaments;
+}
+public void setMedicaments(ArrayList<Medicament> medicaments){
+ this.medicaments = medicaments;
+}
 
+//MOSTRAR LA FECHA DE INGRESO
 public String inicialDate1(){
 String msj = "";
 
@@ -66,7 +73,7 @@ msj += date1.getDay() +"\n" + date1.getMonth() +"\n"+ date1.getYear();
 
 return msj;
 }
-
+//MOSTRAR LA FECHA DE SALIDA
 public String finalDate2(){
   String msj = "";
 
@@ -74,7 +81,7 @@ public String finalDate2(){
 
   return msj;
 }
-
+//MOSTRAR LA INFORMACION DE LA HISTORIA CLINICA
 public String infoAnimalHistory(){
  String msj = "";
   for(int i = 0; i< medicaments.size(); i++){
@@ -88,26 +95,29 @@ public String infoAnimalHistory(){
 
 }
 
-public void addMedicaments(){
+//AGREGAR MEDICAMENTOS
+public void addMedicaments(String nameOfMedicament, double dose, double totalDose, int frecuency){
+  Medicament m = new Medicament(nameOfMedicament,dose,totalDose,frecuency);
+  medicaments.add(m);
 
-Medicament H = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament I = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament W = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament O = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament R = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament L = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament D = new Medicament("Dolex", 13.0 ,300.0, 3);
-Medicament S = new Medicament("Dolex", 13.0 ,300.0, 3);
+}
 
-medicaments.add(H);
-medicaments.add(I);
-medicaments.add(W);
-medicaments.add(O);
-medicaments.add(R);
-medicaments.add(L);
-medicaments.add(D);
-medicaments.add(S);
+//OBTENER LOS DIAS ACTUALES
+public int getFrecuencyOfTheMedicament(int actualDay , int actualMonth){
 
+	int dia = 0;
+	int diaActual = 0;
+	int diasCorridos = 0;
+	int diasPreciso = 0;
+
+	dia += (date1.getMonth() -1)* 30 + date1.getDay();
+	diaActual += (actualMonth -1)* 30 + actualDay;
+
+	diasCorridos += 360-(dia + diaActual);
+
+	diasPreciso += (360 - diasCorridos)/7;
+
+  return diasPreciso;
 }
 
 }

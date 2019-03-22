@@ -20,14 +20,14 @@ private ArrayList<Client> clients;
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
-miniRoom[0] = new Room(true, 1, clients.get(i).addPet());
-miniRoom[1] = new Room(false, 2);
-miniRoom[2] = new Room(true, 3);
-miniRoom[3] = new Room(true, 4);
-miniRoom[4] = new Room(false, 5);
-miniRoom[5] = new Room(true, 6);
-miniRoom[6] = new Room(false, 7);
-miniRoom[7] = new Room(true, 8);
+miniRoom[0] = new Room(true, 1, null);
+miniRoom[1] = new Room(false, 2, new Pet("Spunky", 8,"Gato", 23.1));
+miniRoom[2] = new Room(true, 3, null );
+miniRoom[3] = new Room(true, 4, null);
+miniRoom[4] = new Room(false, 5, new Pet("Oddie", 17,"Perro", 12.9));
+miniRoom[5] = new Room(true, 6, null);
+miniRoom[6] = new Room(false, 7,new Pet("Steve del Maincraft", 7,"Otro", 50.0));
+miniRoom[7] = new Room(true, 8, null);
 clients = new ArrayList<Client>();
 }
 public String getName(){
@@ -49,7 +49,7 @@ public void setClients( ArrayList<Client> clients){
   this.clients = clients;
 }
 
-
+//COMPARAR QUE EL CLIENTE INGRESADO NO SEA EL MISMO
 public String addClient2(Client client){
  String msj = "Se guardo exitosamente el cliente";
  boolean decide = true;
@@ -69,39 +69,19 @@ if(acum == clients.size()){
 return msj;
 }
 
+//AGREGAR NUEVOS USUARIOS DENTRO DE LA VETERINARIA
 public void addClient(Client client){
 
   clients.add(client);
-
 }
-public void addClient1(){
 
-Client Ayuwoki = new Client("Ayuwoki","1234","Cra 29a #10b-118", "310456097");
-Client Eunice = new Client("Eunice","4321","Calle 5 #10b- 1c", "3104509897");
-Client JhonJairo = new Client("JhonJairo","2341","Tras 2a #1c -13 ", "310466780");
-Client Clara = new Client("Clara","3421","Cra 28b #1d -14", "310906097");
-Client Valeria = new Client("Valeria","4123","Calle 29a #118", "31126097");
-Client Suarez = new Client("Suarez","3213","Calle 1c #10b", "312556097");
-Client Carlos = new Client("Carlos","1122","Cra 13 #1c -10", "3111456097");
-Client Melissa = new Client("Melissa","3311","Cra 22c #10b -113", "332456097");
-
-clients.add(Ayuwoki);
-clients.add(Eunice);
-clients.add(JhonJairo);
-clients.add(Clara);
-clients.add(Valeria);
-clients.add(Suarez);
-clients.add(Carlos);
-clients.add(Melissa);
-
-
-}
+//MIRAR SI HAY UN CUARTO DISPONIBLE PARA AGREGAR AL ANIMAL
   public String addPetToAvailableRoom (Pet current){
 
     String msg = "";
     boolean found = false;
 
-    for(int i =0; i<miniRoom.length && !found; i++){
+    for(int i =0; i< miniRoom.length && !found; i++){
 
       if(miniRoom[i].getAvaible()){
         found = true;
@@ -119,13 +99,13 @@ clients.add(Melissa);
   }
 
 
-
-public String hospitalize(String clientId, String petName){
+//MIRAR SI SE PEDE HOSPITALIZAR PIDIENDO PRIMERO LOS DOS DATOS INICIALES
+public String hospitalize(long clientId, String petName){
 
   String msg = "";
   Pet p = null;
   for(int i =0; i<clients.size() && p==null; i++){
-    if(clients.get(i).getIdentify().equals(clientId)){
+    if(clients.get(i).getIdentify() == clientId){
         p = clients.get(i).findPet(petName);
         if(p==null){
           msg = "El cliente no tiene una mascota con ese nombre";
@@ -136,52 +116,70 @@ public String hospitalize(String clientId, String petName){
   msg = addPetToAvailableRoom(p);
  }
 
-
   return msg;
 }
-
-public String infoPet1(String id){
+//MOSTRAR LA INFORMACION DE LA MASCOTA
+public String infoPet1(long id){
 String msj = "";
-boolean f = false;
 
- for(int i = 0 ; i<clients.size() && !f; i++){
-  if(id.equals(clients.get(i).getIdentify())){
+ for(int i = 0 ; i<clients.size(); i++){
+  if(id == clients.get(i).getIdentify()){
 
-  msj += clients.get(i).infoClient() + "\n";
-  f = true;
+   msj = clients.get(i).infoClient();
+   msj = i + clients.get(i).infoClient();
 
 } else{
   msj = "No existe el cliente";
-  f = false;
+ }
 }
-
 return msj;
 }
 
-}
-
+//MOSTRAR LA INFORMACION DEL CUARTO
 public String showRoom(){
 String msj = "";
 
-for(int i = 0 ; i < miniRoom.lenght; i++){
+for(int i = 0 ; i < miniRoom.length; i++){
  if(miniRoom[i] != null){
  msj += miniRoom[i].showRoomInfo();
 
 } else {
   msj += "No existe el cuarto";
+  }
 }
   return msj;
 }
-
-
-
-
+//ELIMINAR AL ANIMAL CON EL CLIENTE
+public void getOutAnimal(int numb){
+boolean recorrido = false;
+String msj = "";
+for(int i = 0; i < clients.size() && !recorrido; i++){
+  if(clients != null){
+    clients.get(i).deletedPet(numb);
+    clients.remove(numb);
+    msj = "Se elimino el cliente";
+  } else{
+    msj = "No existe el cliente";
+  }
+  }
 }
-
-
-
-
-
-
+//DAR DE ALTA AL ANIMAL
+public String darAlta(Pet petName){
+ boolean recorrido = false;
+ String msj = "";
+    for(int i = 0; i < miniRoom.length && !recorrido; i++){
+      if(!miniRoom[i].getAvaible()){
+        if(miniRoom[i].getPetRoom().equals(petName)){
+          miniRoom[i].setPetRoom(null);
+          recorrido= true;
+          miniRoom[i].setAvaible(true);
+          msj = "Se saco el animalito del cuarto";
+        }
+      }else{
+        msj = "No se encontro su animal hospitalizado";
+      }
+    }
+    return msj;
+  }
 
 }

@@ -62,7 +62,13 @@ public class Pet{
 	public void setWeightPet(){
 		this.weightPet = weightPet;
 	}
-
+	public ArrayList<ClinicalHistory> getClientWithHisto(){
+ 	 return clientWithHisto;
+  }
+  public void setPets(ArrayList<ClinicalHistory> clientWithHisto){
+ 	 this.clientWithHisto = clientWithHisto;
+  }
+	//MOSTRAR LA INFORMACION DE LA MASCOTA
  public String showInfoPet(){
  String msj = "";
 
@@ -81,7 +87,7 @@ public class Pet{
 	return msj;
 
 }
-
+//MOSTRAR LA INFORMACION DEL ANIMAL HOSPITALIZADO
 public String HospitalizatedAnimal(){
  String msj = "";
  for(int i = 0; i < clientWithHisto.size() ; i++){
@@ -102,5 +108,70 @@ public String HospitalizatedAnimal(){
 
 return msj;
 }
+//AGREGAR NUEVAS HISTORIAS CLINICAS
+public void addHistory(String symptom, String diagnostic, boolean state, HistorialDated date1, HistorialDated date2){
+	ClinicalHistory ch = new ClinicalHistory(symptom, diagnostic, state , date1 , date2);
+	clientWithHisto.add(ch);
+}
+
+//COSTO POR HOSPITALIZACION
+public double costOfHospitalizate(int actualDay, int actualMonth){
+double total = 0.0;
+
+for(int i = 0; i < clientWithHisto.size(); i++){
+
+
+	int diasPreciso = clientWithHisto.get(i).getFrecuencyOfTheMedicament(actualDay, actualMonth);
+
+if(typeOfPet.equals(CAT)){
+	if(weightPet >= 1.0 && 3.0 <= weightPet){
+		total += (double) (diasPreciso * 10000);
+	}else if(weightPet >= 3.1 && 10.0 <= weightPet){
+		total += (double) (diasPreciso* 12000);
+	}else if(weightPet >= 10.1 && 20.0 <= weightPet){
+		total += (double) (diasPreciso * 15000);
+ }else if(weightPet > 20.0 ){
+	 total +=(double) (diasPreciso * 20000);
+ }
+} else if(typeOfPet.equals(DOG)){
+	if( weightPet >= 1.0 && 3.0 <= weightPet){
+		total += (double) (diasPreciso * 15000);
+	}else if(weightPet >= 3.1 && 10.0 <= weightPet){
+		total += (double)(diasPreciso * 17000);
+	}else if(weightPet >= 10.1 && 20.0 <= weightPet){
+		total += (double) (diasPreciso * 20000);
+ }else if(weightPet > 20.0 ){
+	 total += (double) (diasPreciso * 25000);
+ }
+
+}else if(typeOfPet.equals(BIRD)){
+	if( weightPet >= 1.0 && 3.0 <= weightPet){
+		total += (double) (diasPreciso * 10000);
+	}else if(weightPet >= 3.1 && 10.0 <= weightPet){
+		total +=(double)  (diasPreciso * 12000);
+	}else if(weightPet >= 10.1 && 20.0 <= weightPet){
+		total += (double) (diasPreciso * 20000);
+ }else if(weightPet > 20.0 ){
+	 total +=(double) (diasPreciso * 25000);
+ }
+
+}else if(typeOfPet.equals(OTHER)){
+	if(  weightPet >= 1.0 && 3.0 <= weightPet){
+		total += (double)  (diasPreciso * 10000);
+	}else if(weightPet >= 3.1 && 10.0 <= weightPet){
+		total += (double) (diasPreciso * 17000);
+	}else if(weightPet >= 10.1 && 20.0 <= weightPet){
+		total += (double) (diasPreciso * 30000);
+ }else if(weightPet > 20.0 ){
+	 total += (double) (diasPreciso * 30000);
+ }
+}
+}
+
+return total;
+
+}
+
+
 
 }

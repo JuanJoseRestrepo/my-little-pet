@@ -5,20 +5,20 @@ public class Client{
 
 //Atributos
 private String nameClient;
-private String identify;
+private long identify;
 private String address;
 private String cellPhone;
 
 //Relaciones
-private ArrayList<Pet> pet2;
+private ArrayList<Pet> pets;
 
-	public Client(String nameClient,String identify, String address , String cellPhone){
+	public Client(String nameClient,long identify, String address , String cellPhone){
 
 	this.nameClient = nameClient;
 	this.identify = identify;
 	this.address= address;
 	this.cellPhone = cellPhone;
-  pet2 = new ArrayList<Pet>();
+  pets = new ArrayList<Pet>();
 
 	}
 
@@ -32,12 +32,12 @@ private ArrayList<Pet> pet2;
 		this.nameClient = nameClient;
 	}
 
-	public String getIdentify(){
+	public long getIdentify(){
 
 		return identify;
 	}
 
-	public void setIdentify(String identify){
+	public void setIdentify(long identify){
 
 		this.identify = identify;
 	}
@@ -64,65 +64,43 @@ private ArrayList<Pet> pet2;
 		this.cellPhone = cellPhone;
 
 	}
- public ArrayList<Pet> getPet2(){
-	 return pet2;
+ public ArrayList<Pet> getPets(){
+	 return pets;
  }
- public void setPet2(ArrayList<Pet> pet2){
-	 this.pet2 = pet2;
+ public void setPets(ArrayList<Pet> pets){
+	 this.pets = pets;
  }
 
- public void addPet1(Pet pet3){
- pet2.add(pet3);
+ public void addPet(Pet pet3){
+ pets.add(pet3);
 
  }
-	public void addPet(){
-
-		Pet Carlos = new Pet("Carlos", 12,"Perro", 12.3);
-		Pet Spunky = new Pet("Spunky", 8,"Gato", 23.1);
-		Pet Bella = new Pet("Bella", 2,"Pajaro", 10.0);
-		Pet Lupe = new Pet("Lupe", 1,"Otro", 9.5);
-		Pet Oddie = new Pet("Oddie", 17,"Perro", 12.9);
-		Pet Lennon = new Pet("Lennon", 4,"Perro", 31.0);
-		Pet Steve = new Pet("Steve del Maincraft", 7,"Otro", 50.0);
-		Pet Eunice = new Pet("Eunice", 14,"Otro", 25.0);
-
-
-    pet2.add(Carlos);
-		pet2.add(Spunky);
-		pet2.add(Bella);
-		pet2.add(Lupe);
-		pet2.add(Oddie);
-		pet2.add(Lennon);
-		pet2.add(Steve);
-		pet2.add(Eunice);
-
-
-	}
-
-
-
+//MOSTRAR LA INFORMACION DEL USUARIO
 public String infoClient(){
 String msj = "";
 
-for(int i = 0; i<pet2.size(); i++){
+for(int i = 0; i<pets.size(); i++){
+
 msj += "Mi nombre es:" + nameClient;
 msj += "Mi identificacion es:" + identify;
 msj += "Mi direccion es:" + address;
 msj += "Mi numero es:" + cellPhone;
-msj += pet2.get(i).showInfoPet();
+msj += pets.get(i).showInfoPet();
 }
+
 return msj;
 }
 
+//MIRAR SI EXISTE LA MASCOTA
 public Pet findPet(String petName){
 
 	Pet restrepo = null;
 	boolean found = false;
 
-	for(int i = 0; i<pet2.size() && !found; i++){
+	for(int i = 0; i<pets.size() && !found; i++){
 
-		if(pet2.get(i).getNamePet().equals(petName)){
-			restrepo = pet2.get(i);
+		if(pets.get(i).getNamePet().equals(petName)){
+			restrepo = pets.get(i);
 			found = true;
 		}
 
@@ -131,7 +109,23 @@ public Pet findPet(String petName){
 	return restrepo;
 }
 
+//ELIMINAR LA MASCOTA CON EL NUMERO QUE DIGITO EL USUARIO
+public void deletedPet(int numb){
+	boolean recorrido = false;
+	String msj = "";
+for(int o = 0; 0 < pets.size() && !recorrido; o++){
+  if( pets != null){
+		pets.remove(numb);
+		msj = "Se ha eliminado al animal correctamente";
+	} else{
+		msj = "No se pudo eliminar porque no existe la mascota";
+	}
+
+}
 
 
+
+
+}
 
 }
