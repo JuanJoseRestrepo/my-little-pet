@@ -9,7 +9,8 @@ private final static boolean STATE_OPEN = true;
 private final static boolean STATE_CLOSE = false;
 
 //Atributos
-
+private String petInfo;
+private String ownerInfo;
 private String symptom;
 private String diagnostic;
 private boolean state;
@@ -19,11 +20,11 @@ private boolean state;
 private ArrayList<Medicament> medicaments;
 private HistorialDated date1;
 private HistorialDated date2;
-
+private Pet petsAll;
 
 //Constructores
 
-public ClinicalHistory(String symptom, String diagnostic, boolean state, HistorialDated date1, HistorialDated date2){
+public ClinicalHistory(String petInfo, String ownerInfo,String symptom, String diagnostic, boolean state, HistorialDated date1,Pet petsAll){
 
 this.symptom = symptom;
 this.diagnostic = diagnostic;
@@ -31,6 +32,18 @@ this.state = state;
 this.date1 = date1;
 this.date2 = date2;
 medicaments = new ArrayList<Medicament>();
+}
+public String getPetInfo(){
+  return petInfo;
+}
+public void setPetInfo(String petInfo){
+  this.petInfo = petInfo;
+}
+public String getOwnerInfo(){
+  return ownerInfo;
+}
+public void setOwnerInfo( String ownerInfo){
+  this.ownerInfo = ownerInfo;
 }
 
 public String getSymptom(){
@@ -64,6 +77,12 @@ public ArrayList<Medicament> getMedicaments(){
 public void setMedicaments(ArrayList<Medicament> medicaments){
  this.medicaments = medicaments;
 }
+public Pet getPetsAll(){
+  return petsAll;
+}
+public void setPetsAll(Pet petsAll){
+  this.petsAll = petsAll;
+}
 
 //MOSTRAR LA FECHA DE INGRESO
 public String inicialDate1(){
@@ -83,6 +102,7 @@ public String finalDate2(){
 }
 //MOSTRAR LA INFORMACION DE LA HISTORIA CLINICA
 public String infoAnimalHistory(){
+
  String msj = "";
   for(int i = 0; i< medicaments.size(); i++){
   msj += "El sintomas es:" + symptom;
@@ -96,28 +116,65 @@ public String infoAnimalHistory(){
 }
 
 //AGREGAR MEDICAMENTOS
-public void addMedicaments(String nameOfMedicament, double dose, double totalDose, int frecuency){
-  Medicament m = new Medicament(nameOfMedicament,dose,totalDose,frecuency);
-  medicaments.add(m);
+public void addMedicaments(ArrayList<Medicament> medic){
+  
+  medicaments.add(medic);
 
 }
 
-//OBTENER LOS DIAS ACTUALES
-public int getFrecuencyOfTheMedicament(int actualDay , int actualMonth){
+//COSTO POR HOSPITALIZACION
+public double costOfHospitalizate(int actualDay, int actualMonth, int actualYear){
 
-	int dia = 0;
-	int diaActual = 0;
-	int diasCorridos = 0;
-	int diasPreciso = 0;
+double total = 0.0;
+int diasPreciso = date1.getFrecuencyOfTheMedicament(actualDay, actualMonth, actualYear);
 
-	dia += (date1.getMonth() -1)* 30 + date1.getDay();
-	diaActual += (actualMonth -1)* 30 + actualDay;
+if(petsAll.getTypeOfPet().equals(Pet.CAT)){
+	if(petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 10000);
+	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso* 12000);
+	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 15000);
+ }else if(petsAll.getWeightPet() > 20.0 ){
+	 total +=(double) (diasPreciso * 20000);
+ }
+} else if(petsAll.getTypeOfPet().equals(Pet.DOG)){
+	if( petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 15000);
+	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
+		total += (double)(diasPreciso * 17000);
+	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 20000);
+ }else if(petsAll.getWeightPet() > 20.0 ){
+	 total += (double) (diasPreciso * 25000);
+ }
 
-	diasCorridos += 360-(dia + diaActual);
+}else if(petsAll.getTypeOfPet().equals(Pet.BIRD)){
+	if( petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 10000);
+	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
+		total +=(double)  (diasPreciso * 12000);
+	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 20000);
+ }else if(petsAll.getWeightPet() > 20.0 ){
+	 total +=(double) (diasPreciso * 25000);
+ }
 
-	diasPreciso += (360 - diasCorridos)/7;
+}else if(petsAll.getTypeOfPet().equals(Pet.OTHER)){
+	if(  petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
+		total += (double)  (diasPreciso * 10000);
+	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 17000);
+	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
+		total += (double) (diasPreciso * 30000);
+ }else if(petsAll.getWeightPet() > 20.0 ){
+	 total += (double) (diasPreciso * 30000);
+ }
 
-  return diasPreciso;
+}
+
+return total;
+
 }
 
 }

@@ -26,15 +26,15 @@ public static void main(String[] args) {
 }
 public void showMenu(){
   int userImput =0;
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
+System.out.println("/////////////////////////////////////XXXXXXXXX//////////////////////////////////////////////");
+System.out.println("////////////////////////////////XXXXXXXXXXXXXXXXXXX/////////////////////////////////////////");
+System.out.println("///////////////////////////XXXXXXXXXXXXXXXXXXXXXXXXXXXXX///////////////////////////////////");
+System.out.println("//////////////////////////XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX///////////////////////////////////");
 System.out.println("/////////////////////////BIENVENIDO A MI PEQUENHA MASCOTA///////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
+System.out.println("//////////////////////////XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX///////////////////////////////////");
+System.out.println("/////////////////////////////XXXXXXXXXXXXXXXXXXXXXXXXX//////////////////////////////////////");
+System.out.println("/////////////////////////////////XXXXXXXXXXXX///////////////////////////////////////////////");
+System.out.println("////////////////////////////////////XXXXX///////////////////////////////////////////////////");
 System.out.println("--------------------------------------------------------------------------------------------");
 System.out.println("|              .....                  .............                                         |");
 System.out.println("|          .....;;...                ................                                       |");
@@ -82,15 +82,16 @@ System.out.println("////////////////////////////////////////////////////////////
 System.out.println("//////////////////////////1.MOSTRAR LA INFORMACION DEL USUARIO///////////////////////////////");
 System.out.println("//////////////////////////2.REGISTRARSE CON SU MASCOTA///////////////////////////////////////");
 System.out.println("//////////////////////////3. BORRAR CLIENTE//////////////////////////////////////////////////");
-System.out.println("//////////////////////////4.PARA HOSPITALIZAR////////////////////////////////////////////////");
+System.out.println("//////////////////////////4.PARA BUSCAR A SU MASCOTA EN EL HOSPITAL//////////////////////////");
+System.out.println("//////////////////////////5.Hospitalizar un animal///////////////////////////////////////////");
 System.out.println("//////////////////////////5.PARA VER DISPONIBILIDAD//////////////////////////////////////////");
 System.out.println("//////////////////////////6.PARA DAR DE ALTA/////////////////////////////////////////////////");
 System.out.println("//////////////////////////7.MOSTRAR HISTORIAL CLINICO DEL CUARTO/////////////////////////////");
-System.out.println("//////////////////////////8.SALIR////////////////////////////////////////////////////////////");
+System.out.println("//////////////////////////8.MOSTRAR INFO/////////////////////////////////////////////////////");
+System.out.println("//////////////////////////9.SALIR////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
-System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
-  while(userImput != 8){
+  while(userImput != 9){
     userImput =reader.nextInt();
     reader.nextLine();
   //MIRAR QUE USUARIO TIENE ESA IDENTIFICACION
@@ -98,7 +99,7 @@ System.out.println("////////////////////////////////////////////////////////////
      System.out.println("A continuacion digite su identificacion  ");
      System.out.println("ID");
      long id = reader.nextLong();
-     reader.nextLine();
+     System.out.println(reader.nextLine());
 
      principal.infoPet1(id);
   //REGISTRAR AL CLIENTE CON LA MASCOTA QUE EL DESEE
@@ -118,11 +119,13 @@ System.out.println("////////////////////////////////////////////////////////////
 
    Client client = new Client(name,iden,addres,celular);
 
-   System.out.println("Digite cuantas mascotas quiere tener ");
+   System.out.println("Digite el numero de mascotas que quiere tener");
    int numberOfUser = reader.nextInt();
+   reader.nextLine();
+
+   ArrayList<Pet> clientsPets = new ArrayList<Pet>();
 
    for(int i = 0; i < numberOfUser; i++){
-
    System.out.println("Digite el nombre de su mascota ");
    String nameP = reader.nextLine();
 
@@ -140,21 +143,16 @@ System.out.println("////////////////////////////////////////////////////////////
    String typeOfM = reader.nextLine();
 
    System.out.println("Digite el peso de su mascota ");
+
    double weightOfM = reader.nextDouble();
    reader.nextLine();
 
    Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM);
+   clientsPets.add(pet3);
 
-   principal.getClients().get(i).addPet(pet3);
+ }
 
-   principal.addClient(client);
-   }
- } else if(userImput == 2) {
-   System.out.println("Adios");
-   int idClient = reader.nextInt();
-   reader.nextLine();
-
-   String petName = reader.nextLine();
+   principal.addClient(client,clientsPets);
  //TENEMOS QUE ELIMINAR
  } else if( userImput ==3){
 
@@ -163,21 +161,112 @@ System.out.println("////////////////////////////////////////////////////////////
     reader.nextLine();
 
     principal.getOutAnimal(numb);
+
   }else if(userImput == 4){
 
-  }else if(userImput ==5){
+    System.out.println("Ponga el id del cliente");
+    long clientId = reader.nextLong();
+    reader.nextLine();
 
-  }else if(userImput ==6){
+    System.out.println("Ponga el nombre de la mascota");
+    String petName = reader.nextLine();
+
+    System.out.println(principal.hospitalize(clientId, petName));
+
+  }else if(userImput ==5){
+   if(principal.avaibleRoom()){
+
+      System.out.println("Digite el nombre del dueño ");
+      String nameClie = reader.nextLine();
+
+      System.out.println("Digite el id del cliente");
+      long idClie = reader.nextLong();
+      reader.nextLine();
+
+      System.out.println("Digite el nombre completo de la mascota");
+      String namePe = reader.nextLine();
+
+      System.out.println("Digite el sintoma del animal");
+      String symp = reader.nextLine();
+
+      System.out.println("Digite el diagnostico ");
+      String diag = reader.nextLine();
+
+      System.out.println("Digite el estado");
+      boolean stat = reader.nextBoolean();
+      reader.nextInt();
+
+      System.out.println("Digite el dia de ingreso");
+      int dai = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el mes de ingreso");
+      int mon = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el año de ingreso ");
+      int yea = reader.nextInt();
+      reader.nextLine();
+
+      HistorialDated dateIn = new HistorialDated(dai, mon, yea);
+
+      System.out.println("Por favor digite el numero de medicinas que quiere consumir el animalito");
+      int medica = reader.nextInt();
+      reader.nextLine();
+
+      Pet pet2 = principal.retrievePet(nameClie, idClie, namePe);
+      ClinicalHistory newMedRec = new ClinicalHistory("", "", symp, diag, stat, dateIn, pet2);
+
+
+      ArrayList<Medicament> medic = new ArrayList<Medicament>();
+
+      for(int i = 0; i < medica; i++){
+      System.out.println("Digite el nombre del medicamento");
+      String medi = reader.nextLine();
+
+      System.out.println("Digite la dosis");
+      double dos = reader.nextDouble();
+      reader.nextLine();
+
+      System.out.println("Digite la total de dosis");
+      double totaldos = reader.nextDouble();
+      reader.nextLine();
+
+      System.out.println("Digite la frecuencia del medicamento");
+      int frec = reader.nextInt();
+      reader.nextLine();
+
+      Medicament medics = new Medicament(medi, dos, totaldos, frec);
+      medic.add(medics);
+      }
+
+      principal.startHospitalizeVet(nameClie, idClie, namePe, newMedRec, medic);
+
+
+    } else {
+      System.out.println( "Estan llenos los cuartos");
+    }
+
+
+
+
+   }else if(userImput ==6){
+
 
   }else if(userImput ==7){
 
     //SALIR DEL PROGRAMA
+ }else if( userImput == 8){
+     System.out.println("Mostrar la informacion");
+
+     System.out.println(principal.showClients());
+
  }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
-   System.out.println("/////////////////////////VUELVE PRONTO GUA GUA//////////////////////////////////////////////");
+   System.out.println("/////////////////////////VUELVE PRONTO!!!!!!!!//////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
@@ -195,74 +284,47 @@ System.out.println("////////////////////////////////////////////////////////////
  }
 
 }
+
 }
 // DE AHI EN ADELANTE ES CREAR LOS CLIENTES POR DEFECTO
 public void init(){
 
 principal = new Veterinary("Mi pequenhaa mascota");
 
-}
+    Client Melissa = new Client("Melissa", 1006127263, "Infinite Loop", "362141833");
+		Pet Lupe = new Pet("Lupe",12, "Gato", 12.0);
+		ArrayList<Pet> PetsMelissa = new ArrayList<Pet>();
+		PetsMelissa.add(Lupe);
+		principal.addClient(Melissa,PetsMelissa);
 
-public void addingClients(){
-
-  principal.addClient(new Client("Ayuwoki",1234,"Cra 29a #10b-118", "310456097"));
-  principal.addClient(new Client("Eunice",4321,"Calle 5 #10b- 1c", "3104509897"));
-  principal.addClient(new Client("JhonJairo",2341,"Tras 2a #1c -13 ", "310466780"));
-  principal.addClient(new Client("Clara",3421,"Cra 28b #1d -14", "310906097"));
-  principal.addClient(new Client("Valeria",4123,"Calle 29a #118", "31126097"));
-  principal.addClient(new Client("Suarez",3213,"Calle 1c #10b", "312556097"));
-  principal.addClient(new Client("Carlos",1122,"Cra 13 #1c -10", "3111456097"));
-  principal.addClient(new Client("Melissa",3311,"Cra 22c #10b -113", "332456097"));
-
-}
-
-public void addingPets(){
-principal.getClients().get(0).addPet(new Pet("Carlos", 12,"Perro", 12.3));
-principal.getClients().get(1).addPet(new Pet("Spunky", 8,"Gato", 23.1));
-principal.getClients().get(2).addPet(new Pet("Bella", 2,"Pajaro", 10.0));
-principal.getClients().get(3).addPet(new Pet("Lupe", 1,"Otro", 9.5));
-principal.getClients().get(4).addPet(new Pet("Oddie", 17,"Perro", 12.9));
-principal.getClients().get(5).addPet(new Pet("Lennon", 4,"Perro", 31.0));
-principal.getClients().get(6).addPet(new Pet("Steve del Maincraft", 7,"Otro", 50.0));
-principal.getClients().get(7).addPet(new Pet("Eunice", 14,"Otro", 25.0));
-
-
-}
-public void addingHistorial(){
-Client c = null;
- c = principal.getClients().get(0);
- c.getPets().get(0).addHistory("Pulgas", "Grave", true,new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(1);
- c.getPets().get(1).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(2);
- c.getPets().get(2).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(3);
- c.getPets().get(3).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(4);
- c.getPets().get(4).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(5);
- c.getPets().get(5).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(6);
- c.getPets().get(6).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
- c = principal.getClients().get(7);
- c.getPets().get(7).addHistory("Pulgas", "Grave", true, new HistorialDated(1,2,2000), new HistorialDated(3, 2 ,2000));
-}
-
-public void addingMedicaments(){
-
-principal.getClients().get(0).getPets().get(0).getClientWithHisto().get(0).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(1).getPets().get(1).getClientWithHisto().get(1).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(2).getPets().get(2).getClientWithHisto().get(2).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(3).getPets().get(3).getClientWithHisto().get(3).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(4).getPets().get(4).getClientWithHisto().get(4).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(5).getPets().get(5).getClientWithHisto().get(5).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(6).getPets().get(6).getClientWithHisto().get(6).addMedicaments("Dolex", 12.0,1200,2 );
-principal.getClients().get(7).getPets().get(7).getClientWithHisto().get(7).addMedicaments("Dolex", 12.0,1200,2 );
+		Client Jhonjairo = new Client("Jhon Jairo", 1003364632, "Cra 29a #10b -118", "2314525927");
+		Pet Lennon = new Pet("Lennon", 13, "Perro", 23.0);
+		ArrayList<Pet> PetsJhonjairo = new ArrayList<Pet>();
+		PetsJhonjairo.add(Lennon);
+		principal.addClient(Jhonjairo, PetsJhonjairo);
 
 
 
+		Client Valeria = new Client("Valeria", 1036078287, "Calle 5a", "256441922");
+		Pet Oddie = new Pet("Paul",15, "Otro", 70.0);
+		Pet Bella = new Pet("Daisy",19, "Dog", 39.0);
+		ArrayList<Pet> PetsValeria = new ArrayList<Pet>();
+		PetsValeria.add(Oddie);
+    PetsValeria.add(Bella);
+		principal.addClient(Valeria,PetsValeria);
+
+
+
+		Client Juanjose  = new Client("Juan Jose", 1001223483, "Tras 2a #10b", "3132934055");
+		Pet Spunky = new Pet("Spunky",2, "Cat",20.0);
+		Pet Restrepo = new Pet("Restrepo",4,"Bird",3.2);
+		ArrayList<Pet> PetsJuanjose = new ArrayList<Pet>();
+		PetsJuanjose.add(Spunky);
+    PetsJuanjose.add(Restrepo);
+		principal.addClient(Juanjose, PetsJuanjose);
 
 }
+
 
 
 

@@ -71,23 +71,25 @@ private ArrayList<Pet> pets;
 	 this.pets = pets;
  }
 
- public void addPet(Pet pet3){
- pets.add(pet3);
+ public void addPet(ArrayList<Pet> clientsPets){
+ pets = clientsPets;
 
  }
 //MOSTRAR LA INFORMACION DEL USUARIO
 public String infoClient(){
 String msj = "";
 
-for(int i = 0; i<pets.size(); i++){
+msj += "Mi nombre es:" + nameClient + "\n";
+msj += "Mi identificacion es:" + identify+ "\n";
+msj += "Mi direccion es:" + address + "\n";
+msj += "Mi numero es:" + cellPhone + "\n";
 
-msj += "Mi nombre es:" + nameClient;
-msj += "Mi identificacion es:" + identify;
-msj += "Mi direccion es:" + address;
-msj += "Mi numero es:" + cellPhone;
+int j = 0;
+for(int i = 0; i<pets.size(); i++){
+	++j;
+msj += "Pet"+ j + "";
 msj += pets.get(i).showInfoPet();
 }
-
 return msj;
 }
 
@@ -108,7 +110,6 @@ public Pet findPet(String petName){
 
 	return restrepo;
 }
-
 //ELIMINAR LA MASCOTA CON EL NUMERO QUE DIGITO EL USUARIO
 public void deletedPet(int numb){
 	boolean recorrido = false;
@@ -120,12 +121,25 @@ for(int o = 0; 0 < pets.size() && !recorrido; o++){
 	} else{
 		msj = "No se pudo eliminar porque no existe la mascota";
 	}
+}
 
+}
+
+public void startHospita(String namePe, ClinicalHistory newMedRec, ArrayList<Medicament> medic){
+boolean petts = false;
+
+for(int i = 0; i < pets.size() && !petts; i++)
+if(!pets.get(i).getNamePet().equals(namePe)){
+  petts = true;
+
+	pets.get(i).addMedRec(newMedRec,medic);
+
+	}
 }
 
 
 
 
-}
+
 
 }
