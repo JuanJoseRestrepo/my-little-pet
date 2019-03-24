@@ -174,7 +174,7 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println(principal.hospitalize(clientId, petName));
 
   }else if(userImput ==5){
-
+     if(principal.avaibleRoom()){
       System.out.println("Digite el dia de ingreso");
       int dai = reader.nextInt();
       reader.nextLine();
@@ -224,7 +224,6 @@ System.out.println("////////////////////////////////////////////////////////////
       int frec = reader.nextInt();
       reader.nextLine();
 
-
       Pet pet2 = principal.findPett(nameClie, idClie, namePe);
 
       ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn, pet2);
@@ -232,9 +231,21 @@ System.out.println("////////////////////////////////////////////////////////////
       Medicament medics = new Medicament(medi, dos, totaldos, frec);
 
       principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
+    }
 
 
   }else if(userImput ==6){
+     System.out.println("Digite el tipo de animal de su Mascota");
+     System.out.println("Perro ");
+     System.out.println("Gato ");
+     System.out.println("Pajaro ");
+     System.out.println("Otro ");
+     String typeAnimal = reader.nextLine();
+
+    System.out.println("Digite el peso de de su Mascota");
+     double weight = reader.nextDouble();
+     reader.nextLine();
+
      System.out.println("Por favor digite el dia actual");
      int actualDay = reader.nextInt();
      reader.nextLine();
@@ -247,8 +258,8 @@ System.out.println("////////////////////////////////////////////////////////////
      int actualYear = reader.nextInt();
      reader.nextLine();
 
-     principal.calculatedPay(actualDay, actualMonth, actualYear);
-     System.out.println(principal.calculatedPay(actualDay, actualMonth, actualYear));
+     principal.costOfhospis(typeAnimal, weight,actualDay, actualMonth, actualYear);
+     System.out.println(principal.costOfhospis(typeAnimal,weight,actualDay, actualMonth, actualYear));
 
 
   }else if(userImput ==7){
@@ -307,7 +318,7 @@ System.out.println("////////////////////////////////////////////////////////////
 // DE AHI EN ADELANTE ES CREAR LOS CLIENTES POR DEFECTO
 public void init(){
 
-principal = new Veterinary("Mi pequenhaa mascota");
+ principal = new Veterinary("Mi pequenhaa mascota");
 
     Client Melissa = new Client("Melissa", 1005976323, "Sucre", "362141833");
 		Pet Lupe = new Pet("Lupe",12, "Gato", 12.0);

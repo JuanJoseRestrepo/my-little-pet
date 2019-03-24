@@ -45,8 +45,12 @@ msj += "------------------------------------------------------------------------
 return msj;
 
 }
+public String  costOfhospi(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
+String total ="";
 
+total += petRoom.costOfHospitalizate(typeAnimal, weight, actualDay, actualMonth, actualYear);
 
-
-
+return total;
 }
+
+}//final

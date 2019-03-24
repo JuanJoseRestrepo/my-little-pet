@@ -16,13 +16,12 @@ private String name;
 //Relaciones
 private Room[] miniRoom;
 private ArrayList<Client> clients;
-private ArrayList<ClinicalHistory> clinicalHistorys;
 
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
 clients = new ArrayList<Client>();
-clinicalHistorys = new ArrayList<ClinicalHistory>();
+
 }
 
 public String getName(){
@@ -232,28 +231,14 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 		}
 	}
 
-public String calculatedPay(int actualDay, int actualMonth, int actualYear){
-  String msj = "";
- for(int i=0; i < clinicalHistorys.size(); i++){
-
-    msj += clinicalHistorys.get(i).costOfHospitalizate(actualDay, actualMonth, actualYear);
-
- }
- return msj;
-}
-
 public String showClinicalHistories(){
 
 String clinical = "";
-clinical += clinicalHistorys.size();
 
-//Pet k = new Pet("hugo", 12, "Perro", 12.3);
-//ClinicalHistory l = new ClinicalHistory("Hugol", "Escudo", "pulgas", "equisde", true, new HistorialDated(12,02,2000), k);
-//clinicalHistor.add(l);
 
-for(int i = 0; i < clinicalHistorys.size(); i++){
+for(int i = 0; i < clients.size(); i++){
 
-  clinical += clinicalHistorys.get(i).infoAnimalHistory();
+  clinical += clients.get(i).showInfoHospi();
 
   }
   return clinical;
@@ -277,5 +262,17 @@ public String findToHospitalize(long idClientt, String nampe){
   return msg;
 }
 
+public String costOfhospis(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
+String msj = "";
+
+for(int i = 0; i < miniRoom.length ;i++){
+
+msj = miniRoom[i].costOfhospi(typeAnimal, weight, actualDay, actualMonth, actualMonth);
+
+}
+
+return msj;
+
+}
 
 }//finalxd

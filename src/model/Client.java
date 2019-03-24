@@ -125,5 +125,17 @@ if(!pets.get(i).getNamePet().equals(namePe)){
 	}
 }
 
+public String showInfoHospi(){
+String msj = "";
+
+for(int i = 0; i < pets.size(); i++){
+
+msj += pets.get(i).showHospitalization();
+
+}
+
+return msj;
+
+}
 
 }//final
