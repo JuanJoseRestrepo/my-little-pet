@@ -197,7 +197,7 @@ for(int i = 0; i < miniRoom.length; i++){
 }
 
 
-public Pet retrievePet(String nameClie, long idClie, String  namePe){
+public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		boolean theStop = false;
 		int i = 0;
@@ -216,7 +216,7 @@ public Pet retrievePet(String nameClie, long idClie, String  namePe){
 
 	}
 
-		public void startHospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, Medicament medic){
+		public void hospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, Medicament medic){
 		boolean theStop = false;
 		int i = 0;
 
