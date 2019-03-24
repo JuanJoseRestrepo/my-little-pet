@@ -200,17 +200,15 @@ for(int i = 0; i < miniRoom.length; i++){
 public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		boolean theStop = false;
-		int i = 0;
+    Pet relationshipOfPet = null;
 
-		while(i < clients.size() && !theStop){
+		for(int i= 0;i < clients.size() && !theStop;i++){
 			if (!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
+      relationshipOfPet = clients.get(i).findPet(namePe);
 
 				theStop = true;
 			}
-			++i;
 		}
-
-		Pet relationshipOfPet = clients.get(i).findPet(namePe);
 
 		return relationshipOfPet;
 
@@ -218,22 +216,20 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		public void hospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, Medicament medic){
 		boolean theStop = false;
-		int i = 0;
 
-		while(i < clients.size() && !theStop){
-			if (!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
+		for(int i = 0;i < clients.size() && !theStop;i++){
+			if(!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
 
 				theStop = true;
 				clients.get(i).startHospita(namePe, newMedRec, medic);
 
 
-			}
-			++i;
+			} else {
+         Pet petRelation = clients.get(i).findPet(namePe);
+
+      }
+
 		}
-
-		Pet petRelation = clients.get(i).findPet(namePe);
-    addPetToAvailableRoom(petRelation);
-
 	}
 
 public String calculatedPay(int actualDay, int actualMonth, int actualYear){

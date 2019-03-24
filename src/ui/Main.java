@@ -207,15 +207,7 @@ System.out.println("////////////////////////////////////////////////////////////
 
       System.out.println("Digite el estado");
       boolean stat = reader.nextBoolean();
-      reader.nextInt();
-
-      Pet pet2 = principal.findPett(nameClie, idClie, namePe);
-
-      System.out.println("Por favor digite el numero de medicinas que quiere consumir el animalito");
-      int medica = reader.nextInt();
       reader.nextLine();
-
-      ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn, pet2);
 
       System.out.println("Digite el nombre del medicamento");
       String medi = reader.nextLine();
@@ -231,6 +223,11 @@ System.out.println("////////////////////////////////////////////////////////////
       System.out.println("Digite la frecuencia del medicamento");
       int frec = reader.nextInt();
       reader.nextLine();
+
+
+      Pet pet2 = principal.findPett(nameClie, idClie, namePe);
+
+      ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn, pet2);
 
       Medicament medics = new Medicament(medi, dos, totaldos, frec);
 
