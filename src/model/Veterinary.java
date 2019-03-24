@@ -140,8 +140,12 @@ boolean  race = false;
   if(id == clients.get(i).getIdentify()){
 
    msj = i + clients.get(i).infoClient();
+   race = true;
 
-    }
+ }else {
+   msj = "No se contro un usario con ese id";
+ }
+
 
   }
     return msj;
@@ -152,29 +156,10 @@ public String showRoom(){
 String msj = "";
 
 for(int i = 0 ; i < miniRoom.length; i++){
- if(miniRoom[i] != null){
  msj += miniRoom[i].showRoomInfo();
 
-} else {
-  msj += "No existe el cuarto";
-  }
 }
-  return msj;
-}
-//ELIMINAR AL ANIMAL CON EL CLIENTE
-public String getOutAnimal(int numb){
-boolean recorrido = false;
-String msj = "";
-for(int i = 0; i < clients.size() && !recorrido; i++){
-  if(clients != null){
-    clients.get(i).deletedPet(numb);
-    clients.remove(numb);
-    msj = "Se elimino el cliente";
-  } else{
-    msj = "No existe el cliente";
-  }
-  }
-  return msj;
+    return msj;
 }
 
 //DAR DE ALTA AL ANIMAL
@@ -228,7 +213,7 @@ public Pet retrievePet(String nameClie, long idClie, String  namePe){
 
 	}
 
-		public void startHospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, ArrayList<Medicament> medic){
+		public void startHospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, Medicament medic){
 		boolean theStop = false;
 		int i = 0;
 
@@ -247,6 +232,33 @@ public Pet retrievePet(String nameClie, long idClie, String  namePe){
     addPetToAvailableRoom(petRelation);
 
 	}
+
+public String calculatedPay(int actualDay, int actualMonth, int actualYear){
+  String msj = "";
+ for(int i=0; i < clinicalHistorys.size(); i++){
+
+    msj += clinicalHistorys.get(i).costOfHospitalizate(actualDay, actualMonth, actualYear);
+
+ }
+ return msj;
+}
+
+public String showClinicalHistories(){
+
+String clinical = "";
+clinical += clinicalHistorys.size();
+
+//Pet k = new Pet("hugo", 12, "Perro", 12.3);
+//ClinicalHistory l = new ClinicalHistory("Hugol", "Escudo", "pulgas", "equisde", true, new HistorialDated(12,02,2000), k);
+//clinicalHistor.add(l);
+
+for(int i = 0; i < clinicalHistorys.size(); i++){
+
+  clinical += clinicalHistorys.get(i).infoAnimalHistory();
+
+  }
+  return clinical;
+}
 
 
 }

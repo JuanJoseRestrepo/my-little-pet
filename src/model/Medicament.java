@@ -58,6 +58,16 @@ msj += "La frecuencia es" + frecuency;
 return msj;
 
 }
+public double calculatedDose(){
+double doseXcost = 0.0;
+
+doseXcost += dose * totalDose;
+
+return doseXcost;
+
+
+
+}
 
 
 }

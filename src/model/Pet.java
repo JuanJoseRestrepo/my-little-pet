@@ -71,22 +71,24 @@ public class Pet{
 	//MOSTRAR LA INFORMACION DE LA MASCOTA
  public String showInfoPet(){
  String msj = "";
-
- msj += "El name es:" + namePet;
- msj += "Su edad es:" + ageOfPet;
- msj += "Mi peso es:" + weightPet;
- msj +="Mi tipo es" + typeOfPet;
-
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+ msj += "El name es:" + namePet + "\n";
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+ msj += "Su edad es:" + ageOfPet + "\n";
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+ msj += "Mi peso es:" + weightPet + "\n";
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+ msj +="Mi tipo es" + typeOfPet + "\n";
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 	return msj;
 
 }
 
 //AGREGAR NUEVAS HISTORIAS CLINICAS
 
-public void addMedRec(ClinicalHistory newMedRec, ArrayList<Medicament> medic){
+public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
 
 	newMedRec.setPetInfo(showInfoPet());
-	newMedRec.setOwnerInfo(owner.hospitalize());
 	clientWithHisto.add(newMedRec);
 
 	clientWithHisto.get(clientWithHisto.size()-1).addMedicaments(medic);

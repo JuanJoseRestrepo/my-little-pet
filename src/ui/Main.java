@@ -81,9 +81,9 @@ System.out.println("////////////////////////////////////////////////////////////
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("//////////////////////////1.MOSTRAR LA INFORMACION DEL USUARIO///////////////////////////////");
 System.out.println("//////////////////////////2.REGISTRARSE CON SU MASCOTA///////////////////////////////////////");
-System.out.println("//////////////////////////3. BORRAR CLIENTE//////////////////////////////////////////////////");
+System.out.println("//////////////////////////3.MOSTRAR INFO MEDICA//////////////////////////////////////////////");
 System.out.println("//////////////////////////4.PARA BUSCAR A SU MASCOTA EN EL HOSPITAL//////////////////////////");
-System.out.println("//////////////////////////5.Hospitalizar un animal///////////////////////////////////////////");
+System.out.println("//////////////////////////5.CREAR HISTORIAL CLINICO//////////////////////////////////////////");
 System.out.println("//////////////////////////5.PARA VER DISPONIBILIDAD//////////////////////////////////////////");
 System.out.println("//////////////////////////6.PARA DAR DE ALTA/////////////////////////////////////////////////");
 System.out.println("//////////////////////////7.MOSTRAR HISTORIAL CLINICO DEL CUARTO/////////////////////////////");
@@ -99,7 +99,7 @@ System.out.println("////////////////////////////////////////////////////////////
      System.out.println("A continuacion digite su identificacion  ");
      System.out.println("ID");
      long id = reader.nextLong();
-     System.out.println(reader.nextLine());
+     System.out.println(principal.infoPet1(id));
 
      principal.infoPet1(id);
   //REGISTRAR AL CLIENTE CON LA MASCOTA QUE EL DESEE
@@ -149,18 +149,14 @@ System.out.println("////////////////////////////////////////////////////////////
 
    Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM);
    clientsPets.add(pet3);
-
- }
-
    principal.addClient(client,clientsPets);
+   System.out.println("Se ha añadido la mascota con exito");
+ }
+   //principal.addClient(client,clientsPets);
  //TENEMOS QUE ELIMINAR
  } else if( userImput ==3){
 
-    System.out.println("¿A cual Cliente con su animalito desea borrar?");
-    int numb = reader.nextInt();
-    reader.nextLine();
-
-    principal.getOutAnimal(numb);
+   System.out.println(principal.showClinicalHistories());
 
   }else if(userImput == 4){
 
@@ -174,7 +170,20 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println(principal.hospitalize(clientId, petName));
 
   }else if(userImput ==5){
-   if(principal.avaibleRoom()){
+
+      System.out.println("Digite el dia de ingreso");
+      int dai = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el mes de ingreso");
+      int mon = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el año de ingreso ");
+      int yea = reader.nextInt();
+      reader.nextLine();
+
+      HistorialDated dateIn = new HistorialDated(dai, mon, yea);
 
       System.out.println("Digite el nombre del dueño ");
       String nameClie = reader.nextLine();
@@ -196,31 +205,14 @@ System.out.println("////////////////////////////////////////////////////////////
       boolean stat = reader.nextBoolean();
       reader.nextInt();
 
-      System.out.println("Digite el dia de ingreso");
-      int dai = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el mes de ingreso");
-      int mon = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el año de ingreso ");
-      int yea = reader.nextInt();
-      reader.nextLine();
-
-      HistorialDated dateIn = new HistorialDated(dai, mon, yea);
+      Pet pet2 = principal.retrievePet(nameClie, idClie, namePe);
 
       System.out.println("Por favor digite el numero de medicinas que quiere consumir el animalito");
       int medica = reader.nextInt();
       reader.nextLine();
 
-      Pet pet2 = principal.retrievePet(nameClie, idClie, namePe);
       ClinicalHistory newMedRec = new ClinicalHistory("", "", symp, diag, stat, dateIn, pet2);
 
-
-      ArrayList<Medicament> medic = new ArrayList<Medicament>();
-
-      for(int i = 0; i < medica; i++){
       System.out.println("Digite el nombre del medicamento");
       String medi = reader.nextLine();
 
@@ -237,20 +229,25 @@ System.out.println("////////////////////////////////////////////////////////////
       reader.nextLine();
 
       Medicament medics = new Medicament(medi, dos, totaldos, frec);
-      medic.add(medics);
-      }
 
-      principal.startHospitalizeVet(nameClie, idClie, namePe, newMedRec, medic);
+      principal.startHospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
 
 
-    } else {
-      System.out.println( "Estan llenos los cuartos");
-    }
+  }else if(userImput ==6){
+     System.out.println("Por favor digite el dia actual");
+     int actualDay = reader.nextInt();
+     reader.nextLine();
 
+     System.out.println("Por favor digite el mes actual");
+     int actualMonth = reader.nextInt();
+     reader.nextLine();
 
-
-
-   }else if(userImput ==6){
+     System.out.println("Por favor digite el año actual");
+     int actualYear = reader.nextInt();
+     reader.nextLine();
+     
+     principal.calculatedPay(actualDay, actualMonth, actualYear);
+     System.out.println(principal.calculatedPay(actualDay, actualMonth, actualYear));
 
 
   }else if(userImput ==7){
@@ -303,17 +300,13 @@ principal = new Veterinary("Mi pequenhaa mascota");
 		PetsJhonjairo.add(Lennon);
 		principal.addClient(Jhonjairo, PetsJhonjairo);
 
-
-
-		Client Valeria = new Client("Valeria", 1036078287, "Calle 5a", "256441922");
+		Client Valeria = new Client("Valeria", 100360287, "Calle 5a", "256441922");
 		Pet Oddie = new Pet("Paul",15, "Otro", 70.0);
 		Pet Bella = new Pet("Daisy",19, "Dog", 39.0);
 		ArrayList<Pet> PetsValeria = new ArrayList<Pet>();
 		PetsValeria.add(Oddie);
     PetsValeria.add(Bella);
 		principal.addClient(Valeria,PetsValeria);
-
-
 
 		Client Juanjose  = new Client("Juan Jose", 1001223483, "Tras 2a #10b", "3132934055");
 		Pet Spunky = new Pet("Spunky",2, "Cat",20.0);

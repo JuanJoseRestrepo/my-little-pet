@@ -78,10 +78,12 @@ private ArrayList<Pet> pets;
 //MOSTRAR LA INFORMACION DEL USUARIO
 public String infoClient(){
 String msj = "";
-
 msj += "Mi nombre es:" + nameClient + "\n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi identificacion es:" + identify+ "\n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi direccion es:" + address + "\n";
+msj += "----------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi numero es:" + cellPhone + "\n";
 
 int j = 0;
@@ -110,22 +112,8 @@ public Pet findPet(String petName){
 
 	return restrepo;
 }
-//ELIMINAR LA MASCOTA CON EL NUMERO QUE DIGITO EL USUARIO
-public void deletedPet(int numb){
-	boolean recorrido = false;
-	String msj = "";
-for(int o = 0; 0 < pets.size() && !recorrido; o++){
-  if( pets != null){
-		pets.remove(numb);
-		msj = "Se ha eliminado al animal correctamente";
-	} else{
-		msj = "No se pudo eliminar porque no existe la mascota";
-	}
-}
 
-}
-
-public void startHospita(String namePe, ClinicalHistory newMedRec, ArrayList<Medicament> medic){
+public void startHospita(String namePe, ClinicalHistory newMedRec, Medicament medic){
 boolean petts = false;
 
 for(int i = 0; i < pets.size() && !petts; i++)

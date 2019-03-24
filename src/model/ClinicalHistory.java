@@ -102,13 +102,12 @@ public String finalDate2(){
 }
 //MOSTRAR LA INFORMACION DE LA HISTORIA CLINICA
 public String infoAnimalHistory(){
-
- String msj = "";
-  for(int i = 0; i< medicaments.size(); i++){
+  String msj = "";
   msj += "El sintomas es:" + symptom;
   msj += "El diagnostico es:" + diagnostic;
   msj += "La fecha inicial es:" + inicialDate1();
   msj += "La fecha de Salida es:"  + finalDate2();
+    for(int i = 0; i< medicaments.size(); i++){
   msj += medicaments.get(i).showInfoMedica();
 }
   return msj;
@@ -116,8 +115,8 @@ public String infoAnimalHistory(){
 }
 
 //AGREGAR MEDICAMENTOS
-public void addMedicaments(ArrayList<Medicament> medic){
-  
+public void addMedicaments(Medicament medic){
+
   medicaments.add(medic);
 
 }
@@ -127,52 +126,55 @@ public double costOfHospitalizate(int actualDay, int actualMonth, int actualYear
 
 double total = 0.0;
 int diasPreciso = date1.getFrecuencyOfTheMedicament(actualDay, actualMonth, actualYear);
+for(int i = 0; i <  medicaments.size(); i++){
+double doseXcost = medicaments.get(i).calculatedDose();
 
 if(petsAll.getTypeOfPet().equals(Pet.CAT)){
 	if(petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 10000);
+		total += (double) (diasPreciso * 10000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso* 12000);
+		total += (double) (diasPreciso* 12000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 15000);
+		total += (double) (diasPreciso * 15000)+ doseXcost;
  }else if(petsAll.getWeightPet() > 20.0 ){
-	 total +=(double) (diasPreciso * 20000);
+	 total +=(double) (diasPreciso * 20000)+ doseXcost;
  }
 } else if(petsAll.getTypeOfPet().equals(Pet.DOG)){
 	if( petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 15000);
+		total += (double) (diasPreciso * 15000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
-		total += (double)(diasPreciso * 17000);
+		total += (double)(diasPreciso * 17000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 20000);
+		total += (double) (diasPreciso * 20000)+ doseXcost;
  }else if(petsAll.getWeightPet() > 20.0 ){
-	 total += (double) (diasPreciso * 25000);
+	 total += (double) (diasPreciso * 25000)+ doseXcost;
  }
 
 }else if(petsAll.getTypeOfPet().equals(Pet.BIRD)){
 	if( petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 10000);
+		total += (double) (diasPreciso * 10000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
-		total +=(double)  (diasPreciso * 12000);
+		total +=(double)  (diasPreciso * 12000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 20000);
+		total += (double) (diasPreciso * 20000)+ doseXcost;
  }else if(petsAll.getWeightPet() > 20.0 ){
-	 total +=(double) (diasPreciso * 25000);
+	 total +=(double) (diasPreciso * 25000)+ doseXcost;
  }
 
 }else if(petsAll.getTypeOfPet().equals(Pet.OTHER)){
 	if(  petsAll.getWeightPet() >= 1.0 && 3.0 <= petsAll.getWeightPet()){
-		total += (double)  (diasPreciso * 10000);
+		total += (double)  (diasPreciso * 10000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 3.1 && 10.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 17000);
+		total += (double) (diasPreciso * 17000)+ doseXcost;
 	}else if(petsAll.getWeightPet() >= 10.1 && 20.0 <= petsAll.getWeightPet()){
-		total += (double) (diasPreciso * 30000);
+		total += (double) (diasPreciso * 30000)+ doseXcost;
  }else if(petsAll.getWeightPet() > 20.0 ){
-	 total += (double) (diasPreciso * 30000);
+	 total += (double) (diasPreciso * 30000)+ doseXcost;
  }
 
 }
 
+}
 return total;
 
 }
