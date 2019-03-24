@@ -91,7 +91,7 @@ System.out.println("//////////////////////////8.MOSTRAR INFO////////////////////
 System.out.println("//////////////////////////9.SALIR////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
-  while(userImput != 9){
+  while(userImput != 13){
     userImput =reader.nextInt();
     reader.nextLine();
   //MIRAR QUE USUARIO TIENE ESA IDENTIFICACION
@@ -245,12 +245,20 @@ System.out.println("////////////////////////////////////////////////////////////
      System.out.println("Por favor digite el año actual");
      int actualYear = reader.nextInt();
      reader.nextLine();
-     
+
      principal.calculatedPay(actualDay, actualMonth, actualYear);
      System.out.println(principal.calculatedPay(actualDay, actualMonth, actualYear));
 
 
   }else if(userImput ==7){
+    System.out.println("Por favor digite la identificacion del usuario para dar de alto a su animal");
+    long idClientt = reader.nextLong();
+    reader.nextLine();
+
+    System.out.println("Por favor digite el nombre de la mascota para darlo de alto");
+    String nampe = reader.nextLine();
+
+    System.out.println(principal.findToHospitalize(idClientt,nampe));
 
     //SALIR DEL PROGRAMA
  }else if( userImput == 8){
@@ -258,6 +266,10 @@ System.out.println("////////////////////////////////////////////////////////////
 
      System.out.println(principal.showClients());
 
+ }else if( userImput == 9){
+
+  System.out.println(principal.showRoom());
+  
  }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
@@ -288,33 +300,57 @@ public void init(){
 
 principal = new Veterinary("Mi pequenhaa mascota");
 
-    Client Melissa = new Client("Melissa", 1006127263, "Infinite Loop", "362141833");
+    Client Melissa = new Client("Melissa", 1005976323, "Sucre", "362141833");
 		Pet Lupe = new Pet("Lupe",12, "Gato", 12.0);
 		ArrayList<Pet> PetsMelissa = new ArrayList<Pet>();
 		PetsMelissa.add(Lupe);
 		principal.addClient(Melissa,PetsMelissa);
 
-		Client Jhonjairo = new Client("Jhon Jairo", 1003364632, "Cra 29a #10b -118", "2314525927");
+		Client Jhonjairo = new Client("Jhon Jairo", 1006978545, "Cra 29a #10b -118", "2314525927");
 		Pet Lennon = new Pet("Lennon", 13, "Perro", 23.0);
 		ArrayList<Pet> PetsJhonjairo = new ArrayList<Pet>();
 		PetsJhonjairo.add(Lennon);
 		principal.addClient(Jhonjairo, PetsJhonjairo);
 
-		Client Valeria = new Client("Valeria", 100360287, "Calle 5a", "256441922");
-		Pet Oddie = new Pet("Paul",15, "Otro", 70.0);
-		Pet Bella = new Pet("Daisy",19, "Dog", 39.0);
+		Client Valeria = new Client("Valeria", 1002349856, "Calle 5a", "256441922");
+		Pet Oddie = new Pet("Oddie",15, "Otro", 70.0);
+		Pet Bella = new Pet("Bella",19, "Perro", 39.0);
 		ArrayList<Pet> PetsValeria = new ArrayList<Pet>();
 		PetsValeria.add(Oddie);
     PetsValeria.add(Bella);
 		principal.addClient(Valeria,PetsValeria);
 
-		Client Juanjose  = new Client("Juan Jose", 1001223483, "Tras 2a #10b", "3132934055");
-		Pet Spunky = new Pet("Spunky",2, "Cat",20.0);
-		Pet Restrepo = new Pet("Restrepo",4,"Bird",3.2);
+		Client Juanjose  = new Client("Juan Jose", 100987432, "Tras 2a #10b", "3132934055");
+		Pet Spunky = new Pet("Spunky",2, "Gato",20.0);
+		Pet Restrepo = new Pet("Restrepo",4,"Ave",3.2);
 		ArrayList<Pet> PetsJuanjose = new ArrayList<Pet>();
 		PetsJuanjose.add(Spunky);
     PetsJuanjose.add(Restrepo);
 		principal.addClient(Juanjose, PetsJuanjose);
+
+    Client Lina  = new Client("Lina", 100230032, "Siloe", "3132934055");
+    Pet Yoko = new Pet("Yoko",9, "Otro",29.0);
+    Pet Zeus = new Pet("Zeus",100,"Otro",113.2);
+    ArrayList<Pet> PetsLina = new ArrayList<Pet>();
+    PetsLina.add(Yoko);
+    PetsLina.add(Zeus);
+    principal.addClient(Lina, PetsLina);
+
+    Client Ayuwoki  = new Client("Ayuwoki", 100123321, "Napoles", "3132934055");
+    Pet Gucci = new Pet("Gang",9, "Otro",1220.0);
+    ArrayList<Pet> PetsAyuwoki = new ArrayList<Pet>();
+    PetsAyuwoki.add(Gucci);
+    principal.addClient(Juanjose, PetsAyuwoki);
+
+    Room miniRoom1 = new Room(false, 1, Yoko);
+		Room miniRoom2 = new Room(false, 2, Spunky);
+		Room miniRoom3 = new Room(false, 3, Bella );
+		Room miniRoom4 = new Room(false, 4, Zeus);
+		Room miniRoom5 = new Room(false, 5, Oddie);
+		Room miniRoom6 = new Room(true,6,null);
+		Room miniRoom7 = new Room(true, 7,null);
+		Room miniRoom8 = new Room(true, 8,null);
+		principal.addMiniRoom(miniRoom1, miniRoom2, miniRoom3 ,miniRoom4, miniRoom5, miniRoom6, miniRoom7, miniRoom8);
 
 }
 

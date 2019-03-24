@@ -21,14 +21,6 @@ private ArrayList<ClinicalHistory> clinicalHistorys;
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
-miniRoom[0] = new Room(true, 1, null);
-miniRoom[1] = new Room(false, 2, new Pet("Spunky", 8,"Gato", 23.1));
-miniRoom[2] = new Room(true, 3, null );
-miniRoom[3] = new Room(true, 4, null);
-miniRoom[4] = new Room(false, 5, new Pet("Oddie", 17,"Perro", 12.9));
-miniRoom[5] = new Room(true, 6, null);
-miniRoom[6] = new Room(false, 7,new Pet("Steve del Maincraft", 7,"Otro", 50.0));
-miniRoom[7] = new Room(true, 8, null);
 clients = new ArrayList<Client>();
 clinicalHistorys = new ArrayList<ClinicalHistory>();
 }
@@ -50,6 +42,17 @@ public ArrayList<Client> getClients(){
 }
 public void setClients( ArrayList<Client> clients){
   this.clients = clients;
+}
+
+public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
+  miniRoom[0] = miniRoom1;
+  miniRoom[1] = miniRoom2;
+  miniRoom[2] = miniRoom3;
+  miniRoom[3] = miniRoom4;
+  miniRoom[4] = miniRoom5;
+  miniRoom[5] = miniRoom6;
+  miniRoom[6] = miniRoom7;
+  miniRoom[7] = miniRoom8;
 }
 
 //COMPARAR QUE EL CLIENTE INGRESADO NO SEA EL MISMO
@@ -260,5 +263,23 @@ for(int i = 0; i < clinicalHistorys.size(); i++){
   return clinical;
 }
 
+public String findToHospitalize(long idClientt, String nampe){
+  String msg = "";
+  Pet p = null;
+  for(int i =0; i<clients.size() && p==null; i++){
+    if(idClientt == clients.get(i).getIdentify()){
+        p = clients.get(i).findPet(nampe);
+        if(p==null){
+          msg = "El cliente no tiene una mascota con ese nombre";
+        }
+      }
+  }
+ if(p!=null){
+  msg = darAlta(p);
+ }
 
+  return msg;
 }
+
+
+}//finalxd

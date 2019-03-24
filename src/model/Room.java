@@ -38,10 +38,10 @@ public void setPetRoom(Pet petRoom){
 //MOSTRAR LA INFORMACION DEL CUARTO
 public String showRoomInfo(){
 String msj = "";
-
-msj += "Si esta ocupado: \n 1. TRUE y si no \n 2. FALSE si esta ocupado" + avaible;
-msj += "El numero del cuarto es:" + numbOfRoom;
-
+msj += "----------------------------------------------------------------------------------- \n";
+msj += "Si esta ocupado: \n 1. TRUE y si no 2. FALSE si esta ocupado:"+ "" + avaible + "\n";
+msj += "El numero del cuarto es:" + numbOfRoom + "\n";
+msj += "----------------------------------------------------------------------------------- \n";
 return msj;
 
 }
