@@ -158,7 +158,11 @@ public String showRoom(){
 String msj = "";
 
 for(int i = 0 ; i < miniRoom.length; i++){
+if(miniRoom[i] !=null){
  msj += miniRoom[i].showInfoRoomPetHospit();
+}else {
+  msj += "No se encontro ningun cuarto";
+}
 
 }
     return msj;

@@ -45,6 +45,7 @@ msj += "El numero del cuarto es:" + numbOfRoom + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "La informacin del animalito es:" + petRoom.showInfoPet() + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "Si tiene hospitalziacion:" + petRoom.showInfoPetHospit() + "\n";
 return msj;
 
 }

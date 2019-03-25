@@ -83,19 +83,18 @@ System.out.println("//////////////////////////1.MOSTRAR LA INFORMACION DEL USUAR
 System.out.println("//////////////////////////2.REGISTRARSE CON SU MASCOTA///////////////////////////////////////");
 System.out.println("//////////////////////////3.MOSTRAR INFO MEDICA//////////////////////////////////////////////");
 System.out.println("//////////////////////////4.PARA BUSCAR A SU MASCOTA EN EL HOSPITAL//////////////////////////");
-System.out.println("//////////////////////////5.CREAR HISTORIAL CLINICO//////////////////////////////////////////");
-System.out.println("//////////////////////////6.CALCULAR LOS INGRESOS////////////////////////////////////////////");
-System.out.println("//////////////////////////7.PARA DAR DE ALTA/////////////////////////////////////////////////");
-System.out.println("//////////////////////////8.MOSTRAR INFO CLIENTES////////////////////////////////////////////");
-System.out.println("//////////////////////////9.MOSTRAR INFO MINICUARTOS/////////////////////////////////////////");
-System.out.println("//////////////////////////10.SALIR///////////////////////////////////////////////////////////");
+System.out.println("//////////////////////////5.CALCULAR LOS INGRESOS////////////////////////////////////////////");
+System.out.println("//////////////////////////6.PARA DAR DE ALTA/////////////////////////////////////////////////");
+System.out.println("//////////////////////////7.MOSTRAR INFO CLIENTES////////////////////////////////////////////");
+System.out.println("//////////////////////////8.MOSTRAR INFO MINICUARTOS/////////////////////////////////////////");
+System.out.println("//////////////////////////9.SALIR////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 
-  while(userImput != 10){
+  while(userImput != 9){
     userImput =reader.nextInt();
     reader.nextLine();
   //MIRAR QUE USUARIO TIENE ESA IDENTIFICACION
@@ -163,7 +162,7 @@ System.out.println("////////////////////////////////////////////////////////////
    System.out.println(principal.showClinicalHistories());
 
   }else if(userImput == 4){
-
+    System.out.println(principal.showClients());
     System.out.println("Ponga el id del cliente");
     long clientId = reader.nextLong();
     reader.nextLine();
@@ -171,87 +170,85 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println("Ponga el nombre de la mascota");
     String petName = reader.nextLine();
 
+    System.out.println("SOLO CREAR HISTORIAS CLINICAS DE PACIENTES HOSPITALIZADOS");
+
+    System.out.println("Digite el dia de ingreso");
+    int dai = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el mes de ingreso");
+    int mon = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el año de ingreso ");
+    int yea = reader.nextInt();
+    reader.nextLine();
+
+    HistorialDated dateIn = new HistorialDated(dai, mon, yea);
+
+    System.out.println("POR CUESTIONES DE SEGURIDAD Y DEL USUARIO DIGITE LO SIGUIENTE:");
+
+    System.out.println("Digite el dia de salida que usted cree que el animalito va a salir");
+    int dai2 = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el mes de salida que usted cree que el animalito va a salir");
+    int mon2 = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el año de salida que usted cree que el animalito va a salir");
+    int yea2 = reader.nextInt();
+    reader.nextLine();
+
+    HistorialDated dateOut = new HistorialDated(dai2, mon2, yea2);
+
+    System.out.println("Digite el nombre del dueño ");
+    String nameClie = reader.nextLine();
+
+    System.out.println("Digite el id del cliente");
+    long idClie = reader.nextLong();
+    reader.nextLine();
+
+    System.out.println("Digite el nombre completo de la mascota");
+    String namePe = reader.nextLine();
+
+    System.out.println("Digite el sintoma del animal");
+    String symp = reader.nextLine();
+
+    System.out.println("Digite el diagnostico ");
+    String diag = reader.nextLine();
+
+    System.out.println("Digite el estado");
+    boolean stat = reader.nextBoolean();
+    reader.nextLine();
+
+    System.out.println("Digite el nombre del medicamento");
+    String medi = reader.nextLine();
+
+    System.out.println("Digite la dosis");
+    double dos = reader.nextDouble();
+    reader.nextLine();
+
+    System.out.println("Digite la total de dosis");
+    double totaldos = reader.nextDouble();
+    reader.nextLine();
+
+    System.out.println("Digite la frecuencia del medicamento");
+    int frec = reader.nextInt();
+    reader.nextLine();
+
+    Pet pet2 = principal.findPett(nameClie, idClie, namePe);
+
+    ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
+
+    Medicament medics = new Medicament(medi, dos, totaldos, frec);
+
+    principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
+
+
     System.out.println(principal.hospitalize(clientId, petName));
 
   }else if(userImput ==5){
-      System.out.println("SOLO CREAR HISTORIAS CLINICAS DE PACIENTES HOSPITALIZADOS");
-
-      System.out.println("Digite el dia de ingreso");
-      int dai = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el mes de ingreso");
-      int mon = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el año de ingreso ");
-      int yea = reader.nextInt();
-      reader.nextLine();
-
-      HistorialDated dateIn = new HistorialDated(dai, mon, yea);
-
-      System.out.println("POR CUESTIONES DE SEGURIDAD Y DEL USUARIO DIGITE LO SIGUIENTE:");
-
-      System.out.println("Digite el dia de salida que usted cree que el animalito va a salir");
-      int dai2 = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el mes de salida que usted cree que el animalito va a salir");
-      int mon2 = reader.nextInt();
-      reader.nextLine();
-
-      System.out.println("Digite el año de salida que usted cree que el animalito va a salir");
-      int yea2 = reader.nextInt();
-      reader.nextLine();
-
-      HistorialDated dateOut = new HistorialDated(dai2, mon2, yea2);
-
-      System.out.println("Digite el nombre del dueño ");
-      String nameClie = reader.nextLine();
-
-      System.out.println("Digite el id del cliente");
-      long idClie = reader.nextLong();
-      reader.nextLine();
-
-      System.out.println("Digite el nombre completo de la mascota");
-      String namePe = reader.nextLine();
-
-      System.out.println("Digite el sintoma del animal");
-      String symp = reader.nextLine();
-
-      System.out.println("Digite el diagnostico ");
-      String diag = reader.nextLine();
-
-      System.out.println("Digite el estado");
-      boolean stat = reader.nextBoolean();
-      reader.nextLine();
-
-      System.out.println("Digite el nombre del medicamento");
-      String medi = reader.nextLine();
-
-      System.out.println("Digite la dosis");
-      double dos = reader.nextDouble();
-      reader.nextLine();
-
-      System.out.println("Digite la total de dosis");
-      double totaldos = reader.nextDouble();
-      reader.nextLine();
-
-      System.out.println("Digite la frecuencia del medicamento");
-      int frec = reader.nextInt();
-      reader.nextLine();
-
-      Pet pet2 = principal.findPett(nameClie, idClie, namePe);
-
-      ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
-
-      Medicament medics = new Medicament(medi, dos, totaldos, frec);
-
-      principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
-
-
-
-  }else if(userImput ==6){
      System.out.println("Digite el tipo de animal de su Mascota");
      System.out.println("Perro ");
      System.out.println("Gato ");
@@ -279,7 +276,7 @@ System.out.println("////////////////////////////////////////////////////////////
      System.out.println(principal.costOfhospis(typeAnimal,weight,actualDay, actualMonth, actualYear));
 
 
-  }else if(userImput ==7){
+  }else if(userImput ==6){
     System.out.println(principal.showClients());
 
     System.out.println("Por favor digite la identificacion del usuario para dar de alto a su animal");
@@ -366,12 +363,12 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println(principal.findToHospitalize(idClientt,nampe));
 
     //SALIR DEL PROGRAMA
- }else if( userImput == 8){
+ }else if( userImput == 7){
      System.out.println("Mostrar la informacion");
 
      System.out.println(principal.showClients());
 
- }else if( userImput == 9){
+ }else if( userImput == 8){
 
   System.out.println(principal.showRoom());
 
