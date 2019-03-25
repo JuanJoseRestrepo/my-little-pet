@@ -88,14 +88,14 @@ System.out.println("//////////////////////////6.CALCULAR LOS INGRESOS///////////
 System.out.println("//////////////////////////7.PARA DAR DE ALTA/////////////////////////////////////////////////");
 System.out.println("//////////////////////////8.MOSTRAR INFO CLIENTES////////////////////////////////////////////");
 System.out.println("//////////////////////////9.MOSTRAR INFO MINICUARTOS/////////////////////////////////////////");
-System.out.println("//////////////////////////10.MOSTRAR INFO DE LOS MINIROOM////////////////////////////////////");
-System.out.println("//////////////////////////11.////////////////////////////////////////////////////////////////");
-System.out.println("//////////////////////////12.////////////////////////////////////////////////////////////////");
-System.out.println("//////////////////////////13.SALIR///////////////////////////////////////////////////////////");
+System.out.println("//////////////////////////10.SALIR///////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
-  while(userImput != 13){
+System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
+System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
+
+  while(userImput != 10){
     userImput =reader.nextInt();
     reader.nextLine();
   //MIRAR QUE USUARIO TIENE ESA IDENTIFICACION
@@ -174,6 +174,8 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println(principal.hospitalize(clientId, petName));
 
   }else if(userImput ==5){
+      System.out.println("SOLO CREAR HISTORIAS CLINICAS DE PACIENTES HOSPITALIZADOS");
+
       System.out.println("Digite el dia de ingreso");
       int dai = reader.nextInt();
       reader.nextLine();
@@ -188,15 +190,17 @@ System.out.println("////////////////////////////////////////////////////////////
 
       HistorialDated dateIn = new HistorialDated(dai, mon, yea);
 
-      System.out.println("Digite el dia de salida");
+      System.out.println("POR CUESTIONES DE SEGURIDAD Y DEL USUARIO DIGITE LO SIGUIENTE:");
+
+      System.out.println("Digite el dia de salida que usted cree que el animalito va a salir");
       int dai2 = reader.nextInt();
       reader.nextLine();
 
-      System.out.println("Digite el mes de salida");
+      System.out.println("Digite el mes de salida que usted cree que el animalito va a salir");
       int mon2 = reader.nextInt();
       reader.nextLine();
 
-      System.out.println("Digite el año de salida ");
+      System.out.println("Digite el año de salida que usted cree que el animalito va a salir");
       int yea2 = reader.nextInt();
       reader.nextLine();
 
@@ -285,6 +289,80 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println("Por favor digite el nombre de la mascota para darlo de alto");
     String nampe = reader.nextLine();
 
+    System.out.println("UNA VEZ REALIZADA ESTA ACCION, SE SACARA AL ANIMALITO DEL CUARTO");
+
+    System.out.println("Digite el dia de ingreso");
+    int dai = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el mes de ingreso");
+    int mon = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el año de ingreso ");
+    int yea = reader.nextInt();
+    reader.nextLine();
+
+    HistorialDated dateIn = new HistorialDated(dai, mon, yea);
+
+    System.out.println("Digite el dia de salida");
+    int dai2 = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el mes de salida");
+    int mon2 = reader.nextInt();
+    reader.nextLine();
+
+    System.out.println("Digite el año de salida ");
+    int yea2 = reader.nextInt();
+    reader.nextLine();
+
+    HistorialDated dateOut = new HistorialDated(dai2, mon2, yea2);
+
+    System.out.println("Digite el nombre del dueño ");
+    String nameClie = reader.nextLine();
+
+    System.out.println("Digite el id del cliente");
+    long idClie = reader.nextLong();
+    reader.nextLine();
+
+    System.out.println("Digite el nombre completo de la mascota");
+    String namePe = reader.nextLine();
+
+    System.out.println("Digite el sintoma del animal");
+    String symp = reader.nextLine();
+
+    System.out.println("Digite el diagnostico ");
+    String diag = reader.nextLine();
+
+    System.out.println("Digite el estado");
+    boolean stat = reader.nextBoolean();
+    reader.nextLine();
+
+    System.out.println("Digite el nombre del medicamento");
+    String medi = reader.nextLine();
+
+    System.out.println("Digite la dosis");
+    double dos = reader.nextDouble();
+    reader.nextLine();
+
+    System.out.println("Digite la total de dosis");
+    double totaldos = reader.nextDouble();
+    reader.nextLine();
+
+    System.out.println("Digite la frecuencia del medicamento");
+    int frec = reader.nextInt();
+    reader.nextLine();
+
+    Pet pet2 = principal.findPett(nameClie, idClie, namePe);
+
+    ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
+
+    Medicament medics = new Medicament(medi, dos, totaldos, frec);
+
+    principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
+
+
     System.out.println(principal.findToHospitalize(idClientt,nampe));
 
     //SALIR DEL PROGRAMA
@@ -297,13 +375,7 @@ System.out.println("////////////////////////////////////////////////////////////
 
   System.out.println(principal.showRoom());
 
-}else if( userImput == 10){
-
-}else if( userImput == 11){
-
-}else if (userImput == 12){
-
-}else{
+}else {
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

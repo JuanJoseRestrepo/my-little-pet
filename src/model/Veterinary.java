@@ -158,7 +158,7 @@ public String showRoom(){
 String msj = "";
 
 for(int i = 0 ; i < miniRoom.length; i++){
- msj += miniRoom[i].showRoomInfo();
+ msj += miniRoom[i].showInfoRoomPetHospit();
 
 }
     return msj;
@@ -204,7 +204,7 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 		for(int i= 0;i < clients.size() && !theStop;i++){
 			if (!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
         relationshipOfPet = clients.get(i).findPet(namePe);
-        
+
 				theStop = true;
 			}
 		}
@@ -230,7 +230,7 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		}
 	}
-
+//Posibles fechas clinicas
 public String showClinicalHistories(){
 
 String clinical = "";
@@ -238,7 +238,7 @@ String clinical = "";
 
 for(int i = 0; i < clients.size(); i++){
 
-  clinical = clients.get(i).showInfoHospi();
+  clinical += clients.get(i).showInfoHospi();
 
   }
   return clinical;

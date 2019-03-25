@@ -78,6 +78,7 @@ private ArrayList<Pet> pets;
 //MOSTRAR LA INFORMACION DEL USUARIO
 public String infoClient(){
 String msj = "";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi nombre es:" + nameClient + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi identificacion es:" + identify+ "\n";
