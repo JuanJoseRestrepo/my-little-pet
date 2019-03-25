@@ -24,7 +24,7 @@ private Pet petsAll;
 
 //Constructores
 
-public ClinicalHistory(String petInfo, String ownerInfo,String symptom, String diagnostic, boolean state, HistorialDated date1,Pet petsAll){
+public ClinicalHistory(String petInfo, String ownerInfo,String symptom, String diagnostic, boolean state, HistorialDated date1, HistorialDated date2,Pet petsAll){
 
 this.symptom = symptom;
 this.diagnostic = diagnostic;
@@ -134,7 +134,7 @@ public double medicamentCosts(){
   double doseXcost = 0.0;
 
 for(int i = 0; i < medicaments.size(); i++){
-doseXcost = medicaments.get(i).calculatedDose();
+doseXcost += medicaments.get(i).calculatedDose();
 
 }
  return doseXcost;

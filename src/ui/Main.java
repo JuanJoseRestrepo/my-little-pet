@@ -86,8 +86,8 @@ System.out.println("//////////////////////////4.PARA BUSCAR A SU MASCOTA EN EL H
 System.out.println("//////////////////////////5.CREAR HISTORIAL CLINICO//////////////////////////////////////////");
 System.out.println("//////////////////////////6.CALCULAR LOS INGRESOS////////////////////////////////////////////");
 System.out.println("//////////////////////////7.PARA DAR DE ALTA/////////////////////////////////////////////////");
-System.out.println("//////////////////////////8.MOSTRAR HISTORIAL CLINICO DEL CUARTO/////////////////////////////");
-System.out.println("//////////////////////////9.MOSTRAR INFO/////////////////////////////////////////////////////");
+System.out.println("//////////////////////////8.MOSTRAR INFO CLIENTES////////////////////////////////////////////");
+System.out.println("//////////////////////////9.MOSTRAR INFO MINICUARTOS/////////////////////////////////////////");
 System.out.println("//////////////////////////10.MOSTRAR INFO DE LOS MINIROOM////////////////////////////////////");
 System.out.println("//////////////////////////11.////////////////////////////////////////////////////////////////");
 System.out.println("//////////////////////////12.////////////////////////////////////////////////////////////////");
@@ -174,7 +174,6 @@ System.out.println("////////////////////////////////////////////////////////////
     System.out.println(principal.hospitalize(clientId, petName));
 
   }else if(userImput ==5){
-     if(principal.avaibleRoom()){
       System.out.println("Digite el dia de ingreso");
       int dai = reader.nextInt();
       reader.nextLine();
@@ -188,6 +187,20 @@ System.out.println("////////////////////////////////////////////////////////////
       reader.nextLine();
 
       HistorialDated dateIn = new HistorialDated(dai, mon, yea);
+
+      System.out.println("Digite el dia de salida");
+      int dai2 = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el mes de salida");
+      int mon2 = reader.nextInt();
+      reader.nextLine();
+
+      System.out.println("Digite el año de salida ");
+      int yea2 = reader.nextInt();
+      reader.nextLine();
+
+      HistorialDated dateOut = new HistorialDated(dai2, mon2, yea2);
 
       System.out.println("Digite el nombre del dueño ");
       String nameClie = reader.nextLine();
@@ -226,12 +239,12 @@ System.out.println("////////////////////////////////////////////////////////////
 
       Pet pet2 = principal.findPett(nameClie, idClie, namePe);
 
-      ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn, pet2);
+      ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
 
       Medicament medics = new Medicament(medi, dos, totaldos, frec);
 
       principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
-    }
+
 
 
   }else if(userImput ==6){
@@ -367,16 +380,11 @@ public void init(){
 		Room miniRoom3 = new Room(false, 3, Bella );
 		Room miniRoom4 = new Room(false, 4, Zeus);
 		Room miniRoom5 = new Room(false, 5, Oddie);
-		Room miniRoom6 = new Room(true,6,null);
-		Room miniRoom7 = new Room(true, 7,null);
-		Room miniRoom8 = new Room(true, 8,null);
+		Room miniRoom6 = new Room(false,6,Lennon);
+		Room miniRoom7 = new Room(false, 7,Gucci);
+		Room miniRoom8 = new Room(false, 8,Restrepo);
 		principal.addMiniRoom(miniRoom1, miniRoom2, miniRoom3 ,miniRoom4, miniRoom5, miniRoom6, miniRoom7, miniRoom8);
 
 }
 
-
-
-
-
-
-}
+}//final

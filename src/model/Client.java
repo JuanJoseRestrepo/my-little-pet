@@ -117,7 +117,7 @@ public void startHospita(String namePe, ClinicalHistory newMedRec, Medicament me
 boolean petts = false;
 
 for(int i = 0; i < pets.size() && !petts; i++)
-if(!pets.get(i).getNamePet().equals(namePe)){
+if(pets.get(i).getNamePet().equals(namePe)){
   petts = true;
 
 	pets.get(i).addMedRec(newMedRec,medic);

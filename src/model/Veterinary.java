@@ -133,25 +133,25 @@ public String hospitalize(long clientId, String petName){
 
   return msg;
 }
-//MOSTRAR LA INFORMACION DE LA MASCOTA
-public String infoPet1(long id){
-String msj = "";
-boolean  race = false;
+  //MOSTRAR LA INFORMACION DE LA MASCOTA
+  public String infoPet1(long id){
+  String msj = "";
+  boolean  race = false;
 
- for(int i = 0 ; i<clients.size() && !race; i++){
-  if(id == clients.get(i).getIdentify()){
+   for(int i = 0 ; i<clients.size() && !race; i++){
+    if(id == clients.get(i).getIdentify()){
 
-   msj = i + clients.get(i).infoClient();
-   race = true;
+     msj = i + clients.get(i).infoClient();
+     race = true;
 
- }else {
-   msj = "No se contro un usario con ese id";
- }
+   }else {
+     msj = "No se contro un usario con ese id";
+   }
 
 
+    }
+      return msj;
   }
-    return msj;
-}
 
 //MOSTRAR LA INFORMACION DEL CUARTO
 public String showRoom(){
@@ -203,8 +203,8 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		for(int i= 0;i < clients.size() && !theStop;i++){
 			if (!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
-      relationshipOfPet = clients.get(i).findPet(namePe);
-
+        relationshipOfPet = clients.get(i).findPet(namePe);
+        
 				theStop = true;
 			}
 		}
@@ -217,14 +217,14 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 		boolean theStop = false;
 
 		for(int i = 0;i < clients.size() && !theStop;i++){
-			if(!clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
+			if(clients.get(i).getNameClient().equals(nameClie) && clients.get(i).getIdentify() == idClie){
 
 				theStop = true;
 				clients.get(i).startHospita(namePe, newMedRec, medic);
 
 
-			} else {
-         Pet petRelation = clients.get(i).findPet(namePe);
+			}else{
+        Pet petRelation = clients.get(i).findPet(namePe);
 
       }
 
@@ -238,7 +238,7 @@ String clinical = "";
 
 for(int i = 0; i < clients.size(); i++){
 
-  clinical += clients.get(i).showInfoHospi();
+  clinical = clients.get(i).showInfoHospi();
 
   }
   return clinical;
