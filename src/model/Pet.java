@@ -65,6 +65,9 @@ public class Pet{
 	public ArrayList<ClinicalHistory> getClientWithHisto(){
  	 return clientWithHisto;
   }
+	public void setClientWithHisto(ArrayList<ClinicalHistory> clientWithHisto){
+	 this.clientWithHisto = clientWithHisto;
+	}
   public void setPets(ArrayList<ClinicalHistory> clientWithHisto){
  	 this.clientWithHisto = clientWithHisto;
   }

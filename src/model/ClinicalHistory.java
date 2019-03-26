@@ -56,8 +56,14 @@ public void setSymptom(String symptom){
 public String getDiagnostic(){
   return diagnostic;
 }
-public void setDiagnostic(){
+public void setDiagnostic(String diagnostic){
   this.diagnostic = diagnostic;
+}
+public boolean getState(){
+  return state;
+}
+public void setState(boolean state){
+  this.state = state;
 }
 public HistorialDated getDate1(){
   return date1;
