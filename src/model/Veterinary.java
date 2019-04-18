@@ -74,6 +74,14 @@ if(acum == clients.size()){
 return msj;
 }
 
+/**
+*Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
+*pre: The client was created before.
+*post: The address and /or phone number of the client is updated.
+*@ param The new address of the client. This param could be empty.
+*@ param The new phone number of the client. This param could be empty.
+*/
+
 public String actualizePhoneAndAddressOfCLient(long idClientToVeterinary , String addresClientToVeterinary , String phoneClientToVeterinary){
 
 String msj = "";
@@ -340,13 +348,21 @@ if(clientIdentify == cl1.getIdentify()){
 perro = true;
 cl1.addNotesToPet(nameClientPet,namePeToClient, notes);
 
-}
+  }
+  }
 
 }
 
 
+public void addNewSymptom(long clientToPet, String petNameToPet, String clientNameToPet,String symptomPet){
 
-
+boolean stop = false;
+for(int i = 0; i < clients.size() && !stop ; i++){
+  if(clientToPet == clients.get(i).getIdentify()){
+    stop = true;
+    clients.get(i).addNewSymptomPet(petNameToPet, clientNameToPet,symptomPet);
+  }
+}
 }
 
 

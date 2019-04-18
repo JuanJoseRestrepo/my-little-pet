@@ -109,6 +109,11 @@ public String finalDate2(){
 //MOSTRAR LA INFORMACION DE LA HISTORIA CLINICA
 public String infoAnimalHistory(){
   String msj = "";
+
+  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+  msj += "El nombre del dueño es:" + ownerInfo;
+  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+  msj += "El nombre del pet es:" + petInfo;
   msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
   msj += "El sintomas es:" + symptom;
   msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
@@ -127,6 +132,11 @@ public String infoAnimalHistory(){
 
 public String infoAnimalHistoryHospi(){
   String msj = "";
+
+  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+  msj += "El nombre del dueño es:" + ownerInfo;
+  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+  msj += "El nombre del pet es:" + petInfo;
   msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
   msj += "El sintomas es:" + symptom;
   msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
@@ -170,9 +180,22 @@ doseXcost += medicaments.get(i).calculatedDose();
 }
 
 
+/**
+*Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: New notes were added to the possible diagnostic in the patient clinic story.
+*@ param The notes of possible diagnostic. This param must be not null.
+*/
+
 public void addNotes(String notes){
 
-setDiagnostic(notes);
+setDiagnostic(notes + getDiagnostic());
+
+}
+
+public void addNewSymptomFinally(String symptomPet){
+
+setSymptom(symptomPet + getSymptom());
 
 }
 

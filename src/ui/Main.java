@@ -87,14 +87,18 @@ System.out.println("//////////////////////////5.CALCULAR LOS INGRESOS///////////
 System.out.println("//////////////////////////6.PARA DAR DE ALTA/////////////////////////////////////////////////");
 System.out.println("//////////////////////////7.MOSTRAR INFO CLIENTES////////////////////////////////////////////");
 System.out.println("//////////////////////////8.MOSTRAR INFO MINICUARTOS/////////////////////////////////////////");
-System.out.println("//////////////////////////9.SALIR////////////////////////////////////////////////////////////");
+System.out.println("//////////////////////////9.ACTUALIZAR DIRECCION Y NUMERO////////////////////////////////////");
+System.out.println("//////////////////////////10.AGREGAR MEDICINA////////////////////////////////////////////////");
+System.out.println("//////////////////////////11.AGREGAR NOTAS///////////////////////////////////////////////////");
+System.out.println("//////////////////////////12.AGREGAR SINTOMAS////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
+System.out.println("///////////////////////////19.SALIR//////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////");
 
-  while(userImput != 13){
+  while(userImput != 19){
     userImput =reader.nextInt();
     reader.nextLine();
   //MIRAR QUE USUARIO TIENE ESA IDENTIFICACION
@@ -244,7 +248,13 @@ System.out.println("////////////////////////////////////////////////////////////
 
     Pet pet2 = principal.findPett(nameClie, idClie, namePe);
 
-    ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
+    System.out.println("Digite otra vez el nombre del dueño ");
+    String nameClie1 = reader.nextLine();
+
+    System.out.println("Digite el nombre del Animalito ");
+    String namePe1 = reader.nextLine();
+
+    ClinicalHistory newMedRec = new ClinicalHistory( nameClie1, namePe1 , symp, diag, stat, dateIn,dateOut, pet2);
 
     Medicament medics = new Medicament(medi, dos, totaldos, frec);
 
@@ -437,6 +447,23 @@ System.out.println(principal.addMediceToHospitalization(clientForVeterinary,name
   String notes = reader.nextLine();
 
   principal.addNotesToHospitalization(clientIdentify,nameClientPet,namePeToClient,notes);
+
+}else if(userImput == 12){
+
+System.out.println("Digite el id del usuario");
+long clientToPet = reader.nextLong();
+reader.nextLine();
+
+System.out.println("Digite el nombre del animal");
+String petNameToPet = reader.nextLine();
+
+System.out.println("Digite el nombre del usuario");
+String clientNameToPet = reader.nextLine();
+
+System.out.println("Ahora por favor digite el nuevo sintoma del animalito");
+String symptomPet = reader.nextLine();
+
+principal.addNewSymptom(clientToPet,petNameToPet,clientNameToPet,symptomPet);
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

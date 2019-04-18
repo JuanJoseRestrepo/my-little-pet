@@ -78,11 +78,11 @@ private ArrayList<Pet> pets;
 //MOSTRAR LA INFORMACION DEL USUARIO
 public String infoClient(){
 String msj = "";
-msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "----------------------------------------------------------------------------------------------------------------------------  \n";
 msj += "Mi nombre es:" + nameClient + "\n";
-msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "----------------------------------------------------------------------------------------------------------------------------  \n";
 msj += "Mi identificacion es:" + identify+ "\n";
-msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "----------------------------------------------------------------------------------------------------------------------------  \n";
 msj += "Mi direccion es:" + address + "\n";
 msj += "----------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi numero es:" + cellPhone + "\n";
@@ -169,7 +169,21 @@ if(nameClientPet.equals(pet1.getNamePet())){
 t = true;
 pet1.addNotesToHospitalizationFatality(namePeToClient,notes);
 
+	}
+	}
 }
+
+
+
+public void addNewSymptomPet(String petNameToPet, String clientNameToPet,String symptomPet){
+
+boolean theStop = false;
+
+for(int i = 0; i < pets.size() && !theStop ; i++){
+	if(petNameToPet.equals(pets.get(i).getNamePet())){
+		theStop = true;
+		pets.get(i).addNewSymptomHistory(clientNameToPet,symptomPet);
+	}
 
 
 

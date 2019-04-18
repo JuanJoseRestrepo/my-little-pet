@@ -19,6 +19,7 @@ public class Pet{
 
   //Relaciones
 	private ArrayList<ClinicalHistory> clientWithHisto;
+	private ArrayList<typeOfService> typeOfServiceVeterinary;
 
 
 
@@ -30,7 +31,7 @@ public class Pet{
 		this.weightPet = weightPet;
 		this.heightPet = heightPet;
 		clientWithHisto = new ArrayList<ClinicalHistory>();
-
+		typeOfServiceVeterinary = new ArrayList<typeOfService>();
 	}
 
 	public String getNamePet(){
@@ -245,7 +246,7 @@ msj +="Mi tipo es:" + typeOfPet + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Mi IMB es:" + calculateIBMOfAnimal() +"\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
-msj += "El animal es:" + clientWithHisto.get(k).infoAnimalHistoryHospi();
+msj += "El animal es:" + clientWithHisto.get(k).infoAnimalHistoryHospi() +"\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 
@@ -266,6 +267,18 @@ if(namePeToClient.equals(clientWithHisto.get(i).getOwnerInfo())){
 
 }
 
+}
+
+public void addNewSymptomHistory(String clientNameToPet, String symptomPet){
+
+boolean theStop = false;
+
+for(int i = 0; i < clientWithHisto.size() && !theStop ; i++){
+	if(clientNameToPet.equals(clientWithHisto.get(i).getOwnerInfo())){
+		theStop = true;
+		clientWithHisto.get(i).addNewSymptomFinally(symptomPet);
+	}
+	}
 }
 
 
