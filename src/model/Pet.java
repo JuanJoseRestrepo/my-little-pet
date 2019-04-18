@@ -15,6 +15,7 @@ public class Pet{
 	private int ageOfPet;
 	private String typeOfPet;
 	private double weightPet;
+	private double heightPet;
 
   //Relaciones
 	private ArrayList<ClinicalHistory> clientWithHisto;
@@ -22,11 +23,12 @@ public class Pet{
 
 
 	//Constructores
-	public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet){
+	public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,double heightPet){
 		this.namePet = namePet;
 		this.ageOfPet = ageOfPet;
 		this.typeOfPet = typeOfPet;
 		this.weightPet = weightPet;
+		this.heightPet = heightPet;
 		clientWithHisto = new ArrayList<ClinicalHistory>();
 
 	}
@@ -83,9 +85,26 @@ public class Pet{
  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
  msj +="Mi tipo es:" + typeOfPet + "\n";
  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+ msj += "Mi IMB es:" + calculateIBMOfAnimal() +"\n";
+ msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 	return msj;
 
 }
+
+/**
+*Description This method allows to calculate the body mass index for a pet.
+*pre: The pet was created before and its attributes height and weight are not null neither height must be zero.
+*post: The BMI is calculated.
+*@ return The pet body mass index.
+*@ throws  I the height is zero, so an exception is thrown due to the division on zero does not exist.
+*/
+
+public double calculateIBMOfAnimal(){
+
+return weightPet/(heightPet * heightPet);
+
+}
+
 //AGREGAR NUEVAS HISTORIAS CLINICAS
 
 public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
@@ -95,6 +114,35 @@ public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
 
 	clientWithHisto.get((clientWithHisto.size()-1)).addMedicaments(medic);
 
+}
+
+/**
+*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: New medicines were added to the patient clinic story.
+*@ param The medicine name. This param must be not null.
+*@ param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+*@ param The medicine cost by each dose. This param could be empty.
+*@ param The frequency of medicine application. This param could be empty.
+*@ return A message that indiques if medicine was added to the patient clinic story
+*/
+public String addMedicamentToPets(String nameCLientPetToHisto,String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
+
+String msj = "";
+
+
+for(int i = 0; i < clientWithHisto.size(); i++){
+	ClinicalHistory clinical = clientWithHisto.get(i);
+	if(nameCLientPetToHisto.equals(clinical.getPetInfo())){
+
+		Medicament medic = new Medicament(medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
+
+		clinical.addMedicaments(medic);
+
+		msj = "Se agrego exitosamente";
+	}
+}
+return msj;
 }
 
 public double costOfHospitalizate(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
@@ -169,8 +217,12 @@ msj += "Mi peso es:" + weightPet + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj +="Mi tipo es" + typeOfPet + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "Mi IMB es:" + calculateIBMOfAnimal() +"\n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "Histo" + k + "";
 msj += clientWithHisto.get(i).infoAnimalHistory();
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 }
  return msj;
 
@@ -191,10 +243,29 @@ msj += "Mi peso es:" + weightPet + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj +="Mi tipo es:" + typeOfPet + "\n";
 msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "Mi IMB es:" + calculateIBMOfAnimal() +"\n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 msj += "El animal es:" + clientWithHisto.get(k).infoAnimalHistoryHospi();
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
 
 	}
 	 return msj;
+}
+
+
+public void addNotesToHospitalizationFatality(String namePeToClient,String notes){
+
+	boolean t = false;
+
+for(int i = 0; i < clientWithHisto.size() && !t ;i++){
+if(namePeToClient.equals(clientWithHisto.get(i).getOwnerInfo())){
+	t = true;
+	clientWithHisto.get(i).addNotes(notes);
+}
+
+}
+
 }
 
 

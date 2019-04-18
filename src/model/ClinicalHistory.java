@@ -1,4 +1,4 @@
-package model;
+  package model;
 import java.util.ArrayList;
 
 public class ClinicalHistory{
@@ -167,6 +167,13 @@ doseXcost += medicaments.get(i).calculatedDose();
 
 }
  return doseXcost;
+}
+
+
+public void addNotes(String notes){
+
+setDiagnostic(notes);
+
 }
 
 

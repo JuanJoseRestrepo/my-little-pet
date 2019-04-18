@@ -74,6 +74,28 @@ if(acum == clients.size()){
 return msj;
 }
 
+public String actualizePhoneAndAddressOfCLient(long idClientToVeterinary , String addresClientToVeterinary , String phoneClientToVeterinary){
+
+String msj = "";
+boolean f = false;
+
+for(int o = 0; o < clients.size() && !f; o++){
+  Client k = clients.get(o);
+if(idClientToVeterinary == k.getIdentify()){
+
+  k.setAddress(addresClientToVeterinary);
+  k.setCellPhone(phoneClientToVeterinary);
+  f = true;
+  msj = "Se actualizo su identidad del cliente";
+  }else{
+  msj = "No se pudo actualizar porque no existe o no se encontro";
+      }
+    }
+
+return msj;
+}
+
+
 //AGREGAR NUEVOS USUARIOS DENTRO DE LA VETERINARIA
 public void addClient(Client client, ArrayList<Pet> clientsPets){
 
@@ -278,5 +300,62 @@ msj = miniRoom[i].costOfhospi(typeAnimal, weight, actualDay, actualMonth, actual
 return msj;
 
 }
+
+/**
+*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: New medicines were added to the patient clinic story.
+*@ param The medicine name. This param must be not null.
+*@ param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+*@ param The medicine cost by each dose. This param could be empty.
+*@ param The frequency of medicine application. This param could be empty.
+*@ return A message that indiques if medicine was added to the patient clinic story
+*/
+
+public String addMediceToHospitalization(long clientForVeterinary, String namePetLupe,String nameCLientPetToHisto,String medicamentForVeterinary, double doseForVeterinary, double  costForVeterinary, int frecForVeterinary){
+String msj = "";
+boolean f = false;
+for(int i = 0; i < clients.size() && !f; i++){
+  Client client1 = clients.get(i);
+  if(clientForVeterinary == client1.getIdentify()){
+    msj = "Se agrego exitosamente" + client1.addMedicamentsToPets(namePetLupe,nameCLientPetToHisto,medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
+    f = true;
+  }else{
+    msj = "No se ha podido agregar";
+  }
+}
+return msj;
+}
+
+
+
+public void addNotesToHospitalization(long clientIdentify, String nameClientPet, String namePeToClient, String notes){
+
+boolean perro = false;
+
+for(int i = 0; i < clients.size() && perro == false; i++){
+Client cl1 = clients.get(i);
+if(clientIdentify == cl1.getIdentify()){
+
+perro = true;
+cl1.addNotesToPet(nameClientPet,namePeToClient, notes);
+
+}
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 }//finalxd

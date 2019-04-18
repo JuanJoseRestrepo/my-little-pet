@@ -52,7 +52,7 @@ String msj = "";
 
 msj += "El medicamento es:" + nameOfMedicament;
 msj += "La dosis es:" + dose;
-msj += "Total de dosis" + totalDose;
+msj += "Total de dosis" + calculatedDose();
 msj += "La frecuencia es" + frecuency;
 
 return msj;
