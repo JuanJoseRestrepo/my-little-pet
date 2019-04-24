@@ -141,59 +141,7 @@ return msj;
 
 }
 
-public String addMedicamentsToPets(String namePetLupe, String nameCLientPetToHisto,String medicamentForVeterinary,double doseForVeterinary,double costForVeterinary,int frecForVeterinary){
 
-String msj = "";
-boolean t = false;
-
-for(int i = 0; i < pets.size() && !t ; i++){
-	Pet m = pets.get(i);
-	if(namePetLupe.equals(m.getNamePet())){
-		 msj = "" + m.addMedicamentToPets(nameCLientPetToHisto,medicamentForVeterinary, doseForVeterinary, costForVeterinary, frecForVeterinary);
-		 t = true;
-	}
-}
-
-return msj;
-}
-
-
-public void addNotesToPet(String nameClientPet,String namePeToClient, String notes){
-
-boolean t = false;
-
-for(int o = 0; o < pets.size() && !t; o++){
-Pet pet1 = pets.get(o);
-if(nameClientPet.equals(pet1.getNamePet())){
-
-t = true;
-pet1.addNotesToHospitalizationFatality(namePeToClient,notes);
-
-	}
-	}
-}
-
-
-
-public void addNewSymptomPet(String petNameToPet, String clientNameToPet,String symptomPet){
-
-boolean theStop = false;
-
-for(int i = 0; i < pets.size() && !theStop ; i++){
-	if(petNameToPet.equals(pets.get(i).getNamePet())){
-		theStop = true;
-		pets.get(i).addNewSymptomHistory(clientNameToPet,symptomPet);
-	}
-
-
-
-}
-
-
-
-
-
-}
 
 
 

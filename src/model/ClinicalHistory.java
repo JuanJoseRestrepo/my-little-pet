@@ -1,4 +1,4 @@
-  package model;
+package model;
 import java.util.ArrayList;
 
 public class ClinicalHistory{
@@ -184,7 +184,7 @@ doseXcost += medicaments.get(i).calculatedDose();
 *Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: New notes were added to the possible diagnostic in the patient clinic story.
-*@ param The notes of possible diagnostic. This param must be not null.
+*@Param The notes of possible diagnostic. This param must be not null.
 */
 
 public void addNotes(String notes){

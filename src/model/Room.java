@@ -58,4 +58,27 @@ total += petRoom.costOfHospitalizate(typeAnimal, weight, actualDay, actualMonth,
 return total;
 }
 
+
+public String addMedicamentsToPet(String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
+
+String msj = "Se agrego";
+
+msj += petRoom.addPetToHistoryCLinical(medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
+
+return msj;
+
+
+}
+
+public void addNotesToPet(String notes){
+
+  petRoom.addNotesToHospitalizationFatality(notes);
+}
+
+public void addNotesToSympTom(String symptomPet){
+
+  petRoom.addNewSymptomHistory(symptomPet);
+
+}
+
 }//final

@@ -159,7 +159,7 @@ System.out.println("////////////////////////////////////////////////////////////
    double heightOfP = reader.nextDouble();
    reader.nextLine();
 
-   Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM,heightOfP);
+   Pet pet3 = new Pet(nameP, ageOfM, typeOfM, weightOfM,heightOfP,client);
    clientsPets.add(pet3);
    principal.addClient(client,clientsPets);
    System.out.println("Se ha añadido la mascota con exito");
@@ -410,9 +410,6 @@ reader.nextLine();
 System.out.println("Digite el nombre de la mascota del dueño");
 String namePetLupe = reader.nextLine();
 
-System.out.println("Por favor digite nuevamente el nombre del animal del dueño");
-String nameCLientPetToHisto = reader.nextLine();
-
 System.out.println("Digite el nombre del medicamento");
 String medicamentForVeterinary = reader.nextLine();
 
@@ -428,7 +425,7 @@ System.out.println("Digite la frecuencia del medicamento");
 int frecForVeterinary = reader.nextInt();
 reader.nextLine();
 
-System.out.println(principal.addMediceToHospitalization(clientForVeterinary,namePetLupe,nameCLientPetToHisto,medicamentForVeterinary, doseForVeterinary, costForVeterinary, frecForVeterinary));
+System.out.println(principal.addMediceToHospitalization(clientForVeterinary,namePetLupe,medicamentForVeterinary, doseForVeterinary, costForVeterinary, frecForVeterinary));
 
 
 }else if(userImput == 11){
@@ -440,13 +437,11 @@ System.out.println(principal.addMediceToHospitalization(clientForVeterinary,name
   System.out.println("Por favor digite el nombre del animal del dueño");
   String nameClientPet = reader.nextLine();
 
-  System.out.println("Por favor digite el nombre del dueño del animalito");
-  String namePeToClient = reader.nextLine();
 
   System.out.println("Digite las notas que desea agregar al diagnostico del paciente");
   String notes = reader.nextLine();
 
-  principal.addNotesToHospitalization(clientIdentify,nameClientPet,namePeToClient,notes);
+  principal.addNotesToHospitalization(clientIdentify,nameClientPet,notes);
 
 }else if(userImput == 12){
 
@@ -457,13 +452,11 @@ reader.nextLine();
 System.out.println("Digite el nombre del animal");
 String petNameToPet = reader.nextLine();
 
-System.out.println("Digite el nombre del usuario");
-String clientNameToPet = reader.nextLine();
-
 System.out.println("Ahora por favor digite el nuevo sintoma del animalito");
 String symptomPet = reader.nextLine();
 
-principal.addNewSymptom(clientToPet,petNameToPet,clientNameToPet,symptomPet);
+principal.addNewSymptom(clientToPet,petNameToPet,symptomPet);
+
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
@@ -496,46 +489,47 @@ public void init(){
  principal = new Veterinary("Mi pequenhaa mascota");
 
     Client Melissa = new Client("Melissa", 1005976323, "Sucre", "362141833");
-		Pet Lupe = new Pet("Lupe",12, "Gato", 12.0,130.0);
+		Pet Lupe = new Pet("Lupe",12, "Gato", 12.0,130.0,Melissa);
 		ArrayList<Pet> PetsMelissa = new ArrayList<Pet>();
 		PetsMelissa.add(Lupe);
 		principal.addClient(Melissa,PetsMelissa);
 
 		Client Jhonjairo = new Client("Jhon Jairo", 1006978545, "Cra 29a #10b -118", "2314525927");
-		Pet Lennon = new Pet("Lennon", 13, "Perro", 23.0,130.0);
+		Pet Lennon = new Pet("Lennon", 13, "Perro", 23.0,130.0,Jhonjairo);
 		ArrayList<Pet> PetsJhonjairo = new ArrayList<Pet>();
 		PetsJhonjairo.add(Lennon);
 		principal.addClient(Jhonjairo, PetsJhonjairo);
 
 		Client Valeria = new Client("Valeria", 1002349856, "Calle 5a", "256441922");
-		Pet Oddie = new Pet("Oddie",15, "Otro", 70.0,29.6);
-		Pet Bella = new Pet("Bella",19, "Perro", 39.0,87.0);
+		Pet Oddie = new Pet("Oddie",15, "Otro", 70.0,29.6,Valeria);
+		Pet Bella = new Pet("Bella",19, "Perro", 39.0,87.0,Valeria);
 		ArrayList<Pet> PetsValeria = new ArrayList<Pet>();
 		PetsValeria.add(Oddie);
     PetsValeria.add(Bella);
 		principal.addClient(Valeria,PetsValeria);
 
 		Client Juanjose  = new Client("Juan Jose", 100987432, "Tras 2a #10b", "3132934055");
-		Pet Spunky = new Pet("Spunky",2, "Gato",20.0,230.0);
-		Pet Restrepo = new Pet("Restrepo",4,"Ave",3.2,134.8);
+		Pet Spunky = new Pet("Spunky",2, "Gato",20.0,230.0,Juanjose);
+		Pet Restrepo = new Pet("Restrepo",4,"Ave",3.2,134.8,Juanjose);
 		ArrayList<Pet> PetsJuanjose = new ArrayList<Pet>();
 		PetsJuanjose.add(Spunky);
     PetsJuanjose.add(Restrepo);
 		principal.addClient(Juanjose, PetsJuanjose);
 
     Client Lina  = new Client("Lina", 100230032, "Siloe", "3132934055");
-    Pet Yoko = new Pet("Yoko",9, "Otro",29.0,140.0);
-    Pet Zeus = new Pet("Zeus",100,"Otro",113.2,150.0);
+    Pet Yoko = new Pet("Yoko",9, "Otro",29.0,140.0,Lina);
+    Pet Zeus = new Pet("Zeus",100,"Otro",113.2,150.0,Lina);
     ArrayList<Pet> PetsLina = new ArrayList<Pet>();
     PetsLina.add(Yoko);
     PetsLina.add(Zeus);
     principal.addClient(Lina, PetsLina);
 
     Client Ayuwoki  = new Client("Ayuwoki", 100123321, "Napoles", "3132934055");
-    Pet Gucci = new Pet("Gang",9, "Otro",1220.0,156.0);
+    Pet Gucci = new Pet("Gang",9, "Otro",1220.0,156.0,Ayuwoki);
     ArrayList<Pet> PetsAyuwoki = new ArrayList<Pet>();
     PetsAyuwoki.add(Gucci);
-    principal.addClient(Juanjose, PetsAyuwoki);
+    principal.addClient(Ayuwoki, PetsAyuwoki);
+
 
     Room miniRoom1 = new Room(false, 1, Yoko);
 		Room miniRoom2 = new Room(false, 2, Spunky);

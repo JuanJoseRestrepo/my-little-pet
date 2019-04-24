@@ -16,11 +16,13 @@ private String name;
 //Relaciones
 private Room[] miniRoom;
 private ArrayList<Client> clients;
+private ArrayList<typeOfService> typeOfServiceVeterinary;
 
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
 clients = new ArrayList<Client>();
+typeOfServiceVeterinary = new ArrayList<typeOfService>();
 
 }
 
@@ -41,6 +43,20 @@ public ArrayList<Client> getClients(){
 }
 public void setClients( ArrayList<Client> clients){
   this.clients = clients;
+}
+
+public ArrayList<typeOfService> gettypeOfServiceVeterinary(){
+		return typeOfServiceVeterinary;
+	}
+
+public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVeterinary){
+		this.typeOfServiceVeterinary = typeOfServiceVeterinary;
+	}
+
+public void addServiceWithPet(typeOfService m , Pet p){
+
+typeOfServiceVeterinary.add(m);
+typeOfServiceVeterinary.get((typeOfServiceVeterinary.size() -1)).addPetNew(p);
 }
 
 public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
@@ -78,13 +94,13 @@ return msj;
 *Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
 *pre: The client was created before.
 *post: The address and /or phone number of the client is updated.
-*@ param The new address of the client. This param could be empty.
-*@ param The new phone number of the client. This param could be empty.
+*@Param The new address of the client. This param could be empty.
+*@Param The new phone number of the client. This param could be empty.
 */
 
 public String actualizePhoneAndAddressOfCLient(long idClientToVeterinary , String addresClientToVeterinary , String phoneClientToVeterinary){
 
-String msj = "";
+   String msj = "No se pudo actualizar porque no existe o no se encontro";
 boolean f = false;
 
 for(int o = 0; o < clients.size() && !f; o++){
@@ -94,10 +110,12 @@ if(idClientToVeterinary == k.getIdentify()){
   k.setAddress(addresClientToVeterinary);
   k.setCellPhone(phoneClientToVeterinary);
   f = true;
-  msj = "Se actualizo su identidad del cliente";
-  }else{
-  msj = "No se pudo actualizar porque no existe o no se encontro";
-      }
+
+  }
+}
+
+    if(f){
+      msj = "Se actualizo su identidad del cliente";
     }
 
 return msj;
@@ -313,62 +331,147 @@ return msj;
 *Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: New medicines were added to the patient clinic story.
-*@ param The medicine name. This param must be not null.
-*@ param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
-*@ param The medicine cost by each dose. This param could be empty.
-*@ param The frequency of medicine application. This param could be empty.
-*@ return A message that indiques if medicine was added to the patient clinic story
+*@param The medicine name. This param must be not null.
+*@param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+*@param The medicine cost by each dose. This param could be empty.
+*@param The frequency of medicine application. This param could be empty.
+*@return A message that indiques if medicine was added to the patient clinic story
 */
 
-public String addMediceToHospitalization(long clientForVeterinary, String namePetLupe,String nameCLientPetToHisto,String medicamentForVeterinary, double doseForVeterinary, double  costForVeterinary, int frecForVeterinary){
+public String addMediceToHospitalization(long clientForVeterinary,String namePetLupe,String medicamentForVeterinary, double doseForVeterinary, double  costForVeterinary, int frecForVeterinary){
 String msj = "";
 boolean f = false;
-for(int i = 0; i < clients.size() && !f; i++){
-  Client client1 = clients.get(i);
-  if(clientForVeterinary == client1.getIdentify()){
-    msj = "Se agrego exitosamente" + client1.addMedicamentsToPets(namePetLupe,nameCLientPetToHisto,medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
-    f = true;
-  }else{
-    msj = "No se ha podido agregar";
+for(int i = 0; i < miniRoom.length && !f; i++){
+  if(miniRoom[i] != null){
+    if(miniRoom[i].getPetRoom().getCli1().getIdentify() == clientForVeterinary){
+    if(miniRoom[i].getPetRoom().getNamePet().equals(namePetLupe)){
+      msj = "Se agrego el medicamento" + miniRoom[i].addMedicamentsToPet(medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
+      f = true;
+    }
   }
+}
 }
 return msj;
 }
 
-
-
-public void addNotesToHospitalization(long clientIdentify, String nameClientPet, String namePeToClient, String notes){
+public void addNotesToHospitalization(long clientIdentify, String nameClientPe, String notes){
 
 boolean perro = false;
 
-for(int i = 0; i < clients.size() && perro == false; i++){
-Client cl1 = clients.get(i);
-if(clientIdentify == cl1.getIdentify()){
-
-perro = true;
-cl1.addNotesToPet(nameClientPet,namePeToClient, notes);
-
+for(int i = 0; i < miniRoom.length && perro == false; i++){
+  if(miniRoom[i] != null){
+    if(miniRoom[i].getPetRoom().getCli1().getIdentify() == clientIdentify){
+    if(miniRoom[i].getPetRoom().getNamePet().equals(nameClientPe)){
+      miniRoom[i].addNotesToPet(notes);
+      perro = true;
+    }
+    }
   }
   }
-
 }
 
 
-public void addNewSymptom(long clientToPet, String petNameToPet, String clientNameToPet,String symptomPet){
+public void addNewSymptom(long clientToPet, String petNameToPet,String symptomPet){
 
 boolean stop = false;
-for(int i = 0; i < clients.size() && !stop ; i++){
-  if(clientToPet == clients.get(i).getIdentify()){
-    stop = true;
-    clients.get(i).addNewSymptomPet(petNameToPet, clientNameToPet,symptomPet);
+for(int i = 0; i < miniRoom.length && !stop ; i++){
+  if(miniRoom[i] != null){
+    if(miniRoom[i].getPetRoom().getCli1().getIdentify() == clientToPet){
+    if(miniRoom[i].getPetRoom().getNamePet().equals(petNameToPet)){
+      miniRoom[i].addNotesToSympTom(symptomPet);
+      stop = true;
   }
 }
 }
+}
+}
 
+public double calculatedService1(){
+  double m = 0.0;
 
+for(int k = 0; k < typeOfServiceVeterinary.size(); k++){
+typeOfService services = typeOfServiceVeterinary.get(k);
 
+if(services.getService().equals(typeOfService.service1)){
+  m += typeOfService.washPets;
+}
 
+}
+return m;
+}
 
+public double calculatedService2(){
+double m = 0.0;
+
+for(int k = 0; k < typeOfServiceVeterinary.size(); k++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+
+if(services.getService().equals(typeOfService.service2)){
+  m += typeOfService.washPetsDelivery;
+}
+}
+  return m;
+}
+
+public double calculatedService3(){
+double m = 0.0;
+
+for(int k = 0; k < typeOfServiceVeterinary.size();k++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+
+if(services.getService().equals(typeOfService.service3)){
+m += typeOfService.cutNails;
+}
+
+}
+return m;
+}
+
+public double calculatedService4(){
+double m = 0.0;
+
+for(int k = 0; k < typeOfServiceVeterinary.size(); k++){
+  typeOfService services = typeOfServiceVeterinary.get(k);
+  if(services.getService().equals(typeOfService.service4)){
+    m += typeOfService.dentistProfi;
+  }
+}
+
+return m;
+}
+
+public double calculatedService5(){
+double m = 0.0;
+
+for(int k = 0; k < typeOfServiceVeterinary.size(); k++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+
+if(services.getService().equals(typeOfService.service5)){
+  m += typeOfService.vacunnesAplication;
+}
+}
+  return m;
+}
+
+public int calculatedCostForServiceAparrance(String serviceType){
+	int k  = 0;
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+
+	if(serviceType.equals(typeOfService.service1)){
+			k++;
+	}else if(serviceType.equals(typeOfService.service2)){
+			k++;
+	}else if(serviceType.equals(typeOfService.service3)){
+			k++;
+	}else if(serviceType.equals(typeOfService.service4)){
+			k++;
+	}else if(serviceType.equals(typeOfService.service5)){
+			k++;
+	}
+}
+return k;
+}
 
 
 

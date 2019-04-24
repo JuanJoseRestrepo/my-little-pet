@@ -19,19 +19,17 @@ public class Pet{
 
   //Relaciones
 	private ArrayList<ClinicalHistory> clientWithHisto;
-	private ArrayList<typeOfService> typeOfServiceVeterinary;
-
-
+	private Client cli1;
 
 	//Constructores
-	public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,double heightPet){
+	public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,double heightPet,Client cli1){
 		this.namePet = namePet;
 		this.ageOfPet = ageOfPet;
 		this.typeOfPet = typeOfPet;
 		this.weightPet = weightPet;
 		this.heightPet = heightPet;
+		this.cli1 = cli1;
 		clientWithHisto = new ArrayList<ClinicalHistory>();
-		typeOfServiceVeterinary = new ArrayList<typeOfService>();
 	}
 
 	public String getNamePet(){
@@ -65,6 +63,15 @@ public class Pet{
 	public void setWeightPet(){
 		this.weightPet = weightPet;
 	}
+
+	public Client getCli1(){
+		return cli1;
+	}
+
+	public void setCli1(Client cli1){
+		this.cli1 = cli1;
+	}
+
 	public ArrayList<ClinicalHistory> getClientWithHisto(){
  	 return clientWithHisto;
   }
@@ -88,7 +95,31 @@ public class Pet{
  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
  msj += "Mi IMB es:" + calculateIBMOfAnimal() +"\n";
  msj += "---------------------------------------------------------------------------------------------------------------------------- \n";
+
 	return msj;
+
+}
+
+/**
+*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: New medicines were added to the patient clinic story.
+*@Param The medicine name. This param must be not null.
+*@Param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+*@Param The medicine cost by each dose. This param could be empty.
+*@Param The frequency of medicine application. This param could be empty.
+*@Return A message that indiques if medicine was added to the patient clinic story
+*/
+public String addPetToHistoryCLinical(String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
+String msj = "";
+
+Medicament m = new Medicament(medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
+clientWithHisto.get((clientWithHisto.size()-1)).addMedicaments(m);
+
+msj = "Se agrego";
+
+return msj;
+
 
 }
 
@@ -96,8 +127,8 @@ public class Pet{
 *Description This method allows to calculate the body mass index for a pet.
 *pre: The pet was created before and its attributes height and weight are not null neither height must be zero.
 *post: The BMI is calculated.
-*@ return The pet body mass index.
-*@ throws  I the height is zero, so an exception is thrown due to the division on zero does not exist.
+*@return turn The pet body mass index.
+*@throws  I the height is zero, so an exception is thrown due to the division on zero does not exist.
 */
 
 public double calculateIBMOfAnimal(){
@@ -115,35 +146,6 @@ public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
 
 	clientWithHisto.get((clientWithHisto.size()-1)).addMedicaments(medic);
 
-}
-
-/**
-*Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
-*pre: The patient clinic story must be not null.
-*post: New medicines were added to the patient clinic story.
-*@ param The medicine name. This param must be not null.
-*@ param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
-*@ param The medicine cost by each dose. This param could be empty.
-*@ param The frequency of medicine application. This param could be empty.
-*@ return A message that indiques if medicine was added to the patient clinic story
-*/
-public String addMedicamentToPets(String nameCLientPetToHisto,String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
-
-String msj = "";
-
-
-for(int i = 0; i < clientWithHisto.size(); i++){
-	ClinicalHistory clinical = clientWithHisto.get(i);
-	if(nameCLientPetToHisto.equals(clinical.getPetInfo())){
-
-		Medicament medic = new Medicament(medicamentForVeterinary,doseForVeterinary,costForVeterinary,frecForVeterinary);
-
-		clinical.addMedicaments(medic);
-
-		msj = "Se agrego exitosamente";
-	}
-}
-return msj;
 }
 
 public double costOfHospitalizate(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
@@ -255,32 +257,18 @@ msj += "------------------------------------------------------------------------
 }
 
 
-public void addNotesToHospitalizationFatality(String namePeToClient,String notes){
+public void addNotesToHospitalizationFatality(String notes){
 
-	boolean t = false;
-
-for(int i = 0; i < clientWithHisto.size() && !t ;i++){
-if(namePeToClient.equals(clientWithHisto.get(i).getOwnerInfo())){
-	t = true;
-	clientWithHisto.get(i).addNotes(notes);
-}
+clientWithHisto.get((clientWithHisto.size()-1 )).addNotes(notes);
 
 }
 
+
+public void addNewSymptomHistory(String symptomPet){
+
+clientWithHisto.get((clientWithHisto.size()-1)).addNewSymptomFinally(symptomPet);
+
 }
-
-public void addNewSymptomHistory(String clientNameToPet, String symptomPet){
-
-boolean theStop = false;
-
-for(int i = 0; i < clientWithHisto.size() && !theStop ; i++){
-	if(clientNameToPet.equals(clientWithHisto.get(i).getOwnerInfo())){
-		theStop = true;
-		clientWithHisto.get(i).addNewSymptomFinally(symptomPet);
-	}
-	}
-}
-
 
 
 
