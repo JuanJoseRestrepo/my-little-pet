@@ -473,6 +473,28 @@ for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
 return k;
 }
 
+public double promediateCostOfServices(String serviceType){
+
+double costTotal = 0.0;
+
+costTotal += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5())/calculatedCostForServiceAparrance(serviceType);
+
+return costTotal;
+
+}
+
+public double calculatedCostTotalForTheService(){
+double m = 0.0;
+
+
+m += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5());
+
+return m;
+
+
+
+}
+
 
 
 

@@ -457,6 +457,25 @@ String symptomPet = reader.nextLine();
 
 principal.addNewSymptom(clientToPet,petNameToPet,symptomPet);
 
+}else if(userImput == 13){
+
+System.out.println("El costo del servicio de lavado de mascotas es:" + principal.calculatedService1());
+System.out.println("El costo del servicio de lavado de mascotas a domicilios es:" + principal.calculatedService2());
+System.out.println("El costo del servicio de corte de uñas de mascotas es:" + principal.calculatedService3());
+System.out.println("El costo del servicio de profilaxis dental mascotas es:" + principal.calculatedService4());
+System.out.println("El costo del servicio de aplicacion de vacunas para mascotas es:" + principal.calculatedService5());
+
+}else if(userImput ==14){
+
+System.out.println("Por favor digite el tipo de servicio para dar su promedio");
+String serviceType = reader.nextLine();
+
+System.out.println(principal.promediateCostOfServices(serviceType));
+
+
+}else if(userImput == 15){
+
+System.out.println("El ingreso total de los servicios es:" + principal.calculatedCostTotalForTheService());
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
