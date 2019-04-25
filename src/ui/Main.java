@@ -477,6 +477,60 @@ System.out.println(principal.promediateCostOfServices(serviceType));
 
 System.out.println("El ingreso total de los servicios es:" + principal.calculatedCostTotalForTheService());
 
+}else if(userImput == 16){
+System.out.println("|--Por favor digite los siguientes digitos--|");
+
+System.out.println("Por favor digite el tipo de servicio:" + typeOfService.service1 + "/"+ typeOfService.service2 + "/" + typeOfService.service3 + "/" + typeOfService.service4 + "/" +typeOfService.service5);
+String serviceOf = reader.nextLine();
+
+System.out.println("Por favor digite el costo:");
+double costOfService = reader.nextDouble();
+reader.nextLine();
+
+System.out.println("Por favor digite el dia en el que se hace:");
+String dateInService = reader.nextLine();
+
+System.out.println("Por favor digite la identificacion del animalito:");
+long identifyServicePet = reader.nextLong();
+reader.nextLine();
+
+System.out.println("Por favor digite la identificacion del cliente:");
+long identifyServiceClient = reader.nextLong();
+reader.nextLine();
+
+System.out.println("Por favor digite el nombre de la mascota:");
+String namePetService = reader.nextLine();
+
+System.out.println("Por favor digite  la edad de la mascota:");
+int agePetOld = reader.nextInt();
+reader.nextLine();
+
+System.out.println("Por favor digite el tipo de animal:" + Pet.DOG + "/" + Pet.CAT+ "/" + Pet.BIRD + "/" + Pet.OTHER);
+String typeOfAnimalService = reader.nextLine();
+
+System.out.println("Por favor digite el peso del animal:");
+double weightAnimal = reader.nextDouble();
+reader.nextLine();
+
+System.out.println("Por favor digite la altura del animal:");
+double heightAnimal = reader.nextDouble();
+reader.nextLine();
+
+System.out.println("Por favor digite el nombre de su dueño:");
+String nameOfClientService = reader.nextLine();
+
+System.out.println("Por favor digite la direccion:");
+String clientDirection = reader.nextLine();
+
+System.out.println("Por favor digite el numero:");
+String numberOfClient = reader.nextLine();
+
+typeOfService m = new typeOfService(serviceOf,costOfService,dateInService,identifyServicePet,identifyServiceClient);
+Client theClient = new Client(nameOfClientService,identifyServiceClient,clientDirection,numberOfClient);
+Pet p = new Pet(namePetService,agePetOld,typeOfAnimalService,weightAnimal,heightAnimal,theClient);
+
+principal.addServiceWithPet(m,p);
+
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

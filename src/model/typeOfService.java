@@ -20,14 +20,14 @@ public final static double vacunnesAplication = 45000;
 private String service;
 private double cost;
 private String dateThatItDoIt;
-private String identifyPetId;
-private String identifyClientId;
+private Long identifyPetId;
+private Long identifyClientId;
 
 //Relaciones
 
 private ArrayList<Pet> petsWithTypeOfService;
 
-public typeOfService(String service, double cost ,String dateThatItDoIt,String identifyPetId,String identifyClientId){
+public typeOfService(String service, double cost ,String dateThatItDoIt,Long identifyPetId,Long identifyClientId){
 
 this.service = service;
 this.cost = cost;
@@ -62,19 +62,19 @@ public void setDateThatItDoIt(String dateThatItDoIt){
   this.dateThatItDoIt = dateThatItDoIt;
 }
 
-public String getIdentifyPetId(){
+public Long getIdentifyPetId(){
   return identifyPetId;
 }
 
-public void setIdentifyPetId(String identifyPetId){
+public void setIdentifyPetId(Long identifyPetId){
   this.identifyPetId = identifyPetId;
 }
 
-public String getIdentifyClientId(){
+public Long getIdentifyClientId(){
   return identifyClientId;
 }
 
-public void setIdentifyClientId(String identifyClientId){
+public void setIdentifyClientId(Long identifyClientId){
   this.identifyClientId = identifyClientId;
 }
 
