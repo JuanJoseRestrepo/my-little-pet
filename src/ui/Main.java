@@ -531,6 +531,19 @@ Pet p = new Pet(namePetService,agePetOld,typeOfAnimalService,weightAnimal,height
 
 principal.addServiceWithPet(m,p);
 
+}else if(userImput == 17){
+	
+System.out.println("Digite la fecha inicial con el siguiente formato: AAAA-MM-DD");
+
+String inicialDate = reader.nextLine();
+
+System.out.println("Digite la fecha final con el siguiente formato: AAAA-MM-DD");
+
+String finalDate = reader.nextLine();
+
+System.out.println(principal.generateReportWithInicialDateAndFinalDate(inicialDate,finalDate));
+
+
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

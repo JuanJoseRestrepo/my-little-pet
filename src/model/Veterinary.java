@@ -490,9 +490,31 @@ double m = 0.0;
 m += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5());
 
 return m;
+String msj
 
 
 
+}
+
+public String generateReportWithInicialDateAndFinalDate(String inicialDate, String finalDate){
+String msj = "";
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+	
+	typeOfService sd1 = typeOfServiceVeterinary.get(i);
+	
+	if(inicialDate.comparateTo(sd1.getDateThatItDoIt()) && sd1.getDateThatItDoIt().comparateTo(finalDate)){
+		msj= "Los siguientes datos son" + sd1.serviceInformation();
+	}else{
+		msj = "No se encontro o digite lo que no era";
+	}
+}
+
+return msj;
+	
+	
+	
+	
 }
 
 
