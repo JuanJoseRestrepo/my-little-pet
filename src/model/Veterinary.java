@@ -56,7 +56,7 @@ public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVet
 public void addServiceWithPet(typeOfService m , Pet p){
 
 typeOfServiceVeterinary.add(m);
-typeOfServiceVeterinary.get((typeOfServiceVeterinary.size() -1)).addPetNew(p);
+typeOfServiceVeterinary.setPetsWithTypeOfService(p);
 }
 
 public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
