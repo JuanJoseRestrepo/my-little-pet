@@ -522,7 +522,7 @@ typeOfService m = new typeOfService(serviceOf,costOfService,dateInService,identi
 principal.addServiceWithPet(m,p);
 
 }else if(userImput == 17){
-<<<<<<< HEAD
+
 
 System.out.println("Por favor digite la fecha inicial en el siguiente formato: AAAA-MM-DD");
 
@@ -533,19 +533,7 @@ System.out.println("Por favor digite la fecha final en el siguiente formato: AAA
 String finalDate = reader.nextLine();
 
 System.out.println(principal.getReportedAboutAnimalWithInicialDateAndFinalDate(inicialDate,finalDate));
-=======
-	
-System.out.println("Digite la fecha inicial con el siguiente formato: AAAA-MM-DD");
 
-String inicialDate = reader.nextLine();
-
-System.out.println("Digite la fecha final con el siguiente formato: AAAA-MM-DD");
-
-String finalDate = reader.nextLine();
-
-System.out.println(principal.generateReportWithInicialDateAndFinalDate(inicialDate,finalDate));
-
->>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
@@ -618,6 +606,12 @@ public void init(){
     ArrayList<Pet> PetsAyuwoki = new ArrayList<Pet>();
     PetsAyuwoki.add(Gucci);
     principal.addClient(Ayuwoki, PetsAyuwoki);
+
+    Client Papo = new Client("Papo", 100987654,"La escritura MALO", "310123456");
+    Pet Residente = new Pet("Residente", 12 , Pet.DOG, 120.0, 300.0, Papo);
+    typeOfService s1 = new typeOfService(typeOfService.service1, typeOfService.washPets,"2008-08-12",(long)1009876541,(long)1009876541,Residente);
+
+    principal.addServiceWithPet(s1,Residente);
 
 
     Room miniRoom1 = new Room(false, 1, Yoko);

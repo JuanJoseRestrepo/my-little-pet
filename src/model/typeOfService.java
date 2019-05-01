@@ -34,11 +34,8 @@ this.cost = cost;
 this.dateThatItDoIt = dateThatItDoIt;
 this.identifyPetId = identifyPetId;
 this.identifyClientId = identifyClientId;
-<<<<<<< HEAD
-
-=======
 this.petsWithTypeOfService = petsWithTypeOfService;
->>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
+
 
 }
 
@@ -83,19 +80,12 @@ public void setIdentifyClientId(Long identifyClientId){
 }
 
 public Pet getPetsWithTypeOfService(){
-<<<<<<< HEAD
   return petsWithTypeOfService;
 }
 
 public void setPetsWithTypeOfService(Pet petsWithTypeOfService){
-  this.petsWithTypeOfService = petsWithTypeOfService;
-=======
-	return petsWithTypeOfService;
-}
-
-public voi setPetsWithTypeOfService(Pet petsWithTypeOfService){
 	this.petsWithTypeOfService = petsWithTypeOfService;
->>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
+
 }
 
 public String serviceInformation(){
@@ -109,10 +99,5 @@ msj = "La cedula del cliente es:" + identifyClientId;
 
 return msj;
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
 
 }//finalRound
