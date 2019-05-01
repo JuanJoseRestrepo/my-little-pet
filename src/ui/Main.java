@@ -248,18 +248,11 @@ System.out.println("////////////////////////////////////////////////////////////
 
     Pet pet2 = principal.findPett(nameClie, idClie, namePe);
 
-    System.out.println("Digite otra vez el nombre del dueño ");
-    String nameClie1 = reader.nextLine();
-
-    System.out.println("Digite el nombre del Animalito ");
-    String namePe1 = reader.nextLine();
-
-    ClinicalHistory newMedRec = new ClinicalHistory( nameClie1, namePe1 , symp, diag, stat, dateIn,dateOut, pet2);
+    ClinicalHistory newMedRec = new ClinicalHistory( nameClie, namePe , symp, diag, stat, dateIn,dateOut, pet2);
 
     Medicament medics = new Medicament(medi, dos, totaldos, frec);
 
-    principal.hospitalizeVet(nameClie, idClie, namePe, newMedRec, medics);
-
+    principal.hospitalizeVet(nameClie,idClie,namePe, newMedRec, medics);
 
     System.out.println(principal.hospitalize(clientId, petName));
 
@@ -467,10 +460,7 @@ System.out.println("El costo del servicio de aplicacion de vacunas para mascotas
 
 }else if(userImput ==14){
 
-System.out.println("Por favor digite el tipo de servicio para dar su promedio");
-String serviceType = reader.nextLine();
-
-System.out.println(principal.promediateCostOfServices(serviceType));
+System.out.println(principal.promediateCostOfServices());
 
 
 }else if(userImput == 15){
@@ -525,11 +515,23 @@ String clientDirection = reader.nextLine();
 System.out.println("Por favor digite el numero:");
 String numberOfClient = reader.nextLine();
 
-typeOfService m = new typeOfService(serviceOf,costOfService,dateInService,identifyServicePet,identifyServiceClient);
 Client theClient = new Client(nameOfClientService,identifyServiceClient,clientDirection,numberOfClient);
 Pet p = new Pet(namePetService,agePetOld,typeOfAnimalService,weightAnimal,heightAnimal,theClient);
+typeOfService m = new typeOfService(serviceOf,costOfService,dateInService,identifyServicePet,identifyServiceClient,p);
 
 principal.addServiceWithPet(m,p);
+
+}else if(userImput == 17){
+
+System.out.println("Por favor digite la fecha inicial en el siguiente formato: AAAA-MM-DD");
+
+String inicialDate = reader.nextLine();
+
+System.out.println("Por favor digite la fecha final en el siguiente formato: AAAA-MM-DD");
+
+String finalDate = reader.nextLine();
+
+System.out.println(principal.getReportedAboutAnimalWithInicialDateAndFinalDate(inicialDate,finalDate));
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

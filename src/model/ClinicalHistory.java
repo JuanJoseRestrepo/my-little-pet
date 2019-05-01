@@ -31,6 +31,8 @@ this.diagnostic = diagnostic;
 this.state = state;
 this.date1 = date1;
 this.date2 = date2;
+this.petInfo = petInfo;
+this.ownerInfo = ownerInfo;
 medicaments = new ArrayList<Medicament>();
 }
 public String getPetInfo(){

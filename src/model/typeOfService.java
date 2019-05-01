@@ -25,16 +25,16 @@ private Long identifyClientId;
 
 //Relaciones
 
-private ArrayList<Pet> petsWithTypeOfService;
+private Pet petsWithTypeOfService;
 
-public typeOfService(String service, double cost ,String dateThatItDoIt,Long identifyPetId,Long identifyClientId){
+public typeOfService(String service, double cost ,String dateThatItDoIt,Long identifyPetId,Long identifyClientId, Pet petsWithTypeOfService){
 
 this.service = service;
 this.cost = cost;
 this.dateThatItDoIt = dateThatItDoIt;
 this.identifyPetId = identifyPetId;
 this.identifyClientId = identifyClientId;
-petsWithTypeOfService = new ArrayList<Pet>();
+
 
 }
 
@@ -78,6 +78,14 @@ public void setIdentifyClientId(Long identifyClientId){
   this.identifyClientId = identifyClientId;
 }
 
+public Pet getPetsWithTypeOfService(){
+  return petsWithTypeOfService;
+}
+
+public void setPetsWithTypeOfService(Pet petsWithTypeOfService){
+  this.petsWithTypeOfService = petsWithTypeOfService;
+}
+
 public String serviceInformation(){
 String msj = "";
 
@@ -89,13 +97,6 @@ msj = "La cedula del cliente es:" + identifyClientId;
 
 return msj;
 }
-
-public void addPetNew(Pet p){
-
-petsWithTypeOfService.add(p);
-
-}
-
 
 
 

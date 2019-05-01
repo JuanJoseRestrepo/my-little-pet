@@ -56,7 +56,7 @@ public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVet
 public void addServiceWithPet(typeOfService m , Pet p){
 
 typeOfServiceVeterinary.add(m);
-typeOfServiceVeterinary.get((typeOfServiceVeterinary.size() -1)).addPetNew(p);
+typeOfServiceVeterinary.get((typeOfServiceVeterinary.size()-1)).setPetsWithTypeOfService(p);
 }
 
 public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
@@ -453,31 +453,75 @@ if(services.getService().equals(typeOfService.service5)){
   return m;
 }
 
-public int calculatedCostForServiceAparrance(String serviceType){
+///////////////
+public int calculatedCostForServiceAparrance(){
 	int k  = 0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-
-	if(serviceType.equals(typeOfService.service1)){
-			k++;
-	}else if(serviceType.equals(typeOfService.service2)){
-			k++;
-	}else if(serviceType.equals(typeOfService.service3)){
-			k++;
-	}else if(serviceType.equals(typeOfService.service4)){
-			k++;
-	}else if(serviceType.equals(typeOfService.service5)){
+typeOfService services = typeOfServiceVeterinary.get(k);
+	if(services.getService().equals(typeOfService.service1)){
 			k++;
 	}
 }
 return k;
 }
 
-public double promediateCostOfServices(String serviceType){
+public int calculatedCosForServicesAparrance2(){
+int k = 0;
 
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+	if(services.getService().equals(typeOfService.service2)){
+			k++;
+	}
+}
+return k;
+}
+
+public int calculatedCosForServicesAparrance3(){
+int k= 0;
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+  if(services.getService().equals(typeOfService.service3)){
+  			k++;
+  	}
+  }
+  return k;
+}
+
+public int calculatedCosForServicesAparrance4(){
+
+int k = 0;
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+  if(services.getService().equals(typeOfService.service4)){
+  			k++;
+  	}
+  }
+  return k;
+}
+
+public int calculatedCosForServicesAparrance5(){
+int k =0;
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+typeOfService services = typeOfServiceVeterinary.get(k);
+  if(services.getService().equals(typeOfService.service5)){
+  			k++;
+  	}
+  }
+  return k;
+}
+
+
+
+
+public double promediateCostOfServices(){
 double costTotal = 0.0;
 
-costTotal += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5())/calculatedCostForServiceAparrance(serviceType);
+costTotal += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5())/(calculatedCostForServiceAparrance()+calculatedCosForServicesAparrance2()+calculatedCosForServicesAparrance3()+calculatedCosForServicesAparrance4()+calculatedCosForServicesAparrance5());
 
 return costTotal;
 
@@ -486,12 +530,31 @@ return costTotal;
 public double calculatedCostTotalForTheService(){
 double m = 0.0;
 
-
 m += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5());
 
 return m;
 
+}
 
+public String getReportedAboutAnimalWithInicialDateAndFinalDate(String inicialDate,String finalDate){
+String msj = "";
+
+for(int i = 0; i < typeOfServiceVeterinary.size();i++){
+
+typeOfService sd1 = typeOfServiceVeterinary.get(i);
+
+if(inicialDate.compareTo(sd1.getDateThatItDoIt()) <= 0 && sd1.getDateThatItDoIt().compareTo(finalDate) <= 0){
+
+  msj = "La siguiente informacion es:" + sd1.serviceInformation();
+
+}else{
+  msj = "No se encontro la fecha o ingreso una fecha que no es o una equivocada";
+}
+
+
+}
+
+return msj;
 
 }
 
