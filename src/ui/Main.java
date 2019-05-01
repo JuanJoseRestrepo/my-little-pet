@@ -535,6 +535,23 @@ String finalDate = reader.nextLine();
 System.out.println(principal.getReportedAboutAnimalWithInicialDateAndFinalDate(inicialDate,finalDate));
 
 
+}else if(userImput == 18){
+  System.out.println("Digite el dia actual");
+  int dayActual = reader.nextInt();
+  reader.nextLine();
+
+  System.out.println("Digite el mes actual");
+  int monthActual = reader.nextInt();
+  reader.nextLine();
+
+  System.out.println("Digite el año actual");
+  int actualYear = reader.nextInt();
+  reader.nextLine();
+
+  System.out.println(principal.calculatedCostForOneWeek(dayActual,monthActual,actualYear));
+
+
+
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");

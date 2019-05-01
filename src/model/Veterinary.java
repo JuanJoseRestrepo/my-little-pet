@@ -18,6 +18,10 @@ private Room[] miniRoom;
 private ArrayList<Client> clients;
 private ArrayList<typeOfService> typeOfServiceVeterinary;
 
+/**
+*Description Este es el constructor, inicializa las variables
+*@param el nombre de la veterinaria
+*/
 public Veterinary(String name){
 this.name = name;
 miniRoom = new Room[NUMBEROFROOM];
@@ -26,39 +30,93 @@ typeOfServiceVeterinary = new ArrayList<typeOfService>();
 
 }
 
+/**
+*Description Este metodo obtiene el nombre de la veterinaria
+*@return retorna el nombre de la veterinaria
+*/
 public String getName(){
 return name;
 }
+
+/**
+*Description Este metodo establece el nombre de la VETERINARIA
+*@param el nombre de la veterinaria
+*/
 public void setName(String name){
 this.name = name;
 }
+
+/**
+*Description Este metodo obtiene los MINICUARTOS
+*@return retorna el minicuarto
+*/
 public Room[] getMiniRoom(){
   return miniRoom;
 }
+
+/**
+*Description Este metodo establece el MINICUARTOS
+*@param entra el minicuarto
+*/
 public void setMiniRoom( Room[] miniRoom){
   this.miniRoom = miniRoom;
 }
+
+/**
+*Description Este metodo accede al arraylist de CLIENTES
+*@return retorna los clientes
+*/
 public ArrayList<Client> getClients(){
   return clients;
 }
+
+/**
+*Description Este metodo establece el arraylist de CLIENTES
+*@param el arraylist de clientes
+*/
 public void setClients( ArrayList<Client> clients){
   this.clients = clients;
 }
 
+/**
+*Description Este metodo obtiene el tipo de servicios
+*@return el tipo de servicio
+*/
 public ArrayList<typeOfService> gettypeOfServiceVeterinary(){
 		return typeOfServiceVeterinary;
 	}
+
+/**
+*Description este metodo establece el tipo de servicios
+*@param el tipo de servicio
+**/
 
 public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVeterinary){
 		this.typeOfServiceVeterinary = typeOfServiceVeterinary;
 	}
 
+/**
+*Description Este metodo agrega el tipo de servicios
+*@param el tipo de servivio
+*@param La mascota
+*/
 public void addServiceWithPet(typeOfService m , Pet p){
 
 typeOfServiceVeterinary.add(m);
 typeOfServiceVeterinary.get((typeOfServiceVeterinary.size()-1)).setPetsWithTypeOfService(p);
 }
 
+/**
+*Description este metodo establece los MINICUARTOS
+*@param el minicuarto 1
+*@param el minicuarto 2
+*@param el minicuarto 3
+*@param el minicuarto 4
+*@param el minicuarto 5
+*@param el minicuarto 6
+*@param el minicuarto 7
+*@param el minicuarto 8
+*/
 public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
   miniRoom[0] = miniRoom1;
   miniRoom[1] = miniRoom2;
@@ -70,7 +128,13 @@ public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room min
   miniRoom[7] = miniRoom8;
 }
 
-//COMPARAR QUE EL CLIENTE INGRESADO NO SEA EL MISMO
+/**
+*Description Este metodo evalua si hay mas de dos CLIENTES
+*pre: los clientes no deben ser nulos
+*post: el mensaje
+*@param el clientes
+*@return el mensaje de si se puedo agregar
+*/
 public String addClient2(Client client){
  String msj = "Se guardo exitosamente el cliente";
  boolean decide = true;
@@ -94,8 +158,8 @@ return msj;
 *Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
 *pre: The client was created before.
 *post: The address and /or phone number of the client is updated.
-*@Param The new address of the client. This param could be empty.
-*@Param The new phone number of the client. This param could be empty.
+*@param The new address of the client. This param could be empty.
+*@param The new phone number of the client. This param could be empty.
 */
 
 public String actualizePhoneAndAddressOfCLient(long idClientToVeterinary , String addresClientToVeterinary , String phoneClientToVeterinary){
@@ -122,7 +186,11 @@ return msj;
 }
 
 
-//AGREGAR NUEVOS USUARIOS DENTRO DE LA VETERINARIA
+/**
+*Description Este metodo agrega el cliente con sus mascotas
+*@param el cliente
+*@param el arraylist de pets creados en el main
+*/
 public void addClient(Client client, ArrayList<Pet> clientsPets){
 
   clients.add(client);
@@ -130,7 +198,12 @@ public void addClient(Client client, ArrayList<Pet> clientsPets){
 
 }
 
-//MIRAR SI HAY UN CUARTO DISPONIBLE PARA AGREGAR AL ANIMAL
+/**
+*Description este metodo evalua si se puede agregar un pet al minicuarto
+*pre: Los minicuartos no deben ser nulos
+*@param el pet para evaluarlo
+*@return un mensaje diciendo si se puede agregar
+*/
   public String addPetToAvailableRoom (Pet current){
 
     String msg = "";
@@ -152,7 +225,11 @@ public void addClient(Client client, ArrayList<Pet> clientsPets){
 
     return msg;
   }
-
+/**
+*Description este metodo muestra la info de los CLIENTES
+*pre: los clientes != null
+*@return la informacion del cliente
+*/
 public String showClients(){
   String msj = "";
   msj += clients.size();
@@ -162,7 +239,14 @@ public String showClients(){
   return msj;
 
 }
-//MIRAR SI SE PEDE HOSPITALIZAR PIDIENDO PRIMERO LOS DOS DATOS INICIALES
+/**
+*Description este metodo evalua si se puede hospitalizar a un animal
+*pre: los clientes != null
+*post: un mensaje diciendo si se puede agregar
+*@param la identificacion del cliente
+*@param el nombre del animalito
+*@return un mensaje
+*/
 public String hospitalize(long clientId, String petName){
 
   String msg = "";
@@ -181,7 +265,11 @@ public String hospitalize(long clientId, String petName){
 
   return msg;
 }
-  //MOSTRAR LA INFORMACION DE LA MASCOTA
+/**
+*Description este metodo muestra la informacion del cliente
+*@param el id del cliente
+*@return un mensaje con la informacion
+*/
   public String infoPet1(long id){
   String msj = "";
   boolean  race = false;
@@ -201,7 +289,12 @@ public String hospitalize(long clientId, String petName){
       return msj;
   }
 
-//MOSTRAR LA INFORMACION DEL CUARTO
+/**
+*Description este metodo muestra la informacion del CUARTO
+*pre: los minicuartos != null
+*post: un mensaje diciendo si se puede MOSTRAR
+*@return un mensaje
+*/
 public String showRoom(){
 String msj = "";
 
@@ -216,7 +309,13 @@ if(miniRoom[i] !=null){
     return msj;
 }
 
-//DAR DE ALTA AL ANIMAL
+/**
+*Description este metodo da de alta a un animalito hospitalizado en un minicuartos
+*pre: el minicuarto != null
+*post: sacar al animalito del minicuarto
+*@param el nombre del animalito
+*@return un mensaje que diga si se saco al animalito
+*/
 public String darAlta(Pet petNames){
  boolean recorrido = false;
  String msj = "";
@@ -235,19 +334,14 @@ public String darAlta(Pet petNames){
     return msj;
   }
 
-public boolean avaibleRoom(){
-boolean f = false;
-
-for(int i = 0; i < miniRoom.length; i++){
-  if(miniRoom[i].getAvaible()){
-   f = true;
- }
-
-}
-  return f;
-}
-
-
+/**
+*Description este metodo encuentra a un animalito y a su cliente
+*pre: clientes != null
+*@param el nombre del cliente
+*@param la identificiacion del cliente
+*@param el nombre del pet del cliente
+*@return el animalito si se encontro
+*/
 public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		boolean theStop = false;
@@ -264,7 +358,14 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 		return relationshipOfPet;
 
 	}
-
+/**
+*Description este metodo hospitaliza a un animalito
+*@param el nombre del cliente
+*@param la identificacion del cliente
+*@param el nombre del animalito
+*@param una historia clinica del animalito
+*@param un medicamento del animalito
+*/
 		public void hospitalizeVet(String nameClie, long idClie , String namePe, ClinicalHistory newMedRec, Medicament medic){
 		boolean theStop = false;
 
@@ -282,7 +383,12 @@ public Pet findPett(String nameClie, long idClie, String  namePe){
 
 		}
 	}
-//Posibles fechas clinicas
+/**
+*Description este metodo muestra las historias clinicas
+*pre: historias clinicas != null
+*pre: clientes != null
+*@return muestra la informacion de las historias clinicas
+*/
 public String showClinicalHistories(){
 
 String clinical = "";
@@ -295,7 +401,14 @@ for(int i = 0; i < clients.size(); i++){
   }
   return clinical;
 }
-
+/**
+*Description este metodo busca si se puede hospitalizar a un ANIMALITO
+*pre: clientes != null
+*pre: pets != null
+*@param la identificacion del cliente
+*@param  el nombre del animalito
+*@return un mensaje que diga si se pudo hospitalizar
+*/
 public String findToHospitalize(long idClientt, String nampe){
   String msg = "";
   Pet p = null;
@@ -314,6 +427,15 @@ public String findToHospitalize(long idClientt, String nampe){
   return msg;
 }
 
+/**
+*Description este metodo mira el costo de hospitalizacion
+*@param el tipo de animal
+*@param el peso del animal
+*@param el dia actual
+*@param el mes actual
+*@param el año actual
+*@return el costo de hospitalizacion
+*/
 public String costOfhospis(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
 String msj = "";
 
@@ -354,6 +476,13 @@ for(int i = 0; i < miniRoom.length && !f; i++){
 return msj;
 }
 
+/**
+*Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: New notes were added to the possible diagnostic in the patient clinic story.
+*@param The notes of possible diagnostic. This param must be not null.
+*/
+
 public void addNotesToHospitalization(long clientIdentify, String nameClientPe, String notes){
 
 boolean perro = false;
@@ -370,6 +499,12 @@ for(int i = 0; i < miniRoom.length && perro == false; i++){
   }
 }
 
+/**
+*Description This method allows to add a new symptom presented during the hospitalization at the patient stories.
+*pre: The patient clinic story must be not null.
+*post: A new symptom were added to the patient clinic story.
+*@param The new symptom presented. This param must be not null.
+*/
 
 public void addNewSymptom(long clientToPet, String petNameToPet,String symptomPet){
 
@@ -386,6 +521,12 @@ for(int i = 0; i < miniRoom.length && !stop ; i++){
 }
 }
 
+/**
+*Description esste metodo calcula el servicio 1
+*pre: tipoDeServicio !=null
+*post: el costo del servicio 1
+*@return el costo del servicio
+*/
 public double calculatedService1(){
   double m = 0.0;
 
@@ -400,6 +541,12 @@ if(services.getService().equals(typeOfService.service1)){
 return m;
 }
 
+/**
+*Description esste metodo calcula el servicio 2
+*pre: tipoDeServicio !=null
+*post: el costo del servicio 2
+*@return el costo del servicio
+*/
 public double calculatedService2(){
 double m = 0.0;
 
@@ -412,7 +559,12 @@ if(services.getService().equals(typeOfService.service2)){
 }
   return m;
 }
-
+/**
+*Description esste metodo calcula el servicio 3
+*pre: tipoDeServicio !=null
+*post: el costo del servicio 3
+*@return el costo del servicio
+*/
 public double calculatedService3(){
 double m = 0.0;
 
@@ -426,7 +578,12 @@ m += typeOfService.cutNails;
 }
 return m;
 }
-
+/**
+*Description esste metodo calcula el servicio 4
+*pre: tipoDeServicio !=null
+*post: el costo del servicio 4
+*@return el costo del servicio
+*/
 public double calculatedService4(){
 double m = 0.0;
 
@@ -440,6 +597,12 @@ for(int k = 0; k < typeOfServiceVeterinary.size(); k++){
 return m;
 }
 
+/**
+*Description esste metodo calcula el servicio 5
+*pre: tipoDeServicio !=null
+*post: el costo del servicio 5
+*@return el costo del servicio
+*/
 public double calculatedService5(){
 double m = 0.0;
 
@@ -453,7 +616,12 @@ if(services.getService().equals(typeOfService.service5)){
   return m;
 }
 
-///////////////
+/**
+*Description esste metodo calcula cuantas veces aparece el servicio 1
+*pre: tipoDeServicio !=null
+*post: las veces que aparece el servicio 1
+*@return el numero de veces del servicio 1
+*/
 public int calculatedCostForServiceAparrance(){
 	int k  = 0;
 
@@ -466,6 +634,12 @@ typeOfService services = typeOfServiceVeterinary.get(k);
 return k;
 }
 
+/**
+*Description esste metodo calcula cuantas veces aparece el servicio 2
+*pre: tipoDeServicio !=null
+*post: las veces que aparece el servicio 2
+*@return el numero de veces del servicio 2
+*/
 public int calculatedCosForServicesAparrance2(){
 int k = 0;
 
@@ -478,6 +652,12 @@ typeOfService services = typeOfServiceVeterinary.get(k);
 return k;
 }
 
+/**
+*Description esste metodo calcula cuantas veces aparece el servicio 3
+*pre: tipoDeServicio !=null
+*post: las veces que aparece el servicio 3
+*@return el numero de veces del servicio 3
+*/
 public int calculatedCosForServicesAparrance3(){
 int k= 0;
 
@@ -490,6 +670,12 @@ typeOfService services = typeOfServiceVeterinary.get(k);
   return k;
 }
 
+/**
+*Description esste metodo calcula cuantas veces aparece el servicio 4
+*pre: tipoDeServicio !=null
+*post: las veces que aparece el servicio 4
+*@return el numero de veces del servicio 4
+*/
 public int calculatedCosForServicesAparrance4(){
 
 int k = 0;
@@ -503,6 +689,12 @@ typeOfService services = typeOfServiceVeterinary.get(k);
   return k;
 }
 
+/**
+* Description esste metodo calcula cuantas veces aparece el servicio 5
+*pre: tipoDeServicio !=null
+*@return el numero de veces del servicio 5
+*post: las veces que aparece el servicio 5
+*/
 public int calculatedCosForServicesAparrance5(){
 int k =0;
 
@@ -517,7 +709,10 @@ typeOfService services = typeOfServiceVeterinary.get(k);
 
 
 
-
+/**
+*Description esste metodo calcula el costo promedio de todos los servicios
+*@return el promedio total de todos los servicios
+*/
 public double promediateCostOfServices(){
 double costTotal = 0.0;
 
@@ -527,6 +722,10 @@ return costTotal;
 
 }
 
+/**
+* Description esste metodo calcula el valor de todos los servicios
+*@return el calculo total de todos los servicios
+*/
 public double calculatedCostTotalForTheService(){
 double m = 0.0;
 
@@ -535,7 +734,13 @@ m += (calculatedService1() + calculatedService2() + calculatedService3() + calcu
 return m;
 
 }
-
+/**
+*Description esste metodo genera un reporte acerca de la informacion que se encuentre en esas fechas
+*pre: debe estar en formato AAAA-MM-DD
+*@param la fecha inicial
+*@param la fecha final
+*@return el servicio que se presento dentro de esas fechas
+*/
 public String getReportedAboutAnimalWithInicialDateAndFinalDate(String inicialDate,String finalDate){
 String msj = "";
 
@@ -545,7 +750,7 @@ typeOfService sd1 = typeOfServiceVeterinary.get(i);
 
 if(inicialDate.compareTo(sd1.getDateThatItDoIt()) <= 0 && sd1.getDateThatItDoIt().compareTo(finalDate) <= 0){
 
-  msj = "La siguiente informacion es:" + sd1.serviceInformation();
+  msj = "La siguiente informacion es:" + "\n" +sd1.serviceInformation();
 
 }else{
   msj = "No se encontro la fecha o ingreso una fecha que no es o una equivocada";
@@ -555,6 +760,30 @@ if(inicialDate.compareTo(sd1.getDateThatItDoIt()) <= 0 && sd1.getDateThatItDoIt(
 }
 
 return msj;
+
+}
+
+/**
+*Description este metodo calcula los ingresos por una semana
+*@param el dia actual
+*@param el mes actual
+*@param el anho actual
+*@return el costo por una semana
+*/
+public double calculatedCostForOneWeek(int dayActual, int monthActual, int actualYear){
+
+double promediateWeek = 0.0;
+int fechaActual = (dayActual + 7);
+
+if(fechaActual > 30){
+   promediateWeek = calculatedCostTotalForTheService()/(fechaActual % 30);
+}else if(fechaActual < 30){
+   promediateWeek = calculatedCostTotalForTheService()/fechaActual;
+}
+
+
+return promediateWeek;
+
 
 }
 
