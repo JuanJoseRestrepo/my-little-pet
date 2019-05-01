@@ -56,7 +56,11 @@ public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVet
 public void addServiceWithPet(typeOfService m , Pet p){
 
 typeOfServiceVeterinary.add(m);
+<<<<<<< HEAD
 typeOfServiceVeterinary.get((typeOfServiceVeterinary.size()-1)).setPetsWithTypeOfService(p);
+=======
+typeOfServiceVeterinary.setPetsWithTypeOfService(p);
+>>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
 }
 
 public void addMiniRoom(Room miniRoom1, Room miniRoom2,Room miniRoom3 , Room miniRoom4, Room miniRoom5, Room miniRoom6,Room miniRoom7,Room miniRoom8){
@@ -533,6 +537,7 @@ double m = 0.0;
 m += (calculatedService1() + calculatedService2() + calculatedService3() + calculatedService4() + calculatedService5());
 
 return m;
+String msj
 
 }
 
@@ -556,6 +561,27 @@ if(inicialDate.compareTo(sd1.getDateThatItDoIt()) <= 0 && sd1.getDateThatItDoIt(
 
 return msj;
 
+}
+
+public String generateReportWithInicialDateAndFinalDate(String inicialDate, String finalDate){
+String msj = "";
+
+for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
+	
+	typeOfService sd1 = typeOfServiceVeterinary.get(i);
+	
+	if(inicialDate.comparateTo(sd1.getDateThatItDoIt()) && sd1.getDateThatItDoIt().comparateTo(finalDate)){
+		msj= "Los siguientes datos son" + sd1.serviceInformation();
+	}else{
+		msj = "No se encontro o digite lo que no era";
+	}
+}
+
+return msj;
+	
+	
+	
+	
 }
 
 

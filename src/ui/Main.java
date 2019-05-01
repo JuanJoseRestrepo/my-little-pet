@@ -522,6 +522,7 @@ typeOfService m = new typeOfService(serviceOf,costOfService,dateInService,identi
 principal.addServiceWithPet(m,p);
 
 }else if(userImput == 17){
+<<<<<<< HEAD
 
 System.out.println("Por favor digite la fecha inicial en el siguiente formato: AAAA-MM-DD");
 
@@ -532,6 +533,19 @@ System.out.println("Por favor digite la fecha final en el siguiente formato: AAA
 String finalDate = reader.nextLine();
 
 System.out.println(principal.getReportedAboutAnimalWithInicialDateAndFinalDate(inicialDate,finalDate));
+=======
+	
+System.out.println("Digite la fecha inicial con el siguiente formato: AAAA-MM-DD");
+
+String inicialDate = reader.nextLine();
+
+System.out.println("Digite la fecha final con el siguiente formato: AAAA-MM-DD");
+
+String finalDate = reader.nextLine();
+
+System.out.println(principal.generateReportWithInicialDateAndFinalDate(inicialDate,finalDate));
+
+>>>>>>> 2684d12401b0df128d93db117fd6c7d894314759
 
 }else{
    System.out.println("////////////////////////////////////////////////////////////////////////////////////////////");
