@@ -14,10 +14,10 @@ private ArrayList<Pet> pets;
 
 /**
 *Description el constructor que inicializa las variables
-*@param el nombre del cliente
-*@param la identificacion del cliente
-*@param la direccion del cliente
-*@param el telefono del cliente
+*@param nameClient String el nombre del cliente
+*@param identify long la identificacion del cliente
+*@param address String la direccion del cliente
+*@param cellPhone String el telefono del cliente
 */
 public Client(String nameClient,long identify, String address , String cellPhone){
 
@@ -31,7 +31,7 @@ pets = new ArrayList<Pet>();
 
 /**
 *Description este metodo obtiene el nombre del cliente
-*@return el nombre del cliente
+*@return String el nombre del cliente
 */
 public String getNameClient(){
 		return nameClient;
@@ -39,7 +39,7 @@ public String getNameClient(){
 
 /**
 *Description este metodo establece el nombre del cliente
-*@param el nombre del cliente
+*@param nameClient String el nombre del cliente
 */
 public void setNameClient(String nameClient){
 this.nameClient = nameClient;
@@ -47,7 +47,7 @@ this.nameClient = nameClient;
 
 /**
 *Description este metodo obtiene la identificacion del cliente
-*@return la identificacion del cliente
+*@return long la identificacion del cliente
 */
 public long getIdentify(){
 
@@ -56,7 +56,7 @@ public long getIdentify(){
 
 /**
 *Description este metodo establece la identificacion del cliente
-*@param la identificacion del cliente
+*@param identify long la identificacion del cliente
 */
 public void setIdentify(long identify){
 	this.identify = identify;
@@ -64,7 +64,7 @@ public void setIdentify(long identify){
 
 /**
 *Description este metodo obtiene la direccion del cliente
-*@return la direccion del cliente
+*@return String  la direccion del cliente
 */
 public String getAddress(){
 
@@ -74,7 +74,7 @@ public String getAddress(){
 
 /**
 *Description este metodo establece la direccion del cliente
-*@param la direccion del cliente
+*@param address String la direccion del cliente
 */
 public void setAddress(String address){
 
@@ -84,7 +84,7 @@ public void setAddress(String address){
 
 /**
 *Description este metodo obtiene el telefono del cliente
-*@return el telefono del cliente
+*@return String el telefono del cliente
 */
 public String getCellPhone(){
 return cellPhone;
@@ -92,7 +92,7 @@ return cellPhone;
 
 /**
 *Description este metodo establece el telefono del cliente
-*@param el telefono del cliente
+*@param cellPhone String el telefono del cliente
 */
 public void setCellPhone(String cellPhone){
 
@@ -102,7 +102,7 @@ this.cellPhone = cellPhone;
 
 /**
 *Description este metodo obtiene el arraylist de las mascotas
-*@return el arraylist de las mascotas
+*@return ArrayList<Pet> el arraylist de las mascotas
 */
 public ArrayList<Pet> getPets(){
 	 return pets;
@@ -110,7 +110,7 @@ public ArrayList<Pet> getPets(){
 
 /**
 *Description este metodo establece el numero del cuarto
-*@param el numero del cuarto
+*@param pets ArrayList<Pet> el numero del cuarto
 */
 public void setPets(ArrayList<Pet> pets){
 	 this.pets = pets;
@@ -118,7 +118,7 @@ public void setPets(ArrayList<Pet> pets){
 
 /**
 *Descriptioneste metodo agrega al arraylist de mascotas
-*@param el arraylist de mascotas nuevo
+*@param clientsPets ArrayList<Pet> el arraylist de mascotas nuevo
 */
 public void addPet(ArrayList<Pet> clientsPets){
 pets = clientsPets;
@@ -126,7 +126,7 @@ pets = clientsPets;
 
  /**
 **Description este metodo muestra la info del cliente
-*@return la info del cliente
+*@return String la info del cliente
  */
 public String infoClient(){
 String msj = "";
@@ -152,8 +152,8 @@ return msj;
 
 /**
 *Description este metodo encuentra al animalito
-*@param el nombre del animalito
-*@return el animalito encontrado
+*@param petName String el nombre del animalito
+*@return String  el animalito encontrado
 */
 public Pet findPet(String petName){
 
@@ -174,9 +174,9 @@ public Pet findPet(String petName){
 
 /**
 *Description este metodo establece si se puede hospitalizar
-*@param el nombre del animalito
-*@param la historia clinica
-*@param el medicamento
+*@param namePe String el nombre del animalito
+*@param newMedRec ClinicalHistory la historia clinica
+*@param medic Medicament el medicamento
 */
 public void startHospita(String namePe, ClinicalHistory newMedRec, Medicament medic){
 boolean petts = false;
@@ -192,7 +192,7 @@ if(pets.get(i).getNamePet().equals(namePe)){
 
 /**
 *Description este metodo muestra la informacion de la hospitlizacion
-*@return la info de la hospitalizacion
+*@return String la info de la hospitalizacion
 */
 public String showInfoHospi(){
 String msj = "";

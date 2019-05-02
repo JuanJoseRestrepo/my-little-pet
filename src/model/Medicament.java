@@ -15,10 +15,10 @@ private HistorialDated  med1;
 //Constructores
 /**
 *Description este constructor inicialzia las variables
-*@param  la dosis
-*@param  el nombre del medicamento
-*@param  la dosis total
-*@param  la frecuencia
+*@param  nameOfMedicament String la dosis
+*@param  dose double el nombre del medicamento
+*@param  totalDose double la dosis total
+*@param  frecuency int la frecuencia
 */
 public Medicament(String nameOfMedicament, double dose, double totalDose, int frecuency){
 
@@ -30,7 +30,7 @@ this.frecuency = frecuency;
 
 /**
 *Description este metodo obtiene el nombre del medicamento
-*@return el nombre del medicamento
+*@return String el nombre del medicamento
 */
 public String getNameOfMedicament(){
   return nameOfMedicament;
@@ -38,7 +38,7 @@ public String getNameOfMedicament(){
 
 /**
 *Description este metodo  establece el nombre del medicamento
-*@param el nombre del medicamento
+*@param nameOfMedicament String el nombre del medicamento
 */
 public void setNameOfMedicament(String nameOfMedicament){
   this.nameOfMedicament = nameOfMedicament;
@@ -46,7 +46,7 @@ public void setNameOfMedicament(String nameOfMedicament){
 
 /**
 *Description este metodo obtiene la dosis
-*@return dosis
+*@return double dosis
 */
 public double getDose(){
   return dose;
@@ -54,7 +54,7 @@ public double getDose(){
 
 /**
 *Description este metodo establece la dosis
-*@param dosis
+*@param dose double dosis
 */
 public void setDose(double dose){
   this.dose = dose;
@@ -62,7 +62,7 @@ public void setDose(double dose){
 
 /**
 *Description este metodo obtiene el total de la dosis
-*@return dosis
+*@return double dosis
 */
 public double getTotalDose(){
   return totalDose;
@@ -70,7 +70,7 @@ public double getTotalDose(){
 
 /**
 *Description este metodo establece el total de la dosis
-*@param dosis
+*@param totalDose int dosis
 */
 public void setTotalDose(double totalDose){
   this.totalDose = totalDose;
@@ -78,7 +78,7 @@ public void setTotalDose(double totalDose){
 
 /**
 *Description este metodo obtiene la freccuencia de la dosis
-*@return la frecuencia de la dosis
+*@return int  la frecuencia de la dosis
 */
 public int getFrecuency(){
   return frecuency;
@@ -86,7 +86,7 @@ public int getFrecuency(){
 
 /**
 *Description este metodo establece la frecuencia de la dosis
-*@param la frecuencia de la dosis
+*@param frecuency int la frecuencia de la dosis
 */
 public void setFrecuency(int frecuency){
   this.frecuency = frecuency;
@@ -94,7 +94,7 @@ public void setFrecuency(int frecuency){
 
 /**
 *Description este metodo muestra la info de los medicamentos
-*@return la info de los medicamentos
+*@return String la info de los medicamentos
 */
 public String showInfoMedica(){
 String msj = "";
@@ -110,7 +110,7 @@ return msj;
 
 /**
 *Description este metodo calcula la dosis
-*@return el calculo de la dosis
+*@return double el calculo de la dosis
 */
 public double calculatedDose(){
 double doseXcost = 0.0;

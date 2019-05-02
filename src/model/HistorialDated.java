@@ -9,11 +9,11 @@ private int month;
 private int year;
 
 //Constructores
-/** 
+/**
 *Description este constructor inicializa las variables
-*@param el dia
-*@param el mes
-*@param el anho
+*@param day int el dia
+*@param month int el mes
+*@param year int el anho
 */
 public HistorialDated(int day, int month, int year){
   this.day = day;
@@ -23,7 +23,7 @@ public HistorialDated(int day, int month, int year){
 
 /**
 *Description este metodo obtiene el dia
-*@return el dia
+*@return int el dia
 */
 public int getDay(){
   return day;
@@ -31,7 +31,7 @@ public int getDay(){
 
 /**
 *Description este metodo establece el dia
-*@param el dia
+*@param day int el dia
 */
 public void setDay(int day){
   this.day = day;
@@ -39,7 +39,7 @@ public void setDay(int day){
 
 /**
 *Description este metodo obtiene el mes
-*@return el mes
+*@return int el mes
 */
 public int getMonth(){
   return month;
@@ -47,7 +47,7 @@ public int getMonth(){
 
 /**
 *Description este metodo establece  el mes
-*@param el mes
+*@param month int el mes
 */
 public void setMonth(){
   this.month= month;
@@ -55,7 +55,7 @@ public void setMonth(){
 
 /**
 *Description este metodo obtiene el anho
-*@return el anho
+*@return int el anho
 */
 public int getYear(){
   return year;
@@ -63,7 +63,7 @@ public int getYear(){
 
 /**
 *Description este metodo establece el anho
-*@param el anho
+*@param year int el anho
 */
 public void setYear(int year){
   this.year = year;
@@ -71,7 +71,7 @@ public void setYear(int year){
 
 /**
 *Description este metodo obtiene los dias
-*@return los dias que se van a utilizar
+*@return int  los dias que se van a utilizar
 */
 public int getFrecuencyOfTheMedicament(int actualDay , int actualMonth, int actualYear){
 

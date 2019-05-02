@@ -14,9 +14,9 @@ private Pet petRoom;
 
 /**
 *Description este constructor inicializa las variables
-*@param la disponibilidad del cuarto
-*@param el numero del cuarto
-*@param la mascota dentro del cuarto
+*@param avaible boolean la disponibilidad del cuarto
+*@param numbOfRoom int el numero del cuarto
+*@param petRoom Pet la mascota dentro del cuarto
 */
 public Room(boolean avaible, int numbOfRoom, Pet petRoom){
   this.avaible = avaible;
@@ -26,7 +26,7 @@ public Room(boolean avaible, int numbOfRoom, Pet petRoom){
 
 /**
 *Description este metodo obtiene la disponibilidad del cuarto
-*@return la disponibilidad del cuarto
+*@return boolean la disponibilidad del cuarto
 */
 public boolean getAvaible(){
   return avaible;
@@ -34,7 +34,7 @@ public boolean getAvaible(){
 
 /**
 *Description este metodo establece la disponibilidad del cuarto
-*@param la disponibilidad del cuarto
+*@param avaible boolean la disponibilidad del cuarto
 */
 public void setAvaible(boolean avaible){
   this.avaible = avaible;
@@ -42,7 +42,7 @@ public void setAvaible(boolean avaible){
 
 /**
 *Description este metodo obtiene el numero del cuarto
-*@return el numero del cuarto
+*@return int el numero del cuarto
 */
 public int getnumbOFRoom(){
   return numbOfRoom;
@@ -50,14 +50,14 @@ public int getnumbOFRoom(){
 
 /**
 *Description este metodo establece el numero del cuarto
-*@param el numero del cuarto
+*@param numbOfRoom int el numero del cuarto
 */
 public void seNumbOfRoom(int numbOfRoom){
   this.numbOfRoom = numbOfRoom;
 }
 /**
 *Description este metodo obtiene la mascota en el cuarto
-*@return la mascota en el cuarto
+*@return Pet la mascota en el cuarto
 */
 public Pet getPetRoom(){
   return petRoom;
@@ -65,7 +65,7 @@ public Pet getPetRoom(){
 
 /**
 *Description este metodo establece la mascota en el cuarto
-*@param la mascota en el cuarto
+*@param petRoom Pet la mascota en el cuarto
 */
 public void setPetRoom(Pet petRoom){
   this.petRoom = petRoom;
@@ -73,7 +73,7 @@ public void setPetRoom(Pet petRoom){
 
 /**
 *Description este metodo muestra la informacion del cuarto hospitalizaco
-*@return la informacion de la hospitlizacion
+*@return String la informacion de la hospitlizacion
 */
 public String showInfoRoomPetHospit(){
 String msj = "";
@@ -92,12 +92,12 @@ return msj;
 
 /**
 *Description este metodo calcula el costo de hospitalizacion
-*@param el tipo del animal
-*@param el peso de la mascota
-*@param el dia actual
-*@param el mes actual
-*@param  el anho actual
-*@return el precio de hospitalizacion
+*@param typeAnimal String  el tipo del animal
+*@param weight double  el peso de la mascota
+*@param actualDay int el dia actual
+*@param actualMonth int el mes actual
+*@param actualYear int el anho actual
+*@return String el precio de hospitalizacion
 */
 public String  costOfhospi(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
 String total ="";
@@ -109,11 +109,11 @@ return total;
 
 /**
 *Description este metodo agrega medicamentos al animalito
-*@param el nombre del medicamento
-*@param la dosis del medicamento
-*@param el costo del medicamento
-*@param la fecruencia del medicamento
-*@return si se agrego el medicamento
+*@param medicamentForVeterinary String el nombre del medicamento
+*@param doseForVeterinary double la dosis del medicamento
+*@param costForVeterinary double el costo del medicamento
+*@param frecForVeterinary int la fecruencia del medicamento
+*@return String si se agrego el medicamento
 */
 public String addMedicamentsToPet(String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
 
@@ -128,7 +128,7 @@ return msj;
 
 /**
 *Description este metodo agrega notas al animalito
-*@param las notas
+*@param notes String las notas
 */
 public void addNotesToPet(String notes){
 
@@ -137,7 +137,7 @@ public void addNotesToPet(String notes){
 
 /**
 *Description este metodo agrega nuevos sintomas a la historia clinica
-*@param el sintoma nuevo
+*@param symptomPet String el sintoma nuevo
 */
 public void addNotesToSympTom(String symptomPet){
 

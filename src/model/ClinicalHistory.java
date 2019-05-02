@@ -24,16 +24,16 @@ private Pet petsAll;
 
 //Constructores
 
-/** 
+/**
 *Description este constructor inicializa las variables
-*@param el nombre de la mascota
-*@param el nombre del cliente
-*@param el sintoma de la mascota
-*@param el diagnostico de la mascota
-*@param el estado de la mascota
-*@param la fecha inicial
-*@param la fecha final
-*@param la mascota en el registro del historial
+*@param petInfo String el nombre de la mascota
+*@param ownerInfo String el nombre del cliente
+*@param symptom String el sintoma de la mascota
+*@param diagnostic String el diagnostico de la mascota
+*@param state boolean  estado de la mascota
+*@param date1 HistorialDated la fecha inicial
+*@param date2 HistorialDated la fecha final
+*@param petsAll Pet a mascota en el registro del historial
 */
 public ClinicalHistory(String petInfo, String ownerInfo,String symptom, String diagnostic, boolean state, HistorialDated date1, HistorialDated date2,Pet petsAll){
 
@@ -49,7 +49,7 @@ medicaments = new ArrayList<Medicament>();
 
 /**
 *Description este metodo obtiene el nombre de la mascota
-*@return el nombre de la mascota
+*@return String el nombre de la mascota
 */
 public String getPetInfo(){
   return petInfo;
@@ -57,7 +57,7 @@ public String getPetInfo(){
 
 /**
 *Description este metodo establece el nombre de la mascota
-*@param el nombre de la mascota
+*@param petInfo String el nombre de la mascota
 */
 public void setPetInfo(String petInfo){
   this.petInfo = petInfo;
@@ -65,7 +65,7 @@ public void setPetInfo(String petInfo){
 
 /**
 *Description este metodo obtiene el nombre del cliente
-*@return el nombre del cliente
+*@return String el nombre del cliente
 */
 public String getOwnerInfo(){
   return ownerInfo;
@@ -73,7 +73,7 @@ public String getOwnerInfo(){
 
 /**
 *Description este metodo establece el nombre del cliente
-*@param el nombre del cliente
+*@param ownerInfo String el nombre del cliente
 */
 public void setOwnerInfo( String ownerInfo){
   this.ownerInfo = ownerInfo;
@@ -81,7 +81,7 @@ public void setOwnerInfo( String ownerInfo){
 
 /**
 *Description este metodo obtiene el sintoma de la mascota
-*@return el sintoma de la mascota
+*@return String el sintoma de la mascota
 */
 public String getSymptom(){
   return symptom;
@@ -89,7 +89,7 @@ public String getSymptom(){
 
 /**
 *Description este metodo estable el sintoma de la mascota
-*@param el sintoma de la mascota
+*@param symptom String el sintoma de la mascota
 */
 public void setSymptom(String symptom){
   this.symptom = symptom;
@@ -97,7 +97,7 @@ public void setSymptom(String symptom){
 
 /**
 *Description este metodo obtiene el diagnostico de la mascota
-*@return el diagnostico de la mascota
+*@return String el diagnostico de la mascota
 */
 public String getDiagnostic(){
   return diagnostic;
@@ -105,7 +105,7 @@ public String getDiagnostic(){
 
 /**
 *Description este metodo establece el diagnostico de la mascota
-*@param el diagnostico de la mascota
+*@param diagnostic String el diagnostico de la mascota
 */
 public void setDiagnostic(String diagnostic){
   this.diagnostic = diagnostic;
@@ -113,7 +113,7 @@ public void setDiagnostic(String diagnostic){
 
 /**
 *Description este metodo obtiene el estado del animal
-*@return el estado del animal
+*@return boolean el estado del animal
 */
 public boolean getState(){
   return state;
@@ -121,7 +121,7 @@ public boolean getState(){
 
 /**
 *Description este metodo estable el estado del animal
-*@param el estado del animal
+*@param state boolean el estado del animal
 */
 public void setState(boolean state){
   this.state = state;
@@ -129,7 +129,7 @@ public void setState(boolean state){
 
 /**
 *Description este metodo obtiene el historial de la mascota
-*@return el historial de la mascota
+*@return HistorialDated el historial de la mascota
 */
 public HistorialDated getDate1(){
   return date1;
@@ -137,7 +137,7 @@ public HistorialDated getDate1(){
 
 /**
 *Description este metodo establece el historial de la mascota
-*@param el historial de la mascota
+*@param date1 HistorialDated el historial de la mascota
 */
 public void setDate1(HistorialDated date1){
   this.date1 = date1;
@@ -145,7 +145,7 @@ public void setDate1(HistorialDated date1){
 
 /**
 *Description este metodo obtiene el historial de la mascota
-*@return el historial de la mascota
+*@return HistorialDated el historial de la mascota
 */
 public HistorialDated getDate2(){
   return date2;
@@ -153,7 +153,7 @@ public HistorialDated getDate2(){
 
 /**
 *Description este metodo establece el historial de la mascota
-*@param el historial de la mascota
+*@param date2 HistorialDated el historial de la mascota
 */
 public void setDate2(HistorialDated date2){
   this.date2 = date2;
@@ -161,7 +161,7 @@ public void setDate2(HistorialDated date2){
 
 /**
 *Description este metodo obtiene los medicamentos
-*@return el arraylist de los medicamentos
+*@return ArrayList<Medicament> el arraylist de los medicamentos
 */
 public ArrayList<Medicament> getMedicaments(){
  return medicaments;
@@ -169,7 +169,7 @@ public ArrayList<Medicament> getMedicaments(){
 
 /**
 *Description este metodo establece los medicamentos
-*@param el arraylist de los medicamentos
+*@param medicaments ArrayList<Medicament> el arraylist de los medicamentos
 */
 public void setMedicaments(ArrayList<Medicament> medicaments){
  this.medicaments = medicaments;
@@ -177,7 +177,7 @@ public void setMedicaments(ArrayList<Medicament> medicaments){
 
 /**
 *Description este metodo obtiene a la mascota
-*@return la mascota
+*@return Pet  la mascota
 */
 public Pet getPetsAll(){
   return petsAll;
@@ -185,7 +185,7 @@ public Pet getPetsAll(){
 
 /**
 *Description este metodo estable a la mascota
-*@param la mascota
+*@param petsAll Pet a mascota
 */
 public void setPetsAll(Pet petsAll){
   this.petsAll = petsAll;
@@ -193,7 +193,7 @@ public void setPetsAll(Pet petsAll){
 
 /**
 *Description este metodo obtiene la fecha inicial
-*@return la fecha inicial
+*@return String la fecha inicial
 */
 public String inicialDate1(){
 String msj = "";
@@ -205,7 +205,7 @@ return msj;
 
 /**
 *Description este metodo obtiene la fecha final
-*@return la fecha final
+*@return String la fecha final
 */
 public String finalDate2(){
   String msj = "";
@@ -217,7 +217,7 @@ public String finalDate2(){
 
 /**
 *Description este metodo obtiene la informacion de la historia clinica
-*@return la info de la historia clinica
+*@return String  la info de la historia clinica
 */
 public String infoAnimalHistory(){
   String msj = "";
@@ -244,7 +244,7 @@ public String infoAnimalHistory(){
 
 /**
 *Description este metodo obtiene la informacion de la historia clinica
-*@return la info de la historia clinica
+*@return String  la info de la historia clinica
 */
 public String infoAnimalHistoryHospi(){
   String msj = "";
@@ -271,7 +271,7 @@ public String infoAnimalHistoryHospi(){
 
 /**
 *Description este metodo agrega medicamentos
-*@param el medicamento ha agregar
+*@param medic Medicament el medicamento ha agregar
 */
 public void addMedicaments(Medicament medic){
 
@@ -281,7 +281,7 @@ public void addMedicaments(Medicament medic){
 
 /**
 *Description este metodo da los dias de hospitalizacion
-*@return los dias de hospitalizacion
+*@return int  los dias de hospitalizacion
 */
 public int daysInHospitalization(int actualDay, int actualMonth, int actualYear){
 int i =0;
@@ -293,7 +293,7 @@ return i;
 
 /**
 *Description este metodo obtiene el costo de los medicamentos
-*@return el costo de los medicamentos
+*@return double el costo de los medicamentos
 */
 public double medicamentCosts(){
   double doseXcost = 0.0;
@@ -310,7 +310,7 @@ doseXcost += medicaments.get(i).calculatedDose();
 *Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: New notes were added to the possible diagnostic in the patient clinic story.
-*@param The notes of possible diagnostic. This param must be not null.
+*@param notes String The notes of possible diagnostic. This param must be not null.
 */
 public void addNotes(String notes){
 
@@ -322,7 +322,7 @@ setDiagnostic(notes + getDiagnostic());
 *Description This method allows to add a new symptom presented during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: A new symptom were added to the patient clinic story.
-*@param The new symptom presented. This param must be not null.
+*@param symptomPet String The new symptom presented. This param must be not null.
 */
 public void addNewSymptomFinally(String symptomPet){
 

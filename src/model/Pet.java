@@ -22,14 +22,14 @@ private ArrayList<ClinicalHistory> clientWithHisto;
 private Client cli1;
 
 //Constructores
-/** 
+/**
 *Description este constructor inicializa las variables
-*@param el nombre del animalito
-*@param la edad del animalito
-*@param el tipo del animalito
-*@param el peso del animalito
-*@param la altura del animalito
-*@param el cliente que contiene la mascota
+*@param namePet String el nombre del animalito
+*@param ageOfPet int la edad del animalito
+*@param typeOfPet String el tipo del animalito
+*@param weightPet double el peso del animalito
+*@param heightPet double la altura del animalito
+*@param clie1 Client el cliente que contiene la mascota
 */
 public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,double heightPet,Client cli1){
 		this.namePet = namePet;
@@ -43,7 +43,7 @@ public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,do
 
 /**
 *Description este metodo obtiene el nombre de la mascota
-*@return el nombre de la mascota
+*@return String el nombre de la mascota
 */
 public String getNamePet(){
 		return namePet;
@@ -51,7 +51,7 @@ public String getNamePet(){
 
 /**
 *Description este metodo establece el nombre de la mascota
-*@param el nombre de la mascota
+*@param namePet String el nombre de la mascota
 */
 public void setNamePet(String namePet){
 	this.namePet = namePet;
@@ -59,7 +59,7 @@ public void setNamePet(String namePet){
 
 /**
 *Description este metodo obtiene la edad de la mascota
-*@return la edad de la mascota
+*@return int la edad de la mascota
 */
 public int getAgeOfPet(){
 	return ageOfPet;
@@ -67,7 +67,7 @@ public int getAgeOfPet(){
 
 /**
 *Description este metodo establece la edad de la mascota
-*@param la edad de la mascota
+*@param ageOfPet int la edad de la mascota
 */
 public void setAgeOfPet(int ageOfPet){
 	this.ageOfPet = ageOfPet;
@@ -75,7 +75,7 @@ public void setAgeOfPet(int ageOfPet){
 
 /**
 *Description este metodo obtiene el tipo de la mascota
-*@return el tipo de la mascota
+*@return String el tipo de la mascota
 */
 public String getTypeOfPet(){
 	return typeOfPet;
@@ -83,15 +83,15 @@ public String getTypeOfPet(){
 
 /**
 *Description este metodo establece el tipo de la mascota
-*@param el tipo de la mascota
+*@param typeOfPet String el tipo de la mascota
 */
-public void setTypeOfPet(){
+public void setTypeOfPet(String typeOfPet){
 	this.typeOfPet = typeOfPet;
 }
 
 /**
 *Description este metodo obtiene el peso del animalito
-*@return el peso del animalito
+*@return double el peso del animalito
 */
 public double getWeightPet(){
 	return weightPet;
@@ -99,15 +99,15 @@ public double getWeightPet(){
 
 /**
 *Description este metodo establece el peso de la mascota
-*@param el peso de la mascota
+*@param wieghtPet double el peso de la mascota
 */
-public void setWeightPet(){
+public void setWeightPet(double weightPet){
 	this.weightPet = weightPet;
 }
 
 /**
 *Description este metodo obtiene el cliente de la mascota
-*@return el cliente de la mascota
+*@return Client el cliente de la mascota
 */
 public Client getCli1(){
 	return cli1;
@@ -115,7 +115,7 @@ public Client getCli1(){
 
 /**
 *Description este metodo establece el cliente de la mascota
-*@param el cliente cliente de la mascota
+*@param cli1 Client el cliente cliente de la mascota
 */
 public void setCli1(Client cli1){
 	this.cli1 = cli1;
@@ -123,7 +123,7 @@ public void setCli1(Client cli1){
 
 /**
 *Description este metodo obtiene el arraylist de las historias clinicas
-*@return el arraylist de las historias clinicas
+*@return ArrayList<ClinicalHistory> el arraylist de las historias clinicas
 */
 public ArrayList<ClinicalHistory> getClientWithHisto(){
  return clientWithHisto;
@@ -131,7 +131,7 @@ public ArrayList<ClinicalHistory> getClientWithHisto(){
 
 /**
 *Description este metodo establece el arraylist de las historias clinicas
-*@param el arraylist de las historias clinicas
+*@param clientWithHisto ArrayList<ClinicalHistory> el arraylist de las historias clinicas
 */
 public void setClientWithHisto(ArrayList<ClinicalHistory> clientWithHisto){
  this.clientWithHisto = clientWithHisto;
@@ -139,7 +139,7 @@ public void setClientWithHisto(ArrayList<ClinicalHistory> clientWithHisto){
 
 /**
 *Description este metodo establece el arraylist de las historias clinicas
-*@param el arraylist de las historias clinicas
+*@param clientWithHisto ArrayList<ClinicalHistory> el arraylist de las historias clinicas
 */
 public void setPets(ArrayList<ClinicalHistory> clientWithHisto){
  this.clientWithHisto = clientWithHisto;
@@ -147,7 +147,7 @@ public void setPets(ArrayList<ClinicalHistory> clientWithHisto){
 
 /**
 *Description este metodo muestra la informacion de la mascota
-*@return la informacion de la mascota
+*@return String la informacion de la mascota
 */
 public String showInfoPet(){
  String msj = "";
@@ -171,10 +171,10 @@ public String showInfoPet(){
 *Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: New medicines were added to the patient clinic story.
-*@param The medicine name. This param must be not null.
-*@param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
-*@param The medicine cost by each dose. This param could be empty.
-*@param The frequency of medicine application. This param could be empty.
+*@param medicamentForVeterinary String The medicine name. This param must be not null.
+*@param doseForVeterinary double The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
+*@param costForVeterinary double The medicine cost by each dose. This param could be empty.
+*@param frecForVeterinary int The frequency of medicine application. This param could be empty.
 *@return A message that indiques if medicine was added to the patient clinic story
 */
 public String addPetToHistoryCLinical(String medicamentForVeterinary, double doseForVeterinary, double costForVeterinary, int frecForVeterinary){
@@ -194,7 +194,7 @@ return msj;
 *Description This method allows to calculate the body mass index for a pet.
 *pre: The pet was created before and its attributes height and weight are not null neither height must be zero.
 *post: The BMI is calculated.
-*@return turn The pet body mass index.
+*@return double turn The pet body mass index.
 *@throws I the height is zero, so an exception is thrown due to the division on zero does not exist.
 */
 
@@ -207,8 +207,8 @@ return weightPet/(heightPet * heightPet);
 
 /**
 *Description este metodo agrega la historia clinica y los medicamentos
-*@param la historia clinica
-*@param los medicamentos
+*@param newMedRec ClinicalHistory la historia clinica
+*@param medic Medicament los medicamentos
 */
 public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
 
@@ -221,12 +221,12 @@ public void addMedRec(ClinicalHistory newMedRec, Medicament medic){
 
 /**
 *Description este metodo calcula el costo de hospitalizacion
-*@param el tipo del animalito
-*@param el peso del animalito
-*@param el mes actual
-*@param el dia actual
-*@param el anho actual
-*@return el costo de hospitalizacion
+*@param typeAnimal String el tipo del animalito
+*@param weight double el peso del animalito
+*@param actualDay int el mes actual
+*@param actualMonth int el dia actual
+*@param actualYear int el anho actual
+*@return double el costo de hospitalizacion
 */
 public double costOfHospitalizate(String typeAnimal, double weight,int actualDay, int actualMonth, int actualYear){
 
@@ -287,7 +287,7 @@ return total;
 
 /**
 *Description este metodo muestra la info de la hospitalizacion
-*@return la info de la hospitalizacion
+*@return String la info de la hospitalizacion
 */
 public String showHospitalization(){
 String msj = "";
@@ -318,7 +318,7 @@ msj += "------------------------------------------------------------------------
 
 /**
 *Description este metodo muestra la info de la hospitalizacion
-*@return la info de la hospitalizacion
+*@return String la info de la hospitalizacion
 */
 public String showInfoPetHospit(){
 String msj = "";
@@ -346,7 +346,7 @@ msj += "------------------------------------------------------------------------
 
 /**
 *Description este metodo agrega notas a la hospitalizacion
-*@param las notas
+*@param notes String las notas
 */
 public void addNotesToHospitalizationFatality(String notes){
 
@@ -356,7 +356,7 @@ clientWithHisto.get((clientWithHisto.size()-1 )).addNotes(notes);
 
 /**
 *Description este metodo agrega el nuevo sintoma a la hospitalizacion
-*@param el sintoma del animalito
+*@param symptomPet String el sintoma del animalito
 */
 public void addNewSymptomHistory(String symptomPet){
 
