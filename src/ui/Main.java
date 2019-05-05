@@ -94,7 +94,7 @@ System.out.println("//////////////////////////12.AGREGAR SINTOMAS///////////////
 System.out.println("//////////////////////////13.MOSTRAR EL CALCULO DE LOS INGRESOS//////////////////////////////");
 System.out.println("//////////////////////////14.EL COSTO DE SERVICIOS PROMEDIADOS///////////////////////////////");
 System.out.println("//////////////////////////15.EL COSTO TOTAL DE LOS SERVICIOS ////////////////////////////////");
-System.out.println("//////////////////////////16.EL COSTO TOTAL DE LOS SERVICIOS/////////////////////////////////");
+System.out.println("//////////////////////////16.INGRESAR UN NUEVO SERVICIO//////////////////////////////////////");
 System.out.println("//////////////////////////17.MOSTRAR LA INFO CON FECHA INICIAL Y LA FINAL////////////////////");
 System.out.println("//////////////////////////18.MOSTRAR EL CALCULO DE UNA SEMANA////////////////////////////////");
 System.out.println("//////////////////////////19.SALIR///////////////////////////////////////////////////////////");
@@ -634,6 +634,12 @@ public void init(){
     typeOfService s1 = new typeOfService(typeOfService.service1, typeOfService.washPets,"2008-08-12",(long)1009876541,(long)1009876541,Residente);
 
     principal.addServiceWithPet(s1,Residente);
+
+    Client Cheto = new Client("Cheto", 100123456,"Sucre bueno", "3113072571");
+    Pet Trump = new Pet("Trump", 17 , Pet.CAT, 150.0, 310.0, Cheto);
+    typeOfService s2 = new typeOfService(typeOfService.service3, typeOfService.cutNails,"2010-03-13",(long)100123456,(long)100123456,Trump);
+
+    principal.addServiceWithPet(s2,Trump);
 
 
     Room miniRoom1 = new Room(false, 1, Yoko);

@@ -64,7 +64,7 @@ public void setMiniRoom( Room[] miniRoom){
 
 /**
 * Description Este metodo accede al arraylist de CLIENTES
-* @return ArrayList<Client> Client retorna los clientes
+* @return ArrayList Client retorna los clientes
 */
 public ArrayList<Client> getClients(){
   return clients;
@@ -72,7 +72,7 @@ public ArrayList<Client> getClients(){
 
 /**
 *Description Este metodo establece el arraylist de CLIENTES
-*@param clients ArrayList<Client> el arraylist de clientes
+*@param clients ArrayList el arraylist de clientes
 */
 public void setClients( ArrayList<Client> clients){
   this.clients = clients;
@@ -80,7 +80,7 @@ public void setClients( ArrayList<Client> clients){
 
 /**
 *Description Este metodo obtiene el tipo de servicios
-*@return ArrayList<typeOfService> el tipo de servicio
+*@return ArrayList el tipo de servicio
 */
 public ArrayList<typeOfService> gettypeOfServiceVeterinary(){
 		return typeOfServiceVeterinary;
@@ -88,7 +88,7 @@ public ArrayList<typeOfService> gettypeOfServiceVeterinary(){
 
 /**
 *Description este metodo establece el tipo de servicios
-*@param typeOfServiceVeterinary ArrayList<typeOfService> el tipo de servicio
+*@param typeOfServiceVeterinary ArrayList el tipo de servicio
 **/
 
 public void setTypeOfServiceVeterinary(ArrayList<typeOfService> typeOfServiceVeterinary){
@@ -161,6 +161,7 @@ return msj;
 *@param addresClientToVeterinary long The new address of the client. This param could be empty.
 *@param phoneClientToVeterinary String The new phone number of the client. This param could be empty.
 *@param idClientToVeterinary the identify client
+*@return String un mensaje
 */
 
 public String actualizePhoneAndAddressOfCLient(long idClientToVeterinary , String addresClientToVeterinary , String phoneClientToVeterinary){
@@ -190,7 +191,7 @@ return msj;
 /**
 *Description Este metodo agrega el cliente con sus mascotas
 *@param client Client el cliente
-*@param clientsPets ArrayList<Pet> el arraylist de pets creados en el main
+*@param clientsPets ArrayList el arraylist de pets creados en el main
 */
 public void addClient(Client client, ArrayList<Pet> clientsPets){
 
@@ -406,7 +407,7 @@ for(int i = 0; i < clients.size(); i++){
 * Description este metodo busca si se puede hospitalizar a un ANIMALITO
 * pre: clientes != null
 * pre: pets != null
-* @param idClient long la identificacion del cliente
+* @param idClientt long la identificacion del cliente
 * @param  nampe St nombre del animalito
 * @return String un mensaje que diga si se pudo hospitalizar
 */
@@ -431,7 +432,7 @@ public String findToHospitalize(long idClientt, String nampe){
 /**
 *Description este metodo mira el costo de hospitalizacion
 *@param typeAnimal String el tipo de mascota
-*@param weightt double el peso del animal
+*@param weight double el peso del animal
 *@param actualDay int  dia actual
 *@param actualMonth int el mes actual
 *@param actualYear int  año actual
@@ -454,7 +455,7 @@ return msj;
 *Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
 *pre: The patient clinic story must be not null.
 *post: New medicines were added to the patient clinic story.
-*@param clientForVeterinary long the identify of client 
+*@param clientForVeterinary long the identify of client
 *@param namePetLupe String the namePet
 *@param medicamentForVeterinary String The medicine name. This param must be not null.
 *@param doseForVeterinary double  The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned. This param must be not null.
@@ -509,6 +510,8 @@ for(int i = 0; i < miniRoom.length && perro == false; i++){
 *pre: The patient clinic story must be not null.
 *post: A new symptom were added to the patient clinic story.
 *@param symptomPet String The new symptom presented. This param must be not null.
+*@param clientToPet String the name of client  
+*@param petNameToPet String the name of Pet
 */
 
 public void addNewSymptom(long clientToPet, String petNameToPet,String symptomPet){

@@ -49,7 +49,7 @@ public int getMonth(){
 *Description este metodo establece  el mes
 *@param month int el mes
 */
-public void setMonth(){
+public void setMonth(int month){
   this.month= month;
 }
 
@@ -71,6 +71,9 @@ public void setYear(int year){
 
 /**
 *Description este metodo obtiene los dias
+*@param actualDay el dia actual 
+*@param actualMonth el mes actual
+*@param actualYear el year actual
 *@return int  los dias que se van a utilizar
 */
 public int getFrecuencyOfTheMedicament(int actualDay , int actualMonth, int actualYear){

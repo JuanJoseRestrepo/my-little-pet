@@ -113,7 +113,7 @@ public Long getIdentifyClientId(){
 }
 /**
 *Description este metodo establece la identificacion del cliente
-*@param identifyPetId long la identificacion del cliente
+*@param identifyClientId long la identificacion del cliente
 */
 public void setIdentifyClientId(Long identifyClientId){
   this.identifyClientId = identifyClientId;

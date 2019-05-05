@@ -102,7 +102,7 @@ this.cellPhone = cellPhone;
 
 /**
 *Description este metodo obtiene el arraylist de las mascotas
-*@return ArrayList<Pet> el arraylist de las mascotas
+*@return ArrayList el arraylist de las mascotas
 */
 public ArrayList<Pet> getPets(){
 	 return pets;
@@ -110,7 +110,7 @@ public ArrayList<Pet> getPets(){
 
 /**
 *Description este metodo establece el numero del cuarto
-*@param pets ArrayList<Pet> el numero del cuarto
+*@param pets ArrayList el numero del cuarto
 */
 public void setPets(ArrayList<Pet> pets){
 	 this.pets = pets;
@@ -118,7 +118,7 @@ public void setPets(ArrayList<Pet> pets){
 
 /**
 *Descriptioneste metodo agrega al arraylist de mascotas
-*@param clientsPets ArrayList<Pet> el arraylist de mascotas nuevo
+*@param clientsPets ArrayList el arraylist de mascotas nuevo
 */
 public void addPet(ArrayList<Pet> clientsPets){
 pets = clientsPets;

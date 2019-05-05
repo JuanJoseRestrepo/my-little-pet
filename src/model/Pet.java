@@ -29,7 +29,7 @@ private Client cli1;
 *@param typeOfPet String el tipo del animalito
 *@param weightPet double el peso del animalito
 *@param heightPet double la altura del animalito
-*@param clie1 Client el cliente que contiene la mascota
+*@param cli1 Client el cliente que contiene la mascota
 */
 public Pet(String namePet , int ageOfPet , String typeOfPet, double weightPet,double heightPet,Client cli1){
 		this.namePet = namePet;
@@ -99,7 +99,7 @@ public double getWeightPet(){
 
 /**
 *Description este metodo establece el peso de la mascota
-*@param wieghtPet double el peso de la mascota
+*@param weightPet double el peso de la mascota
 */
 public void setWeightPet(double weightPet){
 	this.weightPet = weightPet;
@@ -123,7 +123,7 @@ public void setCli1(Client cli1){
 
 /**
 *Description este metodo obtiene el arraylist de las historias clinicas
-*@return ArrayList<ClinicalHistory> el arraylist de las historias clinicas
+*@return ArrayList el arraylist de las historias clinicas
 */
 public ArrayList<ClinicalHistory> getClientWithHisto(){
  return clientWithHisto;
@@ -131,7 +131,7 @@ public ArrayList<ClinicalHistory> getClientWithHisto(){
 
 /**
 *Description este metodo establece el arraylist de las historias clinicas
-*@param clientWithHisto ArrayList<ClinicalHistory> el arraylist de las historias clinicas
+*@param clientWithHisto ArrayList el arraylist de las historias clinicas
 */
 public void setClientWithHisto(ArrayList<ClinicalHistory> clientWithHisto){
  this.clientWithHisto = clientWithHisto;
@@ -139,7 +139,7 @@ public void setClientWithHisto(ArrayList<ClinicalHistory> clientWithHisto){
 
 /**
 *Description este metodo establece el arraylist de las historias clinicas
-*@param clientWithHisto ArrayList<ClinicalHistory> el arraylist de las historias clinicas
+*@param clientWithHisto ArrayList el arraylist de las historias clinicas
 */
 public void setPets(ArrayList<ClinicalHistory> clientWithHisto){
  this.clientWithHisto = clientWithHisto;
@@ -195,7 +195,6 @@ return msj;
 *pre: The pet was created before and its attributes height and weight are not null neither height must be zero.
 *post: The BMI is calculated.
 *@return double turn The pet body mass index.
-*@throws I the height is zero, so an exception is thrown due to the division on zero does not exist.
 */
 
 public double calculateIBMOfAnimal(){

@@ -161,7 +161,7 @@ public void setDate2(HistorialDated date2){
 
 /**
 *Description este metodo obtiene los medicamentos
-*@return ArrayList<Medicament> el arraylist de los medicamentos
+*@return ArrayList el arraylist de los medicamentos
 */
 public ArrayList<Medicament> getMedicaments(){
  return medicaments;
@@ -169,7 +169,7 @@ public ArrayList<Medicament> getMedicaments(){
 
 /**
 *Description este metodo establece los medicamentos
-*@param medicaments ArrayList<Medicament> el arraylist de los medicamentos
+*@param medicaments ArrayList el arraylist de los medicamentos
 */
 public void setMedicaments(ArrayList<Medicament> medicaments){
  this.medicaments = medicaments;
@@ -281,6 +281,9 @@ public void addMedicaments(Medicament medic){
 
 /**
 *Description este metodo da los dias de hospitalizacion
+*@param actualDay el dia actual
+*@param actualMonth el mes actual
+*@param  actualYear el year actual
 *@return int  los dias de hospitalizacion
 */
 public int daysInHospitalization(int actualDay, int actualMonth, int actualYear){
