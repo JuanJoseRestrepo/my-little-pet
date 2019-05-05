@@ -510,7 +510,7 @@ for(int i = 0; i < miniRoom.length && perro == false; i++){
 *pre: The patient clinic story must be not null.
 *post: A new symptom were added to the patient clinic story.
 *@param symptomPet String The new symptom presented. This param must be not null.
-*@param clientToPet String the name of client  
+*@param clientToPet String the name of client
 *@param petNameToPet String the name of Pet
 */
 
@@ -634,7 +634,7 @@ public int calculatedCostForServiceAparrance(){
 	int k  = 0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-typeOfService services = typeOfServiceVeterinary.get(k);
+typeOfService services = typeOfServiceVeterinary.get(i);
 	if(services.getService().equals(typeOfService.service1)){
 			k++;
 	}
@@ -652,7 +652,7 @@ public int calculatedCosForServicesAparrance2(){
 int k = 0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-typeOfService services = typeOfServiceVeterinary.get(k);
+typeOfService services = typeOfServiceVeterinary.get(i);
 	if(services.getService().equals(typeOfService.service2)){
 			k++;
 	}
@@ -670,7 +670,7 @@ public int calculatedCosForServicesAparrance3(){
 int k= 0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-typeOfService services = typeOfServiceVeterinary.get(k);
+typeOfService services = typeOfServiceVeterinary.get(i);
   if(services.getService().equals(typeOfService.service3)){
   			k++;
   	}
@@ -689,7 +689,7 @@ public int calculatedCosForServicesAparrance4(){
 int k = 0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-typeOfService services = typeOfServiceVeterinary.get(k);
+typeOfService services = typeOfServiceVeterinary.get(i);
   if(services.getService().equals(typeOfService.service4)){
   			k++;
   	}
@@ -707,7 +707,7 @@ public int calculatedCosForServicesAparrance5(){
 int k =0;
 
 for(int i = 0; i < typeOfServiceVeterinary.size(); i++){
-typeOfService services = typeOfServiceVeterinary.get(k);
+typeOfService services = typeOfServiceVeterinary.get(i);
   if(services.getService().equals(typeOfService.service5)){
   			k++;
   	}
