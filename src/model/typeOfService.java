@@ -6,7 +6,7 @@ public class typeOfService{
 //Constantes
 public final static String service1 = "Lavado de perros";
 public final static String service2 = "Lavado de mascotas a domicilio";
-public final static String service3 = "corte de uñas";
+public final static String service3 = "corte de unhas";
 public final static String service4 = "Profilaxia dental";
 public final static String service5 = "Aplicacion de vacunas";
 
@@ -141,11 +141,11 @@ public void setPetsWithTypeOfService(Pet petsWithTypeOfService){
 public String serviceInformation(){
 String msj = "";
 
-msj = "El servicio es:" + service;
-msj = "Su costo es:" + cost;
-msj = "Su fecha de entra es:" + dateThatItDoIt;
-msj = "Su identificacion es:" + identifyPetId;
-msj = "La cedula del cliente es:" + identifyClientId;
+msj = "El servicio es:" + getService();
+msj = "Su costo es:" + getCost();
+msj = "Su fecha de entra es:" + getDateThatItDoIt();
+msj = "Su identificacion es:" + getIdentifyPetId();
+msj = "La cedula del cliente es:" + getIdentifyClientId();
 
 return msj;
 }
